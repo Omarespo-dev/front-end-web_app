@@ -21,7 +21,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-
+    z-index: 10000;
 }
 
 .container_header {
@@ -276,6 +276,42 @@ h2 {
     margin-right: 5px;
 }
 
+
+/* Main 3 */
+.container-main-3{
+    /* height: 400px; */
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+.set-bg{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    height: 500px;
+    margin-bottom: 50px;
+}
+
+.celeste-bg{
+    /* height: 500px; */
+    width: 100%;
+    background-image: url("/public/img/celeste.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-right: 40px;
+
+}
+
+.orange-bg{
+    /* height: 500px; */
+    width: 100%;
+    background-image: url("/public/img/orange-blue.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
 /* MAIN FINISH HOMEPAGE*/
 
 
