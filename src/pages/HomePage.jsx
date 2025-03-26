@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
 
-// Importo cuore
-import Heart from '../components/Heart';
+
+//importo parte sales
+import SalesHomepage from '../components/SalesHomepage';
+
+// importo lista nuovi prodotti
+import NewProductsList from '../components/NewProductsList';
+
 
 export default function HomePage() {
 
@@ -14,7 +19,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* <Link to={"/allproducts"}><button>Prodotti</button> </Link> */}
 
       <div className='container-main'>
 
@@ -31,119 +35,24 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* CONTAINER NUOVI ARRIVI */}
       <div className='container-main-2'>
         <div className='container-card-newproducts'>
           <div className='new-product'>
             <h2>New products</h2>
-            <a href="#">View all <FontAwesomeIcon icon={faGreaterThan} /></a>
+            <Link to={"/products"}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
           </div>
 
-          <div className='card-container'>
+          
+          <NewProductsList />
 
-            <section className='card-set'>
-
-              <Heart />
-
-              <div className='img-set-card'>
-                <img src="../../img/iphone_14pro.png" alt="" />
-              </div>
-
-              <section>
-                <p>Iphone 14 promax 256 giga</p>
-              </section>
-
-              <div className='hover-elements'>
-                <button className='add-to-cart-btn'>
-                  <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                </button>
-              </div>
-
-              <div className='add-cart'>
-                <p>$1,399.00</p>
-                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> 4</p>
-              </div>
-
-
-            </section>
-
-            <section className='card-set'>
-
-              <Heart />
-
-              <div className='img-set-card'>
-                <img src="../../img/acer_predator_helios_300.png" alt="" />
-              </div>
-
-              <section>
-                <p>Blackmagic Design Pocket Cinema Camera 6K Pro (Canon EF)</p>
-              </section>
-
-              <div className='hover-elements'>
-                <button className='add-to-cart-btn'>
-                  <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                </button>
-              </div>
-
-              <div className='add-cart'>
-                <p>$1,399.00</p>
-                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> 4</p>
-              </div>
-
-            </section>
-
-            <section className='card-set'>
-              <Heart />
-
-              <div className='img-set-card'>
-                <img src="../../img/realme_padx.png" alt="" />
-              </div>
-
-              <section>
-                <p>Iphone 14 promax 256 giga</p>
-              </section>
-
-              <div className='hover-elements'>
-                <button className='add-to-cart-btn'>
-                  <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                </button>
-              </div>
-
-              <div className='add-cart'>
-                <p>$1,399.00</p>
-                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> 4</p>
-              </div>
-
-
-            </section>
-
-            <section className='card-set'>
-              <Heart />
-
-              <div className='img-set-card'>
-                <img src="../../img/garmin_forerunner_945.png" alt="" />
-              </div>
-
-              <section>
-                <p>Iphone 14 promax 256 giga</p>
-              </section>
-
-              <div className='hover-elements'>
-                <button className='add-to-cart-btn'>
-                  <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                </button>
-              </div>
-
-              <div className='add-cart'>
-                <p>$1,399.00</p>
-                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> 4</p>
-              </div>
-
-
-            </section>
-
-          </div>
+          
         </div>
       </div>
+      {/* FINE CONTAINER NUOVI ARRIVI */}
+
+
+
 
       <div className='container-main-3'>
         <div className='set-bg'>
@@ -160,19 +69,43 @@ export default function HomePage() {
               <button className='view-more'>View More</button>
             </section>
           </section>
-          
+
 
           <section className='orange-bg'>
-            {/* <img src="../../img/orange-blue.png" alt="" /> */}
+            <section className='container-img-2'>
+
+              <section className='set-mac-container'>
+                <h2>MacBook <span>Pro</span></h2>
+                <img src="../../img/mac.png" alt="" />
+                <button className='buy-now'>Buy now</button>
+              </section>
+
+            </section>
+
+
           </section>
         </div>
 
-        
-    
-          
-        
+      </div>
 
+      <SalesHomepage />
 
+      <div className='container-main-4'>
+        <div className='set-bg-main-4'>
+          <div className='first'>
+            <div className='first-set'>
+              <h1>SMART WATCH</h1>
+              <p>Various designs and brands</p>
+              <button className='view-more-2'>View More</button>
+            </div>
+          </div>
+
+          <div className='second'>
+            <div>
+              <img src="../../img/smartwatch.png" alt="" />
+            </div>
+          </div>
+        </div>
       </div>
 
     </>

@@ -4,17 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faMagnifyingGlass, faBasketShopping, faUser,faHeart } from '@fortawesome/free-solid-svg-icons';
 
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
         <header>
             <div className='container_header'>
-                <img src="../../img/logo_orange.png" alt="" />
+            <Link to={"/"} className="img-link-set"><img src="../../img/logo_orange.png" alt="" /></Link>
                 
                 <div className='link-header'>
 
-                    <a href="#">Home</a>
-                    <a href="#">Products</a>
+                    <Link to={"/"}>Home</Link>
+                    <Link to={"/products"}>Products</Link>
                     <a href="#">FAQ</a>
                     <a href="#">Contact Us</a>
                     
