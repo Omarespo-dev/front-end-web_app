@@ -2,12 +2,14 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 
 export default function HomePage() {
   return (
     <>
       {/* <Link to={"/allproducts"}><button>Prodotti</button> </Link> */}
-      
+
       <div className='container-main'>
 
         <div className='container-jumbotron'>
@@ -21,6 +23,14 @@ export default function HomePage() {
           <img src="../../img/jumbotron.png" alt="" />
 
         </div>
+
+        <div className='container-card-newproducts'>
+          <div className='new-product'>
+            <h2>New products</h2>
+            <a href="#">View all <FontAwesomeIcon icon={faGreaterThan} /></a>
+          </div>
+        </div>
+        
 
       </div>
     </>

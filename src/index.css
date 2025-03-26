@@ -74,7 +74,8 @@ header {
     display: flex;
     justify-content: center;
     background-color: white;
-    margin-top: 100px
+    margin-top: 100px;
+    flex-wrap: wrap;
 }
 
 /* settaggio jumbotron */
@@ -135,8 +136,50 @@ h2 {
     color: white;
 }
 
+/* SECONDO CONTAINER MAIN */
+
+.container-card-newproducts {
+    height: 450px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 80px;
+}
+
+.new-product {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    border-bottom: solid 1px #B4B4B4;
+}
+.new-product  h2{
+    margin: 0;
+    color: black;
+}
+
+.new-product a{
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid transparent; 
+    transition: 0.3s ease-in-out; 
+}
+
+.new-product a:hover{
+    border-bottom: 1px solid #0C68F4;
+    color: #0C68F4;
+}
+
+
+
 
 /* MAIN FINISH HOMEPAGE*/
+
+
+
+
 
 
 
@@ -195,13 +238,13 @@ footer {
         #021736;
     /* Colore di base */
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
-.second-container ul{
+.second-container ul {
     margin-top: 50px;
     /* width: 20%; */
-    
+
 }
 
 
@@ -209,7 +252,8 @@ footer {
     color: white;
     font-size: 17px;
 }
-.second-container ul li{
+
+.second-container ul li {
     list-style-type: none;
     color: gray;
     font-size: 13px;
@@ -217,11 +261,12 @@ footer {
     display: flex;
     align-items: center;
 }
-.second-container ul li img{
+
+.second-container ul li img {
     margin-right: 10px;
 }
 
-.set-icon-footer{
+.set-icon-footer {
     margin-right: 10px;
 }
 
@@ -240,15 +285,16 @@ footer {
     position: relative;
     display: flex;
     align-items: center;
-    
+
 }
-.third-container span{
+
+.third-container span {
     font-size: 10px;
     margin-left: 10px;
     color: white;
 }
 
-.third-container div{
+.third-container div {
     display: flex;
     align-items: center;
     justify-content: end;
