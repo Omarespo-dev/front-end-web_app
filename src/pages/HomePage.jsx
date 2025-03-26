@@ -184,6 +184,24 @@ export default function HomePage() {
 
       <SalesHomepage />
 
+      <div className='container-main-4'>
+        <div className='set-bg-main-4'>
+          <div className='first'>
+            <div className='first-set'>
+              <h1>SMART WATCH</h1>
+              <p>Various designs and brands</p>
+              <button className='view-more-2'>View More</button>
+            </div>
+          </div>
+
+          <div className='second'>
+            <div>
+              <img src="../../img/smartwatch.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
     </>
 
 
