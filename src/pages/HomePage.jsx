@@ -12,6 +12,7 @@ import SalesHomepage from '../components/SalesHomepage';
 // importo lista nuovi prodotti
 import NewProductsList from '../components/NewProductsList';
 
+
 export default function HomePage() {
 
 
@@ -39,7 +40,7 @@ export default function HomePage() {
         <div className='container-card-newproducts'>
           <div className='new-product'>
             <h2>New products</h2>
-            <a href="#">View all <FontAwesomeIcon icon={faGreaterThan} /></a>
+            <Link to={"/products"}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
           </div>
 
           
