@@ -18,6 +18,10 @@ header {
     display: flex;
     justify-content: center;
     background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
 }
 
 .container_header {
@@ -70,6 +74,7 @@ header {
     display: flex;
     justify-content: center;
     background-color: white;
+    margin-top: 100px
 }
 
 /* settaggio jumbotron */
