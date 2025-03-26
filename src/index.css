@@ -1,0 +1,273 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: whitesmoke;
+}
+
+
+
+/* HEADER SET */
+
+header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.container_header {
+    width: 90%;
+    /* background-color: red; */
+    height: 100px;
+    display: flex;
+}
+
+/* img  e link */
+.link-header {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 100px;
+    align-items: center;
+    gap: 10%;
+    margin-left: 30px;
+
+}
+
+.link-header a {
+    text-decoration: none;
+    color: black;
+}
+
+/* set image */
+.container_header img {
+    height: 100%;
+}
+
+/* icone font awesome */
+.icon-header {
+    display: flex;
+    justify-content: end;
+    width: 30%;
+    height: 100px;
+    align-items: center;
+    gap: 5%;
+}
+
+
+
+/* HEADER FINISH */
+
+
+/* MAIN START  HOMEPAGE*/
+.container-main {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+/* settaggio jumbotron */
+
+.container-jumbotron {
+    /* height: 450px; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.container-jumbotron img {
+    width: 50%;
+    /* height: 80%; */
+}
+
+
+/* TUTTI I SETTAGGI PER IL TESTO JUMBO */
+.set-text-jumbotron {
+    width: 40%;
+    /* margin-top: 50px; */
+    padding: 50px;
+}
+
+.set-text-jumbotron h1,
+h2 {
+    margin-bottom: 60px;
+    color: #042352;
+}
+
+.set-text-jumbotron h1 {
+    font-size: 50px;
+}
+
+.set-text-jumbotron h2 {
+    font-size: 40px;
+}
+
+.set-text-jumbotron h2 span {
+    color: #FFA500;
+}
+
+/* FINE TESTO JUMBO */
+
+
+
+
+/* button set */
+.explore-more {
+    border-radius: 5px;
+    padding: 10px 90px;
+    background-color: #FFA500;
+    border: none;
+    cursor: pointer;
+    margin-top: 60px;
+    font-size: 15px;
+    color: white;
+}
+
+
+/* MAIN FINISH HOMEPAGE*/
+
+
+
+/* FOOTER START */
+footer {
+    background-color: #021736;
+}
+
+.container-footer {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.first-container {
+    background-color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.first-container section {
+    display: flex;
+    align-items: center;
+}
+
+.first-container section span {
+    margin-left: 20px;
+}
+
+
+
+
+
+
+/* SECOND FOOTER */
+
+.second-container {
+    width: 90%;
+    height: 300px;
+    background:
+        radial-gradient(ellipse at center 80%,
+            /* Posizione più alta (80% dall'alto) */
+            rgba(75, 115, 175, 0.4),
+            /* Colore intermedio più chiaro (#4B73AF) */
+            rgba(4, 42, 94, 0.3) 40%,
+            /* Sfumatura intermedia */
+            rgba(2, 23, 54, 0) 70%
+            /* Trasparenza completa */
+        ),
+        #021736;
+    /* Colore di base */
+    display: flex;
+    justify-content: center;
+}
+
+.second-container ul{
+    margin-top: 50px;
+    width: 20%;
+    
+}
+
+
+.second-container ul li h3 {
+    color: white;
+    font-size: 17px;
+}
+.second-container ul li{
+    list-style-type: none;
+    color: gray;
+    font-size: 13px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+.second-container ul li img{
+    margin-right: 10px;
+}
+
+.set-icon-footer{
+    margin-right: 10px;
+}
+
+
+/* FINE SECOND FOOTER */
+
+
+
+
+
+/* TERZO CONTAINER FOOTER */
+.third-container {
+    width: 90%;
+    background-color: #021736;
+    height: 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+}
+.third-container span{
+    font-size: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.third-container div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 90%;
+}
+
+
+.third-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    /* Larghezza aumentata per un effetto più "aperto" */
+    height: 1px;
+    /* Spessore ridotto (più sottile) */
+    background: linear-gradient(to right,
+            transparent,
+            rgba(100, 150, 220, 0.5),
+            /* Blu più luminoso (#6496DC) */
+            transparent);
+    box-shadow: 0 0 5px rgba(100, 150, 220, 0.3);
+    /* Aggiunta luce diffusa */
+}
+
+/* FINE TERZO CONTAINER FOOTER */
