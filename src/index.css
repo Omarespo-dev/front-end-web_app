@@ -246,7 +246,7 @@ h2 {
     display: flex;
     justify-content: center;
     opacity: 0;
-    transition:  0.3s;
+    transition: 0.3s;
 }
 
 /* Al hover sulla card */
@@ -258,7 +258,7 @@ h2 {
     opacity: 1;
 }
 
-.add-to-cart-btn{
+.add-to-cart-btn {
     border-radius: 5px;
     border: 2px solid #0C68F4;
     background-color: white;
@@ -267,26 +267,28 @@ h2 {
     padding: 10px 20px;
     cursor: pointer;
 }
-.add-to-cart-btn:hover{
+
+.add-to-cart-btn:hover {
     border-color: #042352;
     color: #042352;
 }
 
 
-.add-to-cart-btn img{
+.add-to-cart-btn img {
     margin-right: 5px;
 }
 
 
 /* Main 3 */
-.container-main-3{
+.container-main-3 {
     /* height: 400px; */
     /* background-color: rebeccapurple; */
     display: flex;
     justify-content: center;
     margin-top: 120px;
 }
-.set-bg{
+
+.set-bg {
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -295,7 +297,7 @@ h2 {
 }
 
 /* ////////////////////////////// */
-.celeste-bg{
+.celeste-bg {
     /* height: 500px; */
     width: 100%;
     background-image: url("/img/celeste.png");
@@ -312,33 +314,38 @@ h2 {
     width: 50%;
     padding: 30px;
 }
-.container-img img{
-    
-}
-.container-img h2{
+
+.container-img img {}
+
+.container-img h2 {
     color: black;
     margin-top: 30px;
+    text-align: center;
 }
 
-.container-img h2 span{
+.container-img h2 span {
     color: white;
 }
 
-.container-button-view{
+.container-button-view {
     height: 500px;
     width: 50%;
     padding: 30px;
     /* background-color: red; */
+    display: flex;
+    flex-direction: column;
 }
-.container-button-view h3{
+
+.container-button-view h3 {
     margin-top: 100px;
 }
-.container-button-view p{
+
+.container-button-view p {
     margin-top: 50px;
     width: 80%;
 }
 
-.view-more{
+.view-more {
     padding: 7px 16px;
     background-color: #0C68F4;
     border: none;
@@ -349,16 +356,51 @@ h2 {
 }
 
 /* ////////////////////////////// */
-.orange-bg{
+.orange-bg {
     /* height: 500px; */
-    width: 100%;
+    width: 60%;
     background-image: url("/img/orange-blue.png");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
+    display: flex;
+    align-items: end;
 }
 
+.container-img-2 {
+    /* height: 200px; */
+    width: 100%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+}
 
+.container-img-2 h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.container-img-2 h2 span {
+    color: #042352;
+}
+
+.buy-now {
+    padding: 7px 16px;
+    background-color: #0C68F4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.set-mac-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
 
 
 /* MAIN FINISH HOMEPAGE*/

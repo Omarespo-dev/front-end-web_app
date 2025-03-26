@@ -8,6 +8,9 @@ import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icon
 // Importo cuore
 import Heart from '../components/Heart';
 
+//importo parte sales
+import SalesHomepage from '../components/SalesHomepage';
+
 export default function HomePage() {
 
 
@@ -160,20 +163,26 @@ export default function HomePage() {
               <button className='view-more'>View More</button>
             </section>
           </section>
-          
+
 
           <section className='orange-bg'>
-            {/* <img src="../../img/orange-blue.png" alt="" /> */}
+            <section className='container-img-2'>
+              <h2>MacBook <span>Pro</span></h2>
+              
+              <section className='set-mac-container'>
+                <button className='buy-now'>Buy now</button>
+                <img src="../../img/mac.png" alt="" />
+              </section>
+
+            </section>
+
+
           </section>
         </div>
 
-        
-    
-          
-        
-
-
       </div>
+
+      <SalesHomepage/>
 
     </>
 
