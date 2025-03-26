@@ -21,7 +21,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-
+    z-index: 10000;
 }
 
 .container_header {
@@ -74,7 +74,8 @@ header {
     display: flex;
     justify-content: center;
     background-color: white;
-    margin-top: 100px
+    margin-top: 100px;
+    /* flex-wrap: wrap; */
 }
 
 /* settaggio jumbotron */
@@ -135,8 +136,236 @@ h2 {
     color: white;
 }
 
+/* SECONDO CONTAINER MAIN */
+.container-main-2 {
+    display: flex;
+    justify-content: center;
+    /* background-color: white; */
+    margin-top: 100px;
+}
+
+.container-card-newproducts {
+    /* height: 450px; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.new-product {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    border-bottom: solid 1px #B4B4B4;
+}
+
+.new-product h2 {
+    margin: 0;
+    color: black;
+}
+
+.new-product a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.new-product a:hover {
+    border-bottom: 1px solid #0C68F4;
+    color: #0C68F4;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    /* height: 300px; */
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap: 5%; */
+    margin-top: 30px;
+}
+
+.card-set {
+    height: 390px;
+    background-color: white;
+    width: 320px;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* cuore */
+
+
+.img-set-card {
+    height: 200px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+
+.img-set-card img {
+    height: 100%;
+    /* width: 100%; */
+    /* margin-bottom: 20px; */
+}
+
+.card-set section {
+    border-top: 1px solid black;
+    padding: 10px 0;
+    transition: inherit;
+    height: 80px;
+}
+
+
+.card-set section:hover {
+    border-top: 1px solid #0C68F4;
+    color: #0C68F4;
+}
+
+.add-cart {
+    display: flex;
+    justify-content: space-between;
+    transition: 0s 0.3s;
+}
+
+.hover-elements {
+    /* position: absolute; */
+    /* bottom: 0;
+    left: 0; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition:  0.3s;
+}
+
+/* Al hover sulla card */
+.card-set:hover .add-cart {
+    display: none;
+}
+
+.card-set:hover .hover-elements {
+    opacity: 1;
+}
+
+.add-to-cart-btn{
+    border-radius: 5px;
+    border: 2px solid #0C68F4;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.add-to-cart-btn:hover{
+    border-color: #042352;
+    color: #042352;
+}
+
+
+.add-to-cart-btn img{
+    margin-right: 5px;
+}
+
+
+/* Main 3 */
+.container-main-3{
+    /* height: 400px; */
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+.set-bg{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    height: 500px;
+    margin-bottom: 50px;
+}
+
+/* ////////////////////////////// */
+.celeste-bg{
+    /* height: 500px; */
+    width: 100%;
+    background-image: url("/public/img/celeste.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-right: 40px;
+    display: flex;
+}
+
+.container-img {
+    /* background-color: red; */
+    height: 500px;
+    width: 50%;
+    padding: 30px;
+}
+.container-img img{
+    
+}
+.container-img h2{
+    color: black;
+    margin-top: 30px;
+}
+
+.container-img h2 span{
+    color: white;
+}
+
+.container-button-view{
+    height: 500px;
+    width: 50%;
+    padding: 30px;
+    /* background-color: red; */
+}
+.container-button-view h3{
+    margin-top: 100px;
+}
+.container-button-view p{
+    margin-top: 50px;
+    width: 80%;
+}
+
+.view-more{
+    padding: 7px 16px;
+    background-color: #0C68F4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 70px;
+}
+
+/* ////////////////////////////// */
+.orange-bg{
+    /* height: 500px; */
+    width: 100%;
+    background-image: url("/public/img/orange-blue.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+
+
 
 /* MAIN FINISH HOMEPAGE*/
+
+
+
+
 
 
 
@@ -195,13 +424,13 @@ footer {
         #021736;
     /* Colore di base */
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
-.second-container ul{
+.second-container ul {
     margin-top: 50px;
     /* width: 20%; */
-    
+
 }
 
 
@@ -209,7 +438,8 @@ footer {
     color: white;
     font-size: 17px;
 }
-.second-container ul li{
+
+.second-container ul li {
     list-style-type: none;
     color: gray;
     font-size: 13px;
@@ -217,11 +447,12 @@ footer {
     display: flex;
     align-items: center;
 }
-.second-container ul li img{
+
+.second-container ul li img {
     margin-right: 10px;
 }
 
-.set-icon-footer{
+.set-icon-footer {
     margin-right: 10px;
 }
 
@@ -240,15 +471,16 @@ footer {
     position: relative;
     display: flex;
     align-items: center;
-    
+
 }
-.third-container span{
+
+.third-container span {
     font-size: 10px;
     margin-left: 10px;
     color: white;
 }
 
-.third-container div{
+.third-container div {
     display: flex;
     align-items: center;
     justify-content: end;
