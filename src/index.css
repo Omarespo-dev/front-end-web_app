@@ -239,13 +239,13 @@ h2 {
 
 .hover-elements {
     /* position: absolute; */
-    bottom: 0;
-    left: 0;
+    /* bottom: 0;
+    left: 0; */
     width: 100%;
     display: flex;
     justify-content: center;
     opacity: 0;
-    /* transition:  0.1s; */
+    transition:  0.3s;
 }
 
 /* Al hover sulla card */
@@ -268,8 +268,10 @@ h2 {
 }
 .add-to-cart-btn:hover{
     border-color: #042352;
-    
+    color: #042352;
 }
+
+
 .add-to-cart-btn img{
     margin-right: 5px;
 }

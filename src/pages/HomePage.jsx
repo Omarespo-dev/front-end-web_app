@@ -57,10 +57,10 @@ export default function HomePage() {
                   <img src="../../img/shopping-cart.png" alt="" />Add to Cart
                 </button>
               </div>
-              
+
               <div className='add-cart'>
                 <p>$1,399.00</p>
-                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> 4</p>
+                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080",}} /> 4</p>
               </div>
 
               
@@ -89,8 +89,6 @@ export default function HomePage() {
                 <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> 4</p>
               </div>
               
-              
-
             </section>
 
             <section className='card-set'>
@@ -145,6 +143,10 @@ export default function HomePage() {
 
           </div>
         </div>
+      </div>
+
+      <div className='container-main-3'>
+        <img src="" alt="" />
       </div>
 
     </>
