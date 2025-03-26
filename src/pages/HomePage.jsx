@@ -42,10 +42,10 @@ export default function HomePage() {
             <a href="#">View all <FontAwesomeIcon icon={faGreaterThan} /></a>
           </div>
 
-          <div className='card-container'>
-            <NewProductsList />
-            
-          </div>
+          
+          <NewProductsList />
+
+          
         </div>
       </div>
       {/* FINE CONTAINER NUOVI ARRIVI */}

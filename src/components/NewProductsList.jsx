@@ -28,8 +28,11 @@ export default function NewProductsList() {
 
     useEffect(fetchNewProducts, [])
 
-    return (
-        <>
+    return (<>
+    
+       
+        {newProducts.length === 0 ? <h2>No Products avaible</h2> :
+            <div className='card-container'>
             {newProducts.map(product => (
                 <section className='card-set' key={product.id}>
 
@@ -53,12 +56,17 @@ export default function NewProductsList() {
                         <p>€ {product.price}</p>
                         <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {product.vote}</p>
                     </div>
-
-
                 </section>
+            
             ))}
+            
+          </div>
+            
+        
 
-        </>
-
+        }
+            
+        
+    </>
     )
 }
