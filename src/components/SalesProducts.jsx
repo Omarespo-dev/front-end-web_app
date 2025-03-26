@@ -26,10 +26,11 @@ export default function SalesProducts() {
                 const fourProduct = [];
     
                 for (let i = 0; i < res.data.length; i++) {
-                    if (fourProduct.length >= 4) {
-                        break; // Esco dal ciclo quando ho raccolto 4 prodotti
+                    
+                    if (fourProduct.length < 4) {  
+                        
+                        fourProduct.push(res.data[i]); // Aggiungi l'oggetto all'array
                     }
-                    fourProduct.push(res.data[i]); // Aggiungo l'elemento all'array
                 }
     
                 // Imposto lo stato con i 4 prodotti
