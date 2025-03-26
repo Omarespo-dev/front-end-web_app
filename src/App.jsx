@@ -9,19 +9,19 @@ import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
 
 function App() {
-  
+
   return (
     <>
-    
-    <BrowserRouter >
+
+      <BrowserRouter >
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="/allproducts" element={<Products />} />
+            <Route path="/products/:category?" element={<Products />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    
+
     </>
   )
 }
