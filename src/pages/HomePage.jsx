@@ -149,7 +149,16 @@ export default function HomePage() {
         <div className='set-bg'>
 
           <section className='celeste-bg'>
-            {/* <img src="../../img/celeste.png" alt="" /> */}
+            <section className='container-img'>
+              <h2>Iphone <span>16 Series</span></h2>
+              <img src="../../img/iphone 16-Photoroom 1.png" alt="" />
+            </section>
+
+            <section className='container-button-view'>
+              <h3>It feels good to be the first</h3>
+              <p>Get ready for the next generation of smartphones. Discover innovation like never before. Stay tuned for the big iPhone 16 reveal!</p>
+              <button className='view-more'>View More</button>
+            </section>
           </section>
           
 

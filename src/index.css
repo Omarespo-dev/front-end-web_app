@@ -145,7 +145,7 @@ h2 {
 }
 
 .container-card-newproducts {
-    height: 450px;
+    /* height: 450px; */
     /* background-color: red; */
     display: flex;
     justify-content: center;
@@ -186,6 +186,7 @@ h2 {
     align-items: center;
     flex-wrap: wrap;
     /* gap: 5%; */
+    margin-top: 30px;
 }
 
 .card-set {
@@ -293,6 +294,7 @@ h2 {
     margin-bottom: 50px;
 }
 
+/* ////////////////////////////// */
 .celeste-bg{
     /* height: 500px; */
     width: 100%;
@@ -301,9 +303,52 @@ h2 {
     background-size: cover;
     border-radius: 10px;
     margin-right: 40px;
-
+    display: flex;
 }
 
+.container-img {
+    /* background-color: red; */
+    height: 500px;
+    width: 50%;
+    padding: 30px;
+}
+.container-img img{
+    
+}
+.container-img h2{
+    color: black;
+    margin-top: 30px;
+}
+
+.container-img h2 span{
+    color: white;
+}
+
+.container-button-view{
+    height: 500px;
+    width: 50%;
+    padding: 30px;
+    /* background-color: red; */
+}
+.container-button-view h3{
+    margin-top: 100px;
+}
+.container-button-view p{
+    margin-top: 50px;
+    width: 80%;
+}
+
+.view-more{
+    padding: 7px 16px;
+    background-color: #0C68F4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 70px;
+}
+
+/* ////////////////////////////// */
 .orange-bg{
     /* height: 500px; */
     width: 100%;
@@ -312,6 +357,10 @@ h2 {
     background-size: cover;
     border-radius: 10px;
 }
+
+
+
+
 /* MAIN FINISH HOMEPAGE*/
 
 
