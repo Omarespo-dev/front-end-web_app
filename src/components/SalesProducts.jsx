@@ -47,7 +47,7 @@ export default function SalesProducts() {
     return (<>
 
 
-        {salesProduct.length === 0 ? <h2>No Products avaible</h2> :
+        {salesProduct.length === 0 ? <h2>No Products avaiable</h2> :
             <div className='card-container'>
                 {salesProduct.map(product => (
                     <section className='card-set' key={product.id}>

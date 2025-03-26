@@ -31,7 +31,7 @@ export default function NewProductsList() {
     return (<>
     
        
-        {newProducts.length === 0 ? <h2>No Products avaible</h2> :
+        {newProducts.length === 0 ? <h2>No Products avaiable</h2> :
             <div className='card-container'>
             {newProducts.map(product => (
                 <section className='card-set' key={product.id}>
