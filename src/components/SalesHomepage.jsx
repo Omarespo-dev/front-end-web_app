@@ -38,7 +38,7 @@ export default function SalesHomepage() {
                                 </button>
                             </div>
 
-                            <div className='add-cart'>
+                            <div className='add-cart-2'>
                                 <s className="sconto">$1090.00</s>
                                 <div className="set-sconto">
                                     <p>$1,399.00</p>

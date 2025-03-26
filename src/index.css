@@ -234,8 +234,8 @@ h2 {
 }
 
 .add-cart {
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    justify-content: space-between;
     transition: 0s 0.3s;
 }
 
@@ -279,6 +279,9 @@ h2 {
     margin-right: 5px;
 }
 
+.add-cart-2 {
+    transition: 0s 0.3s;
+}
 .set-sconto {
     display: flex;
     justify-content: space-between;
