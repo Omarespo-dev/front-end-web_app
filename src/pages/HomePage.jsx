@@ -167,11 +167,11 @@ export default function HomePage() {
 
           <section className='orange-bg'>
             <section className='container-img-2'>
-              <h2>MacBook <span>Pro</span></h2>
-              
+
               <section className='set-mac-container'>
-                <button className='buy-now'>Buy now</button>
+                <h2>MacBook <span>Pro</span></h2>
                 <img src="../../img/mac.png" alt="" />
+                <button className='buy-now'>Buy now</button>
               </section>
 
             </section>
@@ -182,7 +182,7 @@ export default function HomePage() {
 
       </div>
 
-      <SalesHomepage/>
+      <SalesHomepage />
 
     </>
 
