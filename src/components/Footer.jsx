@@ -46,6 +46,24 @@ export default function Footer() {
           </ul>
 
           <ul>
+            <li><h3>Contact us</h3></li>
+            <li>
+              <img src="../../img/location.png" alt="" />
+              Via dei Finti Acquisti, 123, 00100 Roma (RM), Italia
+            </li>
+            <li>
+              <img src="../../img/call-calling.png" alt="" />
+              +39 0123 456 789
+            </li>
+
+            <li>
+              <img src="../../img/sms-edit.png" alt="" />
+              TechZoneSupport@gmail.com
+            </li>
+
+          </ul>
+          
+          <ul>
             <li><h3>Social</h3></li>
             <li>
               <FontAwesomeIcon className='set-icon-footer' icon={faSquareFacebook} size="2xl"
@@ -63,23 +81,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          <ul>
-            <li><h3>Contact us</h3></li>
-            <li>
-              <img src="../../img/location.png" alt="" />
-              Via dei Finti Acquisti, 123, 00100 Roma (RM), Italia
-            </li>
-            <li>
-              <img src="../../img/call-calling.png" alt="" />
-              +39 0123 456 789
-            </li>
-
-            <li>
-              <img src="../../img/sms-edit.png" alt="" />
-              TechZoneSupport@gmail.com
-            </li>
-
-          </ul>
+          
         </div>
 
         <div className='third-container'>

@@ -195,12 +195,12 @@ footer {
         #021736;
     /* Colore di base */
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
 }
 
 .second-container ul{
     margin-top: 50px;
-    width: 20%;
+    /* width: 20%; */
     
 }
 
