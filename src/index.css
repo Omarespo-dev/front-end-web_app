@@ -75,7 +75,7 @@ header {
     justify-content: center;
     background-color: white;
     margin-top: 100px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 /* settaggio jumbotron */
@@ -137,43 +137,142 @@ h2 {
 }
 
 /* SECONDO CONTAINER MAIN */
+.container-main-2 {
+    display: flex;
+    justify-content: center;
+    /* background-color: white; */
+    margin-top: 100px;
+}
 
 .container-card-newproducts {
     height: 450px;
     /* background-color: red; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 90%;
-    margin-top: 80px;
+    flex-wrap: wrap;
 }
 
 .new-product {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 80px;
     align-items: center;
     border-bottom: solid 1px #B4B4B4;
 }
-.new-product  h2{
+
+.new-product h2 {
     margin: 0;
     color: black;
 }
 
-.new-product a{
+.new-product a {
     text-decoration: none;
     color: black;
-    border-bottom: 1px solid transparent; 
-    transition: 0.3s ease-in-out; 
+    border-bottom: 1px solid transparent;
+    transition: 0.3s ease-in-out;
 }
 
-.new-product a:hover{
+.new-product a:hover {
     border-bottom: 1px solid #0C68F4;
     color: #0C68F4;
 }
 
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    /* height: 300px; */
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap: 5%; */
+}
+
+.card-set {
+    height: 390px;
+    background-color: white;
+    width: 320px;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* cuore */
 
 
+.img-set-card {
+    height: 200px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+
+.img-set-card img {
+    height: 100%;
+    /* width: 100%; */
+    /* margin-bottom: 20px; */
+}
+
+.card-set section {
+    border-top: 1px solid black;
+    padding: 10px 0;
+    transition: inherit;
+    height: 80px;
+}
+
+
+.card-set section:hover {
+    border-top: 1px solid #0C68F4;
+    color: #0C68F4;
+}
+
+.add-cart {
+    display: flex;
+    justify-content: space-between;
+    transition: 0s 0.3s;
+}
+
+.hover-elements {
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    /* transition:  0.1s; */
+}
+
+/* Al hover sulla card */
+.card-set:hover .add-cart {
+    display: none;
+}
+
+.card-set:hover .hover-elements {
+    opacity: 1;
+}
+
+.add-to-cart-btn{
+    border-radius: 5px;
+    border: 2px solid #0C68F4;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.add-to-cart-btn:hover{
+    border-color: #042352;
+    
+}
+.add-to-cart-btn img{
+    margin-right: 5px;
+}
 
 /* MAIN FINISH HOMEPAGE*/
 
