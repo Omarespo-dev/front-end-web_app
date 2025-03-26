@@ -15,8 +15,6 @@ export default function ProductsList() {
     const searchParams = new URLSearchParams(location.search);
     const searchQuery = searchParams.get("query");
 
-    console.log("searchQuery:", searchQuery);
-
     // imposto lo stato per i prodotti
     const [products, setProducts] = useState([]);
 
