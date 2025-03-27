@@ -63,9 +63,9 @@ const ProductCard = (props) => {
                         </section>
 
                         <div className='add-cart-2'>
-                            <s className="sconto">$1090.00</s>
+                            <s className="sconto">€ {price}</s>
                             <div className="set-sconto">
-                                <p>€ {price}</p>
+                                <p>€ {(price - price * (discount / 100)).toFixed(2)}</p>
                                 <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p>
                             </div>
                         </div>

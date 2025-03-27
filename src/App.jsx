@@ -8,6 +8,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
 import SearchPage from "./pages/SearchPage";
+import CartPage from "./pages/CartPage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/products/:category?" element={<Products />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

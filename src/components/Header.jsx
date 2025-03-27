@@ -26,7 +26,10 @@ export default function Header() {
                         <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#000000", }} />
                     </Link>
 
-                    <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
+                    <Link to={"/cart"}>
+                        <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
+                    </Link>
+
 
                     <FontAwesomeIcon icon={faHeart} style={{ color: "#000000", }} />
 
