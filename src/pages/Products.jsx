@@ -1,11 +1,8 @@
 // Products.jsx
-
-import React from 'react'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams, NavLink } from 'react-router-dom'
 
 // importo il componente listato del prodotto
 import ProductsList from '../components/ProductsList';
-
 
 
 export default function Products() {
@@ -19,10 +16,53 @@ export default function Products() {
   // estraggo il valore di search
   const searchQuery = searchParams.get("search");
 
-  return (
-    <div>Products
-      <Link to={"/"}><button>Torna alla Home</button> </Link>
-      <ProductsList category={category} searchQuery={searchQuery} />
+  return (<>
+    <div className='categories'>
+
+      <div className='contain'>
+
+        <NavLink to={"/products"} className="nav-link">
+          <section>
+            <img src="../../img/driver.png" alt="" />
+            <p>All</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/sales"}>
+          <section>
+            <img src="../../img/ticket-discount.png" alt="" />
+            <p>Sales</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/smartphone"}>
+          <section>
+            <img src="../../img/mobile.png" alt="" />
+            <p>Smartphone</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/pc"}>
+          <section>
+            <img src="../../img/monitor.png" alt="" />
+            <p>Pc</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/smartwatch"}>
+          <section>
+            <img src="../../img/watch-status.png" alt="" />
+            <p>Smartwatch</p>
+          </section>
+        </NavLink>
+
+
+      </div>
+
     </div>
+    <Link to={"/"}><button>Torna alla Home</button> </Link>
+    <ProductsList category={category} searchQuery={searchQuery} />
+  </>
+
   )
 }

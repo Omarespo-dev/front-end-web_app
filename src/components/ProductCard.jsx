@@ -23,6 +23,7 @@ const ProductCard = (props) => {
                             See More
                         </Link>
                     </div>
+                    
                 </div>
             </div>
         </div>
