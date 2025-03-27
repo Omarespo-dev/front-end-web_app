@@ -7,6 +7,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 // Importiamo Page
 import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/products/:category?" element={<Products />} />
+            <Route path="/product/:id" element={<ProductDetailsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
