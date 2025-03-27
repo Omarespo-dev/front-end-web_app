@@ -8,6 +8,8 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
 import SearchPage from "./pages/SearchPage";
+import AboutUs from "./pages/AboutUs"
+import ContactUs from "./pages/ContactUs"
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/products/:category?" element={<Products />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/search" element={<SearchPage />} />
           </Route>
         </Routes>
