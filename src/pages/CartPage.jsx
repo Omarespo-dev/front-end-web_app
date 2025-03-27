@@ -11,6 +11,36 @@ const CartPage = () => {
         setCart(savedCart);
     }, []);
 
+    // Funzione per aumentare la quantità
+    const increaseQuantity = (id) => {
+        const updatedCart = cart.map((product) => {
+            if (product.id === id) {
+                // Incrementa la quantità
+                product.quantity += 1;
+            }
+            return product;
+        });
+
+        // Aggiorna il carrello nel localStorage e nello stato
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
+
+    // Funzione per diminuire la quantità
+    const decreaseQuantity = (id) => {
+        const updatedCart = cart.map((product) => {
+            if (product.id === id && product.quantity > 1) {
+                // Decrementa la quantità solo se maggiore di 1
+                product.quantity -= 1;
+            }
+            return product;
+        });
+
+        // Aggiorna il carrello nel localStorage e nello stato
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
+
     // Funzione per rimuovere un prodotto dal carrello
     const removeFromCart = (id) => {
         const updatedCart = cart.filter(product => product.id !== id);
@@ -51,13 +81,28 @@ const CartPage = () => {
                     cart.map((product) => (
                         <div key={product.id} className="cart-item">
                             <div>
-                                <p><strong>{product.name}</strong></p>
-                                <p>Prezzo: € {product.price}</p>
-                                {/* Se c'è uno sconto, mostra il prezzo scontato */}
-                                {product.discount > 0 && (
-                                    <p><strong>Prezzo scontato: € {(product.price - product.price * (product.discount / 100)).toFixed(2)}</strong></p>
-                                )}
-                                <p>Quantità: {product.quantity}</p>
+                                {/* Eventuale immagine */}
+
+                                {/* Prezzo e prezzo scontato per singola unità */}
+                                <div className="price-details">
+                                    <p><strong>{product.name}</strong></p>
+                                    <p>Prezzo: € {product.price}</p>
+                                    {/* Se c'è uno sconto, mostra il prezzo scontato */}
+                                    {product.discount > 0 && (
+                                        <p><strong>Prezzo scontato: € {(product.price - product.price * (product.discount / 100)).toFixed(2)}</strong></p>
+                                    )}
+                                </div>
+                                {/* Quantità con tasti + e - */}
+                                <div className="quantity-control">
+                                    <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                                    <span>Quantità: {product.quantity}</span>
+                                    <button onClick={() => increaseQuantity(product.id)}>+</button>
+                                </div>
+                                {/* Gestione prezzo totale per prodotto tenendo conto di sconto e quantità */}
+                                <div className="product-total">
+                                    <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
+                                </div>
+                                {/* Tasto per rimuovere dal carrello */}
                                 <button onClick={() => removeFromCart(product.id)}>Rimuovi</button>
                             </div>
                             <hr />
