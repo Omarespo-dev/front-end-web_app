@@ -34,7 +34,7 @@ const CheckoutPage = () => {
         sum + (item.discount > 0 ? (item.price - (item.price * item.discount / 100)) : item.price) * item.quantity, 0
     );
 
-    const shippingCost = totalCartPrice >= 100 ? 0 : 9.99;
+    const shippingCost = totalCartPrice >= 1000 ? 0 : 9.99;
     const totalPrice = (totalCartPrice + shippingCost).toFixed(2);
 
     const handleChange = (e) => {
@@ -51,17 +51,29 @@ const CheckoutPage = () => {
             return;
         }
 
+        // Calcola il prezzo scontato per ogni prodotto
+        const updatedCart = cart.map((product) => {
+            const discountedPrice = product.discount > 0
+                ? (product.price - (product.price * product.discount / 100))
+                : product.price;
+            return { ...product, price: discountedPrice }; // Aggiungi il prezzo scontato
+        });
+
         const orderData = {
-            cart,
+            cart: updatedCart,
             userDetails: userData,
             discountCode
         };
 
         axios.post(endpointApi, orderData, { headers: { "Content-Type": "application/json" } })
-            .then(
+            .then(() => {
+                // Dopo aver completato l'ordine si svuota il carrello
+                localStorage.removeItem('cart'); // Rimuove il carrello da localstorage
+                setCart([]); // Svuota lo stato del carrello
+
                 // Dopo aver completato il checkout si viene reindirizzati alla home
-                () => { navigate("/") }
-            )
+                navigate("/")
+            })
             .catch((err) => {
                 console.log(err);
             });
@@ -69,12 +81,7 @@ const CheckoutPage = () => {
 
     return (
         <div className="checkout-page">
-            <header>
-                <h1>Checkout</h1>
-            </header>
-
-            {error && <p className="error">{error}</p>}
-
+            <h1>Checkout</h1>
             <section className="cart-summary">
                 <h2>Riepilogo Ordine</h2>
                 {cart.length > 0 ? (
