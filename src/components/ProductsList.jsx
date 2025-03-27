@@ -9,7 +9,7 @@ import ProductCard from '../components/ProductCard';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
 
-export default function ProductsList() {
+export default function ProductsList({ query, sortBy }) {
 
     // ottengo la categoria dall' url
     const { category } = useParams();
@@ -27,9 +27,9 @@ export default function ProductsList() {
         let url = "http://localhost:3000/api/ecommerce";
 
         if (searchQuery) {
-            url += `/search?query=${searchQuery}`; // Usa l'endpoint di ricerca se c'è una query
+            url += `/search?query=${searchQuery}&sortBy=${sortBy}`; // Usa l'endpoint di ricerca se c'è una query
         } else if (category) {
-            url += `/${category}`; // Se non c'è una query, usa la categoria
+            url += `/${category}&sortBy=${sortBy}`; // Se non c'è una query, usa la categoria
         }
 
         // chiamata API
@@ -46,8 +46,8 @@ export default function ProductsList() {
     };
 
     // eseguo fetch ogni volta che cambia la categoria o la query
-    useEffect(fetchProducts, [category, searchQuery]);
-    
+    useEffect(fetchProducts, [category, query, sortBy]);
+
     return (
         <div className='container-main-2'>
             <div className='container-card-newproducts'>
@@ -56,7 +56,7 @@ export default function ProductsList() {
                     products.map(product => (
                         <div className='card-container-product' key={product.id}>
                             <ProductCard productProp={product} />
-                            
+
                         </div>
                     ))
                 ) : (
