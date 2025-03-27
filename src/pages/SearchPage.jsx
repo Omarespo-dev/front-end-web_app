@@ -17,7 +17,7 @@ export default function SearchPage() {
     };
 
     return (
-        <div>
+        <div className="searchbar">
             {/* Barra di ricerca */}
             <form onSubmit={handleSearch}>
                 <input
