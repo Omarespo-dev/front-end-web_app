@@ -13,22 +13,26 @@ const ProductCard = (props) => {
     const { id, name, brand, image_card, price, vote, discount } = props.productProp;
 
     // Funzione per aggiungere il prodotto al carrello
-    const addToCart = () => {
+    const addToCart = (event) => {
+        event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
+
         // Recupera il carrello dal localStorage (se esiste)
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         // Verifica se il prodotto è già nel carrello
         const productIndex = cart.findIndex(item => item.id === id);
 
+        // Definizione newProduct
+        const newProduct = {
+            ...props.productProp, // Copia tutto l'oggetto prodotto
+            quantity: 1,  // Aggiungi la quantità
+        };
+
         if (productIndex !== -1) {
             // Se il prodotto è già nel carrello, aumenta la quantità
             cart[productIndex].quantity += 1;
         } else {
             // Se il prodotto non è nel carrello, aggiungilo
-            const newProduct = {
-                ...props.productProp, // Copia tutto l'oggetto prodotto
-                quantity: 1,  // Aggiungi la quantità
-            };
             cart.push(newProduct);
         }
 
@@ -40,13 +44,11 @@ const ProductCard = (props) => {
     };
 
     return (
-        <>
-
+        <section className='card-set'>
+            {/* Cliccando sulla card, si naviga al dettaglio prodotto */}
             <Link to={`/product/${id}`} className="set-link-product">
                 {discount > 0 ?
-                    <section className='card-set'>
-
-
+                    <>
                         <div className="sconto-percentuale">
                             <Heart />
                             <span>-{discount}%</span>
@@ -60,27 +62,16 @@ const ProductCard = (props) => {
                             <p>{name}</p>
                         </section>
 
-                        <div className='hover-elements'>
-                            <button
-                                className='add-to-cart-btn'
-                                onClick={addToCart}>
-                                <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                            </button>
-                        </div>
-
                         <div className='add-cart-2'>
                             <s className="sconto">$1090.00</s>
                             <div className="set-sconto">
                                 <p>€ {price}</p>
                                 <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p>
                             </div>
-
                         </div>
-
-
-                    </section> :
-                    <section className='card-set'>
-
+                    </>
+                    :
+                    <>
                         <Heart />
 
                         <div className='img-set-card'>
@@ -91,25 +82,22 @@ const ProductCard = (props) => {
                             <p>{name}</p>
                         </section>
 
-                        <div className='hover-elements'>
-                            <button className='add-to-cart-btn'>
-                                <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                            </button>
-                        </div>
-
                         <div className='add-cart'>
                             <p>€ {price}</p>
                             <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {vote}</p>
                         </div>
-                    </section>}
-
+                    </>
+                }
             </Link>
-        </>
-    )
+
+            {/* Aggiungi al carrello - questo non fa navigare alla pagina di dettaglio */}
+            <div className='hover-elements'>
+                <button className='add-to-cart-btn' onClick={addToCart}>
+                    <img src="../../img/shopping-cart.png" alt="" />Add to Cart
+                </button>
+            </div>
+        </section>
+    );
 }
 
-
-
-
-
-export default ProductCard
+export default ProductCard;
