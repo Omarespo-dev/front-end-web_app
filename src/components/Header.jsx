@@ -2,9 +2,11 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faMagnifyingGlass, faBasketShopping, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import { Link, NavLink } from 'react-router-dom';
+
+import SearchBar from "../components/SearchBar";
 
 export default function Header() {
     return (
@@ -22,9 +24,8 @@ export default function Header() {
                 </div>
 
                 <section className='icon-header'>
-                    <Link to={"/search"}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#000000", }} />
-                    </Link>
+
+                    <SearchBar />
 
                     <Link to={"/cart"}>
                         <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
