@@ -715,3 +715,145 @@ footer {
 
 /* //////////////////////////////////// */
 /* PAGE CONTACT US */
+.contactus-container{
+    height: 300px;
+    /* background-color: #0C68F4; */
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    /* background-color: white; */
+    flex-wrap: wrap;
+}
+
+.container-up{
+    width: 70%;
+    /* background-color: #B4B4B4; */
+    height: 300px;
+} 
+
+.container-up {
+    width: 70%;
+    /* background-color: #0C68F4; */
+    /* height: 200px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.container-up section {
+    text-align: center;
+    width: 30%;
+}
+
+.container-up section img {
+    width: 40px;
+}
+
+/* ////////// */
+.message-us-container{
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.container-down{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.message-us{
+    width: 45%;
+    height: 300px;
+    padding: 30px;
+}
+.message-us h3{
+    margin-bottom: 20px;
+}
+
+.form-email{
+    height: 310px;
+    padding: 30px;
+    width: 32%
+}
+
+.form-email form{
+    display: flex;
+    flex-direction: column;
+    /* width: 50%; */
+    
+}
+
+.form-email form input{
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    
+}
+
+.form-email form textarea{
+    width: 100%;
+    max-width: 500px;
+    /* height: 150px; */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Disabilita completamente il ridimensionamento */
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.form-email form button{
+    padding: 10px;
+    background-color: #0C68F4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* //////////////////////////////////// */
+/* PAGE ABOUT US */
+
+.container-about{
+    /* height: 600px; */
+    /* background-color: #0C68F4; */
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    background-color: whitesmoke;
+    flex-wrap: wrap;
+    
+}
+
+.jumbotron-about{
+    width: 70%;
+    
+    /* height: 350px; */
+    margin-top: 100px;
+}
+
+.jumbotron-about img{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+}
+
+.jumbotron-text{
+    width: 70%;
+    /* height: 350px; */
+    margin-top: 100px;
+}
+
+.jumbotron-text h4{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

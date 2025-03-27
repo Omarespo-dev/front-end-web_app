@@ -4,7 +4,7 @@ import { faSquareFacebook, faTwitter, faInstagram, faYoutube, faCcPaypal, faCcMa
 
 import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -37,9 +37,8 @@ export default function Footer() {
         <div className='second-container'>
           <ul >
             <li><h3>Company</h3></li>
-            <li>About us</li>
-            <li>Contact Us</li>
-            <li>FAQ</li>
+            <Link to={"/aboutus"} style={{textDecoration:"none"}}><li>About Us</li></Link>
+            <Link to={"/contactus"} style={{textDecoration:"none"}}><li>Contact Us</li></Link>
             <FontAwesomeIcon icon={faCcPaypal} size="xl" style={{ color: "#ffffff", marginTop: "90px" }} className='set-icon-footer' />
             <FontAwesomeIcon icon={faCcMastercard} size="xl" style={{ color: "#ffffff", }} className='set-icon-footer' />
             <FontAwesomeIcon icon={faCcVisa} size="xl" style={{ color: "#ffffff", }} />
