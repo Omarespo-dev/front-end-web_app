@@ -73,6 +73,11 @@ const CartPage = () => {
         return total.toFixed(2); // Restituisci il totale formattato con 2 decimali
     };
 
+    // Funzione per spostare i dati del carrello alla pagina di checkout
+    const handleCheckout = () => {
+        navigate('/checkout', { state: { cart } });
+    };
+
     return (
         <div className="cart-page">
             <h2>Il tuo Carrello</h2>
