@@ -26,14 +26,10 @@ export default function ProductsList() {
     const fetchProducts = () => {
         let url = "http://localhost:3000/api/ecommerce";
 
-        // se esiste una categoria, la aggiungo all'URL
-        if (category) {
-            url += `/${category}`;
-        }
-
-        // se esiste una query di ricerca, la aggiungo all'URL
         if (searchQuery) {
-            url += `?query=${searchQuery}`;
+            url += `/search?query=${searchQuery}`; // Usa l'endpoint di ricerca se c'è una query
+        } else if (category) {
+            url += `/${category}`; // Se non c'è una query, usa la categoria
         }
 
         // chiamata API
