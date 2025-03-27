@@ -36,6 +36,7 @@ export default function SalesProducts() {
                 // Imposto lo stato con i 4 prodotti
                 setSalesProducts(fourProduct);
             })
+            
             .catch(err => console.log(err));
     }
     

@@ -21,35 +21,36 @@ export default function Products() {
 
       <div className='contain'>
 
-        <NavLink to={"/products"} className="nav-link">
+        <NavLink to={"/products"} className="nav-link" end>
           <section>
             <img src="../../img/driver.png" alt="" />
             <p>All</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/sales"}>
+        <NavLink to={"/products/sales"} className="nav-link">
           <section>
             <img src="../../img/ticket-discount.png" alt="" />
             <p>Sales</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/smartphone"}>
+
+        <NavLink to={"/products/smartphone"} className="nav-link">
           <section>
             <img src="../../img/mobile.png" alt="" />
             <p>Smartphone</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/pc"}>
+        <NavLink to={"/products/pc"} className="nav-link">
           <section>
             <img src="../../img/monitor.png" alt="" />
             <p>Pc</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/smartwatch"}>
+        <NavLink to={"/products/smartwatch"} className="nav-link">
           <section>
             <img src="../../img/watch-status.png" alt="" />
             <p>Smartwatch</p>

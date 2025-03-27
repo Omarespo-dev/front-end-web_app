@@ -661,6 +661,7 @@ footer {
     display: flex;
     justify-content: center;
 }
+
 .contain{
     width: 50%;
     /* background-color: #0C68F4; */
@@ -674,6 +675,7 @@ footer {
     text-decoration: none;
     padding-bottom: 10px;
 }
+
 .contain section{
     text-align: center;
 }
@@ -681,3 +683,4 @@ footer {
 .contain section img{
     width: 50px;
 }
+
