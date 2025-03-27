@@ -11,9 +11,11 @@ body {
 
 /* NAV LINK */
 
-.nav-link{
+.nav-link {
     color: black;
+    text-decoration: none;
 }
+
 .active {
     border-bottom: 1px solid #0C68F4;
     color: #0C68F4;
@@ -57,7 +59,7 @@ header {
 }
 
 /* set image */
-.container_header a img{
+.container_header a img {
     height: 100%;
 }
 
@@ -153,7 +155,7 @@ h2 {
     display: flex;
     justify-content: center;
     /* background-color: white; */
-    margin-top: 100px;
+    margin-top: 85px;
     margin-bottom: 100px;
 }
 
@@ -294,6 +296,7 @@ h2 {
 .add-cart-2 {
     transition: 0s 0.3s;
 }
+
 .set-sconto {
     display: flex;
     justify-content: space-between;
@@ -309,7 +312,7 @@ h2 {
     justify-content: space-between;
 }
 
-.sconto-percentuale span{
+.sconto-percentuale span {
     border: none;
     background-color: #FDDBC9;
     color: #F45E0C;
@@ -441,18 +444,19 @@ h2 {
     flex-direction: column;
     width: 50%;
 }
+
 /* ////////////////////////////// */
 
 
 /* Main 4 */
-.container-main-4{
+.container-main-4 {
     /* background-color: rebeccapurple; */
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
 }
 
-.set-bg-main-4{
+.set-bg-main-4 {
     width: 90%;
     display: flex;
     height: 500px;
@@ -463,28 +467,31 @@ h2 {
     border-radius: 10px;
 }
 
-.first{
+.first {
     width: 40%;
     /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.first-set{
+
+.first-set {
     text-align: center;
 }
 
-.first-set h1{
+.first-set h1 {
     color: white;
     font-size: 40px;
     margin-bottom: 20px;
 }
-.first-set p{
+
+.first-set p {
     color: white;
     font-size: 20px;
     margin-bottom: 20px;
 }
-.view-more-2{
+
+.view-more-2 {
     padding: 7px 16px;
     background-color: #FF6951;
     border: none;
@@ -494,7 +501,7 @@ h2 {
 }
 
 
-.second{
+.second {
     width: 60%;
     /* background-color:aqua; */
     display: flex;
@@ -650,3 +657,58 @@ footer {
 }
 
 /* FINE TERZO CONTAINER FOOTER */
+
+
+/* PAGE PRODUCTS */
+.categories {
+    margin-top: 200px;
+    /* height: 200px; */
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+}
+
+.contain {
+    width: 50%;
+    /* background-color: #0C68F4; */
+    /* height: 200px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contain a {
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+.contain section {
+    text-align: center;
+}
+
+.contain section img {
+    width: 50px;
+}
+
+/* container card */
+.card-container-product {
+    display: flex;
+    /* justify-content: space-around; */
+    /* height: 300px; */
+    /* align-items: center; */
+    flex-wrap: wrap;
+    gap:5%;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+/* setto link per product/id */
+.set-link-product{
+    text-decoration: none;
+    color: black;
+}
+
+.set-route{
+    margin-top: 100px;
+    padding: 10px;
+}

@@ -1,12 +1,11 @@
 // Products.jsx
-
-import React from 'react'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams, NavLink } from 'react-router-dom'
 
 // importo il componente listato del prodotto
 import ProductsList from '../components/ProductsList';
 
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGreaterThan } from '@fortawesome/free-solid-svg-icons';
 
 export default function Products() {
 
@@ -19,10 +18,61 @@ export default function Products() {
   // estraggo il valore di search
   const searchQuery = searchParams.get("search");
 
-  return (
-    <div>Products
-      <Link to={"/"}><button>Torna alla Home</button> </Link>
-      <ProductsList category={category} searchQuery={searchQuery} />
+  return (<>
+    {/* <div className='set-route'>
+      <NavLink to={"/"} className="nav-link" end> Home <FontAwesomeIcon icon={faGreaterThan} style={{ fontSize: '14px' }}/></NavLink>
+      {}
+      <NavLink to={"/products"}  className="nav-link" end> Products</NavLink>
+      <NavLink to={"/products/sales"}  className="nav-link" end> Sales</NavLink>
+    </div> */}
+
+    <div className='categories'>
+      
+      <div className='contain'>
+
+        <NavLink to={"/products"} className="nav-link" end>
+          <section>
+            <img src="../../img/driver.png" alt="" />
+            <p>All</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/sales"} className="nav-link">
+          <section>
+            <img src="../../img/ticket-discount.png" alt="" />
+            <p>Sales</p>
+          </section>
+        </NavLink>
+
+
+        <NavLink to={"/products/smartphone"} className="nav-link">
+          <section>
+            <img src="../../img/mobile.png" alt="" />
+            <p>Smartphone</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/pc"} className="nav-link">
+          <section>
+            <img src="../../img/monitor.png" alt="" />
+            <p>Pc</p>
+          </section>
+        </NavLink>
+
+        <NavLink to={"/products/smartwatch"} className="nav-link">
+          <section>
+            <img src="../../img/watch-status.png" alt="" />
+            <p>Smartwatch</p>
+          </section>
+        </NavLink>
+
+
+      </div>
+      
     </div>
+    <ProductsList category={category} searchQuery={searchQuery} />
+   
+  </>
+
   )
 }
