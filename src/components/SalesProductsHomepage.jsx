@@ -7,13 +7,6 @@ import { useState, useEffect } from "react"
 // Importo ProductCard
 import ProductCard from './ProductCard';
 
-
-// Importo cuore
-import Heart from './Heart';
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-
 export default function SalesProducts() {
     // imposto lo stato per i prodotti nuovi
     const [salesProduct, setSalesProducts] = useState([]);

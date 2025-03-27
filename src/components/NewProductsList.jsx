@@ -4,12 +4,8 @@ import axios from 'axios'
 //Importo useState e useEffect
 import { useState, useEffect } from "react"
 
-
-// Importo cuore
-import Heart from '../components/Heart';
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+// Importo ProductCard
+import ProductCard from './ProductCard';
 
 export default function NewProductsList() {
     // imposto lo stato per i prodotti nuovi
@@ -29,44 +25,15 @@ export default function NewProductsList() {
     useEffect(fetchNewProducts, [])
 
     return (<>
-    
-       
+
+
         {newProducts.length === 0 ? <h2>No Products avaiable</h2> :
             <div className='card-container'>
-            {newProducts.map(product => (
-                <section className='card-set' key={product.id}>
-
-                    <Heart />
-
-                    <div className='img-set-card'>
-                        <img src={product.image_card} alt="" />
-                    </div>
-
-                    <section>
-                        <p>{product.name}</p>
-                    </section>
-
-                    <div className='hover-elements'>
-                        <button className='add-to-cart-btn'>
-                            <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                        </button>
-                    </div>
-
-                    <div className='add-cart'>
-                        <p>€ {product.price}</p>
-                        <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {product.vote}</p>
-                    </div>
-                </section>
-            
-            ))}
-            
-          </div>
-            
-        
-
+                {newProducts.map(product => (
+                    <ProductCard key={product.id} productProp={product} />
+                ))}
+            </div>
         }
-            
-        
     </>
     )
 }
