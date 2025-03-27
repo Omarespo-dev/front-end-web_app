@@ -11,6 +11,7 @@ import SearchPage from "./pages/SearchPage";
 import CartPage from "./pages/CartPage";
 import AboutUs from "./pages/AboutUs"
 import ContactUs from "./pages/ContactUs"
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/product/:id" element={<ProductDetailsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
