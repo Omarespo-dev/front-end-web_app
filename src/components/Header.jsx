@@ -2,27 +2,29 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faMagnifyingGlass, faBasketShopping, faUser,faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faBasketShopping, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import { Link,NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Header() {
     return (
         <header>
             <div className='container_header'>
-            <Link to={"/"} className="img-link-set"><img src="../../img/logo_orange.png" alt="" /></Link>
-                
+                <Link to={"/"} className="img-link-set"><img src="../../img/logo_orange.png" alt="" /></Link>
+
                 <div className='link-header'>
 
                     <NavLink to={"/"} className="nav-link">Home</NavLink>
                     <NavLink to={"/products"} className="nav-link">Products</NavLink>
                     <a href="#">FAQ</a>
                     <a href="#">Contact Us</a>
-                    
+
                 </div>
 
                 <section className='icon-header'>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#000000", }} />
+                    <Link to={"/search"}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#000000", }} />
+                    </Link>
 
                     <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
 
