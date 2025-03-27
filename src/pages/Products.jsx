@@ -66,7 +66,12 @@ export default function Products() {
           </section>
         </NavLink>
 
-
+        <NavLink to={"/products/tablet"} className="nav-link">
+          <section>
+            <img src="../../img/tablet.png" alt="" />
+            <p>Tablet</p>
+          </section>
+        </NavLink>
       </div>
       
     </div>
