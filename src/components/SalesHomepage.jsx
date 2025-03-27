@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 // Importo il componente che ha la lista dei prodotti scontati
-import SalesProducts from "./SalesProducts";
+import SalesProducts from "./SalesProductsHomepage";
 
 import { Link } from 'react-router-dom';
 
@@ -16,9 +16,9 @@ export default function SalesHomepage() {
                         <h2>Sales</h2>
                         <Link to={"/products/sales"}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
                     </div>
-                    
+
                     <SalesProducts />
-                    
+
                 </div>
             </div>
         </>

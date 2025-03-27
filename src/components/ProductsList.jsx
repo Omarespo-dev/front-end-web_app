@@ -1,9 +1,13 @@
 // ProductsList.jsx
-
+import { Link } from "react-router-dom"
 import axios from 'axios'
 import { useState, useEffect } from "react"
 import { useParams, useLocation } from "react-router-dom";
 import ProductCard from '../components/ProductCard';
+
+// link 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductsList() {
 
@@ -47,18 +51,25 @@ export default function ProductsList() {
 
     // eseguo fetch ogni volta che cambia la categoria o la query
     useEffect(fetchProducts, [category, searchQuery]);
-
+    
     return (
-        <div>
-            {products.length > 0 ? (
-                products.map(product => (
-                    <div key={product.id}>
-                        <ProductCard productProp={product} />
-                    </div>
-                ))
-            ) : (
-                <p>No products found</p>
-            )}
+        <div className='container-main-2'>
+            <div className='container-card-newproducts'>
+
+                {products.length > 0 ? (
+                    products.map(product => (
+                        <div className='card-container-product' key={product.id}>
+                            <ProductCard productProp={product} />
+                            
+                        </div>
+                    ))
+                ) : (
+                    <p>No products found</p>
+                )}
+
+
+            </div>
+
         </div>
     );
 }

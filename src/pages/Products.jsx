@@ -59,10 +59,10 @@ export default function Products() {
 
 
       </div>
-
+      
     </div>
-    <Link to={"/"}><button>Torna alla Home</button> </Link>
     <ProductsList category={category} searchQuery={searchQuery} />
+   
   </>
 
   )
