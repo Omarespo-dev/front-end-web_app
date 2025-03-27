@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faMagnifyingGlass, faBasketShopping, faUser,faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -14,8 +14,8 @@ export default function Header() {
                 
                 <div className='link-header'>
 
-                    <Link to={"/"}>Home</Link>
-                    <Link to={"/products"}>Products</Link>
+                    <NavLink to={"/"} className="nav-link">Home</NavLink>
+                    <NavLink to={"/products"} className="nav-link">Products</NavLink>
                     <a href="#">FAQ</a>
                     <a href="#">Contact Us</a>
                     
