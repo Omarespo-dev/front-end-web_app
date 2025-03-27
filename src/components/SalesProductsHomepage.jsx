@@ -4,6 +4,9 @@ import axios from 'axios'
 //Importo useState e useEffect
 import { useState, useEffect } from "react"
 
+// Importo ProductCard
+import ProductCard from './ProductCard';
+
 
 // Importo cuore
 import Heart from './Heart';
@@ -51,49 +54,10 @@ export default function SalesProducts() {
         {salesProduct.length === 0 ? <h2>No Products avaiable</h2> :
             <div className='card-container'>
                 {salesProduct.map(product => (
-                    <section className='card-set' key={product.id}>
-
-
-                        <div className="sconto-percentuale">
-                            <Heart />
-                            <span>-{product.discount}%</span>
-                        </div>
-
-                        <div className='img-set-card'>
-                            <img src={product.image_card} alt="" />
-                        </div>
-
-                        <section>
-                            <p>{product.name}</p>
-                        </section>
-
-                        <div className='hover-elements'>
-                            <button className='add-to-cart-btn'>
-                                <img src="../../img/shopping-cart.png" alt="" />Add to Cart
-                            </button>
-                        </div>
-
-                        <div className='add-cart-2'>
-                            <s className="sconto">$1090.00</s>
-                            <div className="set-sconto">
-                                <p>€ {product.price}</p>
-                                <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p>
-                            </div>
-
-                        </div>
-
-
-                    </section>
-
+                    <ProductCard key={product.id} productProp={product} />
                 ))}
-
             </div>
-
-
-
         }
-
-
     </>
     )
 }
