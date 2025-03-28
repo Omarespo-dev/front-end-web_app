@@ -14,6 +14,11 @@ import RenderStars from '../components/RenderStars';
 
 import { Link, useParams, useNavigate } from "react-router-dom"
 
+import ColorComponent from '../components/ColorComponent';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
+
 export default function ProductDetailsPage() {
 
     // recupero lo slug del prodotto
@@ -64,13 +69,110 @@ export default function ProductDetailsPage() {
     return (
         <>
 
-            <div>
-                <img src={product.image_card} alt={product.name} />
+            <div className='container-details'>
 
+                <div className='img-container-details'>
+                    <div className='img-details'>
+                        <div className='img-details-1'>
+                            <img src={product.image_card} alt={product.name} />
+
+                        </div>
+                        <div className='img-details-2'>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                    <div className='product-details'>
+                        <h4>{product.name}</h4>
+                        <p><RenderStars average={calculateAverageRating()} /></p>
+
+                        <p><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
+                        
+                        {/* Usa il componente per visualizzare il colore  */}
+                        <span><ColorComponent productColor={product.color} /></span>
+
+                        <section>
+                            <ul className='ul-set'>
+                                <li>Brand </li>
+                                <li>Hard Disk Size </li>
+                                <li>CPU Model </li>
+                                <li>Screen Size </li>
+                                <li style={{ listStyleType: "none" }}>
+                                    <a href="#">Show More <FontAwesomeIcon icon={faGreaterThan} style={{ width: "10px", marginLeft: "5px", color: "#0C68F4" }} />
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul className='ul-set-none'>
+                                <li>{product.brand}</li>
+                                <li>{product.storage}</li>
+                                <li>{product.cpu}</li>
+                                <li>{product.display_size}</li>
+                            </ul>
+                        </section>
+
+                    </div>
+
+                    <div className='add-cart-details'>
+                        {product.discount > 0 ?
+                            <>
+                                <div className='set-div-detail'>
+                                    <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}
+
+                                    </h3>
+
+                                    <span className='set-sconto-2'>
+                                        <img src="../../img/discount-shape.png" alt="" />
+                                        -{product.discount}%
+                                    </span>
+                                </div>
+
+                                <span>
+                                    Last Price
+                                    <s className="sconto">€ {product.price}</s>
+                                </span>
+
+                                <button className='button-detail'>
+                                    Buy now
+                                </button>
+
+                                <button className='button-detail-2'> Add to cart</button>
+                                <button className='button-detail-2'> Aggiungi alla Wishlist</button>
+
+                            </>
+                            :
+                            <>
+                                <div className='set-div-detail'>
+                                    <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</h3>
+
+                                </div>
+                                <button className='button-detail'>
+                                    Buy now
+                                </button>
+
+                                <button className='button-detail-2'> Add to cart</button>
+                                <button className='button-detail-2'> Aggiungi alla Wishlist</button>
+                            </>
+                        }
+
+                    </div>
+                </div>
             </div>
 
 
-            <h2><p>{product.price}</p></h2>
+
 
             {/* Galleria immagini */}
             {product.gallery && product.gallery.length > 0 && (
@@ -88,33 +190,58 @@ export default function ProductDetailsPage() {
                     </div>
                 </section>
             )}
-            <div>
-                <p>{product.name}</p>
-                <p>{product.brand}</p>
-                <p>{product.storage}</p>
-                <p>{product.storage_type}</p>
-                <p>{product.cpu}</p>
-                <p>{product.ram}</p>
-                <p>{product.battery}</p>
-                <p>{product.battery_type}</p>
-                <p>{product.display_size}</p>
-                <p>{product.display_resolution}</p>
-                <p>{product.os}</p>
-                <p>{product.charging_type}</p>
-                <p>{product.dimensions}</p>
-                <p>{product.notes}</p>
 
-                <section>
-                    
-                        <h4>Our community reviews</h4>
-                        <div>
-                            <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
+            <div className='container-technical-details'>
+                <div className='technical-details'>
+                    <div className='sub-container'>
+                        <div className='linkaggio-technical'>
+                            <a href="#"> Technical Details</a>
+                            <a href="#"> Comments</a>
                         </div>
-                    
-                    <div>
-                        {renderReviews()}
+                        <h4>Technical Details</h4>
+                        
+                        
+                        
+                        
+                        <p className='set-p-detail'> Display <span> {product.display_size} {product.display_resolution}</span></p>
+
+                        <p className='set-p-detail-2'> Cpu <span> {product.cpu} </span></p>
+
+                        <p className='set-p-detail'> Storage <span> {product.storage} </span></p>
+
+                        <p className='set-p-detail-2'> Battery <span> {product.battery} </span></p>
+
+                        <p className='set-p-detail'> Battery-Type <span> {product.battery_type} </span></p>
+
+                        <p className='set-p-detail-2'> Display-Size <span> {product.display_size} </span></p>
+
+                        <p className='set-p-detail'> Display-Resolution <span> {product.display_resolution} </span></p>
+
+                        <p className='set-p-detail-2'> OS <span> {product.os} </span></p>
+
+                        <p className='set-p-detail'> Charging-type <span> {product.charging_type} </span></p>
+
+                        <p className='set-p-detail-2'> Dimensions <span> {product.dimensions} </span></p>
+                        
+                        <p className='set-p-detail'> Note <span> {product.notes} </span></p>
+
+                        
+
+                        <section>
+
+                            <h4>Our community reviews</h4>
+                            <div>
+                                <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
+                            </div>
+
+                            <div>
+                                {renderReviews()}
+                            </div>
+                        </section>
+
+
                     </div>
-                </section>
+                </div>
             </div>
         </>
     )
