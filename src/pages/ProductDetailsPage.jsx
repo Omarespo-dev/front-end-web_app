@@ -102,7 +102,7 @@ export default function ProductDetailsPage() {
                         <p><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
                         
                         {/* Usa il componente per visualizzare il colore  */}
-                        <p><ColorComponent productColor={product.color} /></p>
+                        <span><ColorComponent productColor={product.color} /></span>
 
                         <section>
                             <ul className='ul-set'>

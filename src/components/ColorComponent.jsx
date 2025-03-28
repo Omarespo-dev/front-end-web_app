@@ -11,7 +11,7 @@ function getColor(colorName) {
         "Gold": "#FFD700",         
         "Green": "#008000",        
         "Orange": "#FFA500",      
-        "Phantom Black": "#1C1C1C", 
+        "Phantom Black": "#121212", 
         "Deep Purple": "#5D3FD3",   
         "Titan Black": "#292929",  
         "Obsidian": "#3D3D3D",     
@@ -45,7 +45,7 @@ const ColorComponent = ({ productColor}) => {
                     width: "15px",
                     height: "15px",
                     borderRadius: "50%",
-                    backgroundColor: productColor,
+                    backgroundColor: color,
                     border: "none"
                 }}
             ></span>
