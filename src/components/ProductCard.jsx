@@ -46,47 +46,47 @@ const ProductCard = (props) => {
     return (
         <section className='card-set'>
             {/* Cliccando sulla card, si naviga al dettaglio prodotto */}
-            <Link to={`/product/${slug}`} className="set-link-product">
-                {discount > 0 ?
-                    <>
-                        <div className="sconto-percentuale">
-                            <Heart />
-                            <span>-{discount}%</span>
-                        </div>
 
+            {discount > 0 ?
+                <>
+                    <div className="sconto-percentuale">
+                        <Heart />
+                        <span>-{discount}%</span>
+                    </div>
+                    <Link to={`/product/${slug}`} className="set-link-product">
                         <div className='img-set-card'>
                             <img src={image_card} alt="" />
                         </div>
                     </Link>
-                <section>
-                    <p>{name}</p>
-                </section>
+                    <section>
+                        <p>{name}</p>
+                    </section>
 
-                <div className='add-cart-2'>
-                    <s className="sconto">€ {price}</s>
-                    <div className="set-sconto">
-                        <p>€ {(price - price * (discount / 100)).toFixed(2)}</p>
-                        <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p>
+                    <div className='add-cart-2'>
+                        <s className="sconto">€ {price}</s>
+                        <div className="set-sconto">
+                            <p>€ {(price - price * (discount / 100)).toFixed(2)}</p>
+                            <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p>
+                        </div>
                     </div>
-                </div>
-            </>
-            :
-            <>
-                <Heart />
-                <Link to={`/product/${id}`} className="set-link-product">
-                    <div className='img-set-card'>
-                        <img src={image_card} alt={name} />
-                    </div>
-                </Link>
-                <section>
-                    <p>{name}</p>
-                </section>
+                </>
+                :
+                <>
+                    <Heart />
+                    <Link to={`/product/${id}`} className="set-link-product">
+                        <div className='img-set-card'>
+                            <img src={image_card} alt={name} />
+                        </div>
+                    </Link>
+                    <section>
+                        <p>{name}</p>
+                    </section>
 
-                <div className='add-cart'>
-                    <p>€ {price}</p>
-                    <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {vote}</p>
-                </div>
-            </>
+                    <div className='add-cart'>
+                        <p>€ {price}</p>
+                        <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {vote}</p>
+                    </div>
+                </>
             }
 
 
