@@ -1,71 +1,56 @@
-// ProductsList.jsx
-import { Link } from "react-router-dom"
-import axios from 'axios'
-import { useState, useEffect } from "react"
 import { useParams, useLocation } from "react-router-dom";
+import axios from 'axios';
+import { useState, useEffect } from "react";
 import ProductCard from '../components/ProductCard';
 
-// link 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
-
-export default function ProductsList({ query, sortBy }) {
-
-    // ottengo la categoria dall' url
-    const { category } = useParams();
-
-    // ottengo la query string dalla URL (per la ricerca)
+export default function ProductsList({ category, searchQuery, query, sortBy }) {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
-    const searchQuery = searchParams.get("query");
 
-    // imposto lo stato per i prodotti
+    // uso "query" per la ricerca globale e "searchQuery" per filtrare i prodotti
+    const finalSearchQuery = query || searchQuery || "";
+
     const [products, setProducts] = useState([]);
 
-    // funzione per chiamare i dati della lista prodotti
-    const fetchProducts = () => {
-        let url = "http://localhost:3000/api/ecommerce";
+    useEffect(() => {
+        const fetchProducts = async () => {
+            let url = "http://localhost:3000/api/ecommerce";
 
-        if (searchQuery) {
-            url += `/search?query=${searchQuery}&sortBy=${sortBy}`; // Usa l'endpoint di ricerca se c'è una query
-        } else if (category) {
-            url += `/${category}&sortBy=${sortBy}`; // Se non c'è una query, usa la categoria
-        }
+            if (finalSearchQuery) {
+                url += `/search?query=${finalSearchQuery}`;
+            } else if (category) {
+                url += `/${category}`;
+            }
 
-        // chiamata API
-        axios.get(url)
-            .then(res => {
+            // aggiungo sortBy solo se esiste già un "?" nell'URL
+            url += url.includes("?") ? `&sortBy=${sortBy}` : `?sortBy=${sortBy}`;
+
+            console.log("Fetching URL:", url);
+            try {
+                const res = await axios.get(url);
+                console.log("Prodotti ricevuti:", res.data);
                 setProducts(res.data);
-            })
-            .catch(err => {
-                if (err.response) {
+            } catch (err) {
+                console.error("Errore nel fetch:", err);
+            }
+        };
 
-                    console.error(err.response.data);
-                }
-            });
-    };
-
-    // eseguo fetch ogni volta che cambia la categoria o la query
-    useEffect(fetchProducts, [category, query, sortBy]);
+        fetchProducts();
+    }, [category, finalSearchQuery, sortBy]);
 
     return (
         <div className='container-main-2'>
             <div className='container-card-newproducts'>
-
                 {products.length > 0 ? (
                     products.map(product => (
                         <div className='card-container-product' key={product.id}>
                             <ProductCard productProp={product} />
-
                         </div>
                     ))
                 ) : (
                     <p>No products found</p>
                 )}
-
-
             </div>
-
         </div>
     );
 }
