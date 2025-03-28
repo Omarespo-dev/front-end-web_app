@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import ColorComponent from '../components/ColorComponent';
+
 const CartPage = () => {
     const [cart, setCart] = useState([]);
 
@@ -78,46 +80,61 @@ const CartPage = () => {
         navigate('/checkout', { state: { cart } });
     };
 
+    
+
     return (
         <div className="cart-page">
-            <h2>Il tuo Carrello</h2>
+
             <div className="cart-items">
                 {cart.length > 0 ? (
                     cart.map((product) => (
                         <div key={product.id} className="cart-item">
-                            <div>
+                            <div className='cart'>
                                 {/* Eventuale immagine */}
+                                <section className='image-card-cart'>
+                                    <img src={product.image_card} alt="" />
+                                </section>
 
                                 {/* Prezzo e prezzo scontato per singola unità */}
                                 <div className="price-details">
-                                    <p><strong>{product.name}</strong></p>
-                                    <p>Prezzo: € {product.price}</p>
+                                    <h3>{product.name}</h3>
+                                    <p className='set-shop-icon'><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
+
+                                    {/* Usa il componente per visualizzare il colore  */}
+                                    <ColorComponent productColor={product.color} />
+
+
                                     {/* Se c'è uno sconto, mostra il prezzo scontato */}
                                     {product.discount > 0 && (
-                                        <p><strong>Prezzo scontato: € {(product.price - product.price * (product.discount / 100)).toFixed(2)}</strong></p>
+                                        <p><s>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</s> € {product.price}</p>
                                     )}
+
+
+                                    {/* Quantità con tasti + e - */}
+                                    {/* <div className="quantity-control">
+                                        <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                                        <span>Quantità: {product.quantity}</span>
+                                        <button onClick={() => increaseQuantity(product.id)}>+</button>
+                                    </div> */}
+
+                                    {/* Gestione prezzo totale per prodotto tenendo conto di sconto e quantità */}
+                                    {/* <div className="product-total">
+                                        <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
+                                    </div> */}
                                 </div>
-                                {/* Quantità con tasti + e - */}
-                                <div className="quantity-control">
-                                    <button onClick={() => decreaseQuantity(product.id)}>-</button>
-                                    <span>Quantità: {product.quantity}</span>
-                                    <button onClick={() => increaseQuantity(product.id)}>+</button>
-                                </div>
-                                {/* Gestione prezzo totale per prodotto tenendo conto di sconto e quantità */}
-                                <div className="product-total">
-                                    <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
-                                </div>
+
+
                                 {/* Tasto per rimuovere dal carrello */}
-                                <button onClick={() => removeFromCart(product.id)}>Rimuovi</button>
+
                             </div>
-                            <hr />
+                            <button onClick={() => removeFromCart(product.id)}>Rimuovi</button>
                         </div>
                     ))
                 ) : (
                     <p>Il carrello è vuoto</p>
                 )}
-            </div>
 
+            </div>
             {cart.length > 0 && (
                 <div className="cart-summary">
                     <h3>Totale: € {calculateTotal()}</h3>
@@ -128,6 +145,7 @@ const CartPage = () => {
                     </div>
                 </div>
             )}
+
         </div>
     );
 };

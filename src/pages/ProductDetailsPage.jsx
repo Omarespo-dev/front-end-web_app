@@ -14,7 +14,7 @@ import RenderStars from '../components/RenderStars';
 
 import { Link, useParams, useNavigate } from "react-router-dom"
 
-
+import ColorComponent from '../components/ColorComponent';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -96,10 +96,13 @@ export default function ProductDetailsPage() {
                     </div>
 
                     <div className='product-details'>
-                        <h4>MacBook Pro M2 MNEJ3 2022 LLA 13.3 inch</h4>
+                        <h4>{product.name}</h4>
                         <p><RenderStars average={calculateAverageRating()} /></p>
 
                         <p><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
+                        
+                        {/* Usa il componente per visualizzare il colore  */}
+                        <p><ColorComponent productColor={product.color} /></p>
 
                         <section>
                             <ul className='ul-set'>
