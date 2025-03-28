@@ -127,9 +127,9 @@ export default function ProductDetailsPage() {
                             <>
                                 <div className='set-div-detail'>
                                     <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}
-                                    
+
                                     </h3>
-                                    
+
                                     <span className='set-sconto-2'>
                                         <img src="../../img/discount-shape.png" alt="" />
                                         -{product.discount}%
@@ -148,15 +148,12 @@ export default function ProductDetailsPage() {
                                 <button className='button-detail-2'> Add to cart</button>
                                 <button className='button-detail-2'> Aggiungi alla Wishlist</button>
 
-                                <div className='technical-details'>
-                                    
-                                </div>
                             </>
                             :
                             <>
                                 <div className='set-div-detail'>
                                     <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</h3>
-                                    
+
                                 </div>
                                 <button className='button-detail'>
                                     Buy now
@@ -190,33 +187,58 @@ export default function ProductDetailsPage() {
                     </div>
                 </section>
             )}
-            <div>
-                <p>{product.name}</p>
-                <p>{product.brand}</p>
-                <p>{product.storage}</p>
-                <p>{product.storage_type}</p>
-                <p>{product.cpu}</p>
-                <p>{product.ram}</p>
-                <p>{product.battery}</p>
-                <p>{product.battery_type}</p>
-                <p>{product.display_size}</p>
-                <p>{product.display_resolution}</p>
-                <p>{product.os}</p>
-                <p>{product.charging_type}</p>
-                <p>{product.dimensions}</p>
-                <p>{product.notes}</p>
 
-                <section>
+            <div className='container-technical-details'>
+                <div className='technical-details'>
+                    <div className='sub-container'>
+                        <div className='linkaggio-technical'>
+                            <a href="#"> Technical Details</a>
+                            <a href="#"> Comments</a>
+                        </div>
+                        <h4>Technical Details</h4>
+                        
+                        
+                        
+                        
+                        <p className='set-p-detail'> Display <span> {product.display_size} {product.display_resolution}</span></p>
 
-                    <h4>Our community reviews</h4>
-                    <div>
-                        <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
+                        <p className='set-p-detail-2'> Cpu <span> {product.cpu} </span></p>
+
+                        <p className='set-p-detail'> Storage <span> {product.storage} </span></p>
+
+                        <p className='set-p-detail-2'> Battery <span> {product.battery} </span></p>
+
+                        <p className='set-p-detail'> Battery-Type <span> {product.battery_type} </span></p>
+
+                        <p className='set-p-detail-2'> Display-Size <span> {product.display_size} </span></p>
+
+                        <p className='set-p-detail'> Display-Resolution <span> {product.display_resolution} </span></p>
+
+                        <p className='set-p-detail-2'> OS <span> {product.os} </span></p>
+
+                        <p className='set-p-detail'> Charging-type <span> {product.charging_type} </span></p>
+
+                        <p className='set-p-detail-2'> Dimensions <span> {product.dimensions} </span></p>
+                        
+                        <p className='set-p-detail'> Note <span> {product.notes} </span></p>
+
+                        
+
+                        <section>
+
+                            <h4>Our community reviews</h4>
+                            <div>
+                                <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
+                            </div>
+
+                            <div>
+                                {renderReviews()}
+                            </div>
+                        </section>
+
+
                     </div>
-
-                    <div>
-                        {renderReviews()}
-                    </div>
-                </section>
+                </div>
             </div>
         </>
     )
