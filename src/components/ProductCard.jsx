@@ -10,7 +10,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = (props) => {
 
-    const { id, name, brand, image_card, price, vote, discount } = props.productProp;
+    const { slug, name, brand, image_card, price, vote, discount } = props.productProp;
 
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
@@ -20,7 +20,7 @@ const ProductCard = (props) => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         // Verifica se il prodotto è già nel carrello
-        const productIndex = cart.findIndex(item => item.id === id);
+        const productIndex = cart.findIndex(item => item.slug === slug);
 
         // Definizione newProduct
         const newProduct = {
@@ -46,7 +46,7 @@ const ProductCard = (props) => {
     return (
         <section className='card-set'>
             {/* Cliccando sulla card, si naviga al dettaglio prodotto */}
-            <Link to={`/product/${id}`} className="set-link-product">
+            <Link to={`/product/${slug}`} className="set-link-product">
                 {discount > 0 ?
                     <>
                         <div className="sconto-percentuale">

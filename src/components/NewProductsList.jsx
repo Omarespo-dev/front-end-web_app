@@ -30,7 +30,7 @@ export default function NewProductsList() {
         {newProducts.length === 0 ? <h2>No Products avaiable</h2> :
             <div className='card-container'>
                 {newProducts.map(product => (
-                    <ProductCard key={product.id} productProp={product} />
+                    <ProductCard key={product.slug} productProp={product} />
                 ))}
             </div>
         }
