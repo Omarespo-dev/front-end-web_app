@@ -64,9 +64,40 @@ export default function ProductDetailsPage() {
     return (
         <>
 
-            <div>
-                <img src={product.image_card} alt={product.name} />
+            <div className='container-details'>
 
+                <div className='img-container-details'>
+                    <div className='img-details'>
+                        <div className='img-details-1'>
+                            <img src={product.image_card} alt={product.name} />
+
+                        </div>
+                        <div className='img-details-2'>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            <section>
+                                <img src="../../img/garmin_forerunner_945.png" alt="" />
+                            </section>
+                            
+                        </div>
+
+                    </div>
+
+                    <div className='product-details'>
+
+                    </div>
+
+                    <div className='add-cart-details'>
+
+                    </div>
+                </div>
             </div>
 
 
@@ -105,12 +136,12 @@ export default function ProductDetailsPage() {
                 <p>{product.notes}</p>
 
                 <section>
-                    
-                        <h4>Our community reviews</h4>
-                        <div>
-                            <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
-                        </div>
-                    
+
+                    <h4>Our community reviews</h4>
+                    <div>
+                        <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
+                    </div>
+
                     <div>
                         {renderReviews()}
                     </div>
