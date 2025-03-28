@@ -62,7 +62,8 @@ const CheckoutPage = () => {
         const orderData = {
             cart: updatedCart,
             userDetails: userData,
-            discountCode
+            discountCode: discountCode.trim() !== "" ? discountCode : null,  // Evita stringhe vuote
+            shippingCost
         };
 
         axios.post(endpointApi, orderData, { headers: { "Content-Type": "application/json" } })
