@@ -73,7 +73,7 @@ const ProductCard = (props) => {
                 :
                 <>
                     <Heart />
-                    <Link to={`/product/${id}`} className="set-link-product">
+                    <Link to={`/product/${slug}`} className="set-link-product">
                         <div className='img-set-card'>
                             <img src={image_card} alt={name} />
                         </div>
