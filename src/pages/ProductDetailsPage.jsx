@@ -14,6 +14,11 @@ import RenderStars from '../components/RenderStars';
 
 import { Link, useParams, useNavigate } from "react-router-dom"
 
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
+
 export default function ProductDetailsPage() {
 
     // recupero lo slug del prodotto
@@ -85,23 +90,89 @@ export default function ProductDetailsPage() {
                             <section>
                                 <img src="../../img/garmin_forerunner_945.png" alt="" />
                             </section>
-                            
+
                         </div>
 
                     </div>
 
                     <div className='product-details'>
+                        <h4>MacBook Pro M2 MNEJ3 2022 LLA 13.3 inch</h4>
+                        <p><RenderStars average={calculateAverageRating()} /></p>
+
+                        <p><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
+
+                        <section>
+                            <ul className='ul-set'>
+                                <li>Brand </li>
+                                <li>Hard Disk Size </li>
+                                <li>CPU Model </li>
+                                <li>Screen Size </li>
+                                <li style={{ listStyleType: "none" }}>
+                                    <a href="#">Show More <FontAwesomeIcon icon={faGreaterThan} style={{ width: "10px", marginLeft: "5px", color: "#0C68F4" }} />
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul className='ul-set-none'>
+                                <li>{product.brand}</li>
+                                <li>{product.storage}</li>
+                                <li>{product.cpu}</li>
+                                <li>{product.display_size}</li>
+                            </ul>
+                        </section>
 
                     </div>
 
                     <div className='add-cart-details'>
+                        {product.discount > 0 ?
+                            <>
+                                <div className='set-div-detail'>
+                                    <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}
+                                    
+                                    </h3>
+                                    
+                                    <span className='set-sconto-2'>
+                                        <img src="../../img/discount-shape.png" alt="" />
+                                        -{product.discount}%
+                                    </span>
+                                </div>
+
+                                <span>
+                                    Last Price
+                                    <s className="sconto">€ {product.price}</s>
+                                </span>
+
+                                <button className='button-detail'>
+                                    Buy now
+                                </button>
+
+                                <button className='button-detail-2'> Add to cart</button>
+                                <button className='button-detail-2'> Aggiungi alla Wishlist</button>
+
+                                <div className='technical-details'>
+                                    
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className='set-div-detail'>
+                                    <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</h3>
+                                    
+                                </div>
+                                <button className='button-detail'>
+                                    Buy now
+                                </button>
+
+                                <button className='button-detail-2'> Add to cart</button>
+                                <button className='button-detail-2'> Aggiungi alla Wishlist</button>
+                            </>
+                        }
 
                     </div>
                 </div>
             </div>
 
 
-            <h2><p>{product.price}</p></h2>
+
 
             {/* Galleria immagini */}
             {product.gallery && product.gallery.length > 0 && (
