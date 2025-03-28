@@ -20,7 +20,7 @@ export default function SearchBar() {
 
         queryParams.set("sortBy", sortBy); // Aggiunge l'ordinamento alla query
 
-        navigate(`/search?${queryParams.toString()}`);
+        navigate(`/products?${queryParams.toString()}`);
     };
 
     return (
