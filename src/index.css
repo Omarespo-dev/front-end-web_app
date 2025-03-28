@@ -1126,6 +1126,14 @@ footer {
     margin-top: 200px;
     display: flex;
     justify-content: center;
+    margin-bottom: 200px;
+}
+
+.set-cart {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
 }
 
 .cart-items {
@@ -1201,7 +1209,7 @@ footer {
     background-color: whitesmoke;
     cursor: pointer;
     font-size: 20px;
-    margin:0 20px;
+    margin: 0 20px;
 }
 
 .quantity-control {
@@ -1216,6 +1224,57 @@ footer {
 
 
 
+
+/* CHECKOUT CARD */
 .cart-summary {
+    /* background-color: #0C68F4; */
+    height: 300px;
+    width: 20%;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.cart-actions{
+    height: 200px;
+    /* background-color: red; */
+    padding: 10px;
+    margin-top: 10px;
+}
+.cart-actions p{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: gray;
+}
+
+.cart-actions section{
+    border-top: 1px solid gray;
+}
+
+.cart-actions section h4{
+   margin-top: 10px;
+   display: flex;
+    justify-content: space-between;
+}
+
+/* button checkout */
+.checkout-btn{
+    padding: 10px 20px;
     background-color: #0C68F4;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    transition: 0.3s;
+    width: 100%;
+    
+}   
+
+.checkout-btn:hover{
+    background-color: white;
+    color: #0C68F4;
+    border: #0C68F4 1px solid;
 }
