@@ -59,7 +59,7 @@ const ProductCard = (props) => {
                         </div>
                     </Link>
                     <section>
-                        <p>{name}</p>
+                        <p>{brand} {name}</p>
                     </section>
 
                     <div className='add-cart-2'>
@@ -79,7 +79,7 @@ const ProductCard = (props) => {
                         </div>
                     </Link>
                     <section>
-                        <p>{name}</p>
+                        <p>{brand} {name}</p>
                     </section>
 
                     <div className='add-cart'>
