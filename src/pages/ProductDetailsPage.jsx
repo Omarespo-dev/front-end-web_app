@@ -63,15 +63,15 @@ export default function ProductDetailsPage() {
 
     return (
         <>
-            <header>
-                <div>
-                    <img src={product.image_card} alt={product.name} />
 
-                </div>
+            <div>
+                <img src={product.image_card} alt={product.name} />
+
+            </div>
 
 
-                <h2><p>{product.price}</p></h2>
-            </header>
+            <h2><p>{product.price}</p></h2>
+
             {/* Galleria immagini */}
             {product.gallery && product.gallery.length > 0 && (
                 <section>
@@ -105,12 +105,12 @@ export default function ProductDetailsPage() {
                 <p>{product.notes}</p>
 
                 <section>
-                    <header>
+                    
                         <h4>Our community reviews</h4>
                         <div>
                             <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
                         </div>
-                    </header>
+                    
                     <div>
                         {renderReviews()}
                     </div>
