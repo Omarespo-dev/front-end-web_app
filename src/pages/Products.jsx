@@ -1,13 +1,18 @@
 // Products.jsx
-import { Link, useParams, useSearchParams, NavLink } from 'react-router-dom'
+import { useParams, useSearchParams, NavLink } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
 // importo il componente listato del prodotto
 import ProductsList from '../components/ProductsList';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGreaterThan } from '@fortawesome/free-solid-svg-icons';
-
 export default function Products() {
+
+  // per la ricerca tramite searchbar
+  const location = useLocation();
+  const searchBarParams = new URLSearchParams(location.search);
+
+  const query = searchBarParams.get("query") || "";
+  const sortBy = searchBarParams.get("sortBy") || "recent"; // Default: recenti
 
   // ottengo la categoria dall' url
   const { category } = useParams();
@@ -19,15 +24,9 @@ export default function Products() {
   const searchQuery = searchParams.get("search");
 
   return (<>
-    {/* <div className='set-route'>
-      <NavLink to={"/"} className="nav-link" end> Home <FontAwesomeIcon icon={faGreaterThan} style={{ fontSize: '14px' }}/></NavLink>
-      {}
-      <NavLink to={"/products"}  className="nav-link" end> Products</NavLink>
-      <NavLink to={"/products/sales"}  className="nav-link" end> Sales</NavLink>
-    </div> */}
 
     <div className='categories'>
-      
+
       <div className='contain'>
 
         <NavLink to={"/products"} className="nav-link" end>
@@ -73,10 +72,10 @@ export default function Products() {
           </section>
         </NavLink>
       </div>
-      
+
     </div>
-    <ProductsList category={category} searchQuery={searchQuery} />
-   
+    <ProductsList category={category} searchQuery={searchQuery} query={query} sortBy={sortBy} />
+
   </>
 
   )
