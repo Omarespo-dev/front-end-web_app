@@ -83,7 +83,7 @@ const CheckoutPage = () => {
     return (
         <div className="checkout-page">
             <h1>Checkout</h1>
-            <section className="cart-summary">
+            <section>
                 <h2>Riepilogo Ordine</h2>
                 {cart.length > 0 ? (
                     cart.map((product) => (
