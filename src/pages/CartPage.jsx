@@ -80,7 +80,7 @@ const CartPage = () => {
         navigate('/checkout', { state: { cart } });
     };
 
-    
+
 
     return (
         <div className="cart-page">
@@ -106,16 +106,30 @@ const CartPage = () => {
 
                                     {/* Se c'è uno sconto, mostra il prezzo scontato */}
                                     {product.discount > 0 && (
-                                        <p><s>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</s> € {product.price}</p>
+                                        <div className='div-discount'>
+                                            <p><s>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</s> € {product.price}</p>
+
+                                            <div className="quantity-control">
+                                                <button className='button-delete' onClick={() => removeFromCart(product.id)}> <img src="../../img/trash.png" alt="" />
+                                                </button>
+                                                
+                                                <section>
+                                                    <button className='button-delete' onClick={() => decreaseQuantity(product.id)}>-</button>
+
+                                                    <span>{product.quantity}</span>
+
+                                                    <button className='button-delete' onClick={() => increaseQuantity(product.id)}>+</button>
+                                                </section>
+
+
+                                            </div>
+                                        </div>
+
                                     )}
 
 
                                     {/* Quantità con tasti + e - */}
-                                    {/* <div className="quantity-control">
-                                        <button onClick={() => decreaseQuantity(product.id)}>-</button>
-                                        <span>Quantità: {product.quantity}</span>
-                                        <button onClick={() => increaseQuantity(product.id)}>+</button>
-                                    </div> */}
+
 
                                     {/* Gestione prezzo totale per prodotto tenendo conto di sconto e quantità */}
                                     {/* <div className="product-total">
@@ -127,7 +141,7 @@ const CartPage = () => {
                                 {/* Tasto per rimuovere dal carrello */}
 
                             </div>
-                            <button onClick={() => removeFromCart(product.id)}>Rimuovi</button>
+
                         </div>
                     ))
                 ) : (
