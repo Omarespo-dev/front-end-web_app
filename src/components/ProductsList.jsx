@@ -43,7 +43,7 @@ export default function ProductsList({ category, searchQuery, query, sortBy }) {
             <div className='container-card-newproducts'>
                 {products.length > 0 ? (
                     products.map(product => (
-                        <div className='card-container-product' key={product.id}>
+                        <div className='card-container-product' key={product.slug}>
                             <ProductCard productProp={product} />
                         </div>
                     ))

@@ -16,8 +16,8 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 
 export default function ProductDetailsPage() {
 
-    // recupero l'id del prodotto
-    const { id } = useParams();
+    // recupero lo slug del prodotto
+    const { slug } = useParams();
 
     // setto lo stato del componente
     const [product, setProduct] = useState({});
@@ -26,7 +26,7 @@ export default function ProductDetailsPage() {
     const fetchProduct = () => {
 
 
-        axios.get("http://localhost:3000/api/ecommerce/" + id)
+        axios.get("http://localhost:3000/api/ecommerce/" + slug)
 
             .then(
                 res => {
