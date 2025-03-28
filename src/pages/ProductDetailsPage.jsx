@@ -77,21 +77,6 @@ export default function ProductDetailsPage() {
                             <img src={product.image_card} alt={product.name} />
 
                         </div>
-                        <div className='img-details-2'>
-                            <section>
-                                <img src="../../img/garmin_forerunner_945.png" alt="" />
-                            </section>
-                            <section>
-                                <img src="../../img/garmin_forerunner_945.png" alt="" />
-                            </section>
-                            <section>
-                                <img src="../../img/garmin_forerunner_945.png" alt="" />
-                            </section>
-                            <section>
-                                <img src="../../img/garmin_forerunner_945.png" alt="" />
-                            </section>
-
-                        </div>
 
                     </div>
 
@@ -100,7 +85,7 @@ export default function ProductDetailsPage() {
                         <p><RenderStars average={calculateAverageRating()} /></p>
 
                         <p><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
-                        
+
                         {/* Usa il componente per visualizzare il colore  */}
                         <span><ColorComponent productColor={product.color} /></span>
 
@@ -199,10 +184,10 @@ export default function ProductDetailsPage() {
                             <a href="#"> Comments</a>
                         </div>
                         <h4>Technical Details</h4>
-                        
-                        
-                        
-                        
+
+
+
+
                         <p className='set-p-detail'> Display <span> {product.display_size} {product.display_resolution}</span></p>
 
                         <p className='set-p-detail-2'> Cpu <span> {product.cpu} </span></p>
@@ -222,10 +207,10 @@ export default function ProductDetailsPage() {
                         <p className='set-p-detail'> Charging-type <span> {product.charging_type} </span></p>
 
                         <p className='set-p-detail-2'> Dimensions <span> {product.dimensions} </span></p>
-                        
+
                         <p className='set-p-detail'> Note <span> {product.notes} </span></p>
 
-                        
+
 
                         <section>
 
