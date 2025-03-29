@@ -134,8 +134,9 @@ export default function ProductsList({ category, searchQuery, query, sortBy }) {
                                 max="2500"
                                 step="50"
                                 value={minPrice}
-                                onChange={(e) => setMinPrice(Number(e.target.value === "" ? "":Number(e.target.value)))}
+                                onChange={(e) => setMinPrice(Number(e.target.value = 0 ? " ": Number(e.target.value)))}
                                 onClick={() =>setMinPrice("")}
+                        
                             />
                             <input
                                 type="number"
@@ -143,7 +144,7 @@ export default function ProductsList({ category, searchQuery, query, sortBy }) {
                                 max="2500"
                                 step="50"
                                 value={maxPrice}
-                                onChange={(e) => setMaxPrice(Number(e.target.value === "" ? "":Number(e.target.value)))}
+                                onChange={(e) => setMaxPrice(Number(e.target.value = 0 ? "": Number(e.target.value)))}
                                 onClick={() =>setMaxPrice("")}
                             />
                         </div>

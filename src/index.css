@@ -1343,3 +1343,20 @@ footer {
 .price-inputs {
     margin: 20px;
 }
+
+.price-inputs  input[type="number"]{
+    padding: 10px 20px;
+    color: gray;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    
+    /* Rimuovere le freccette nei principali browser */
+    -webkit-appearance: none !important;; /* Per Chrome, Safari */
+    -moz-appearance: textfield !important;; 
+    appearance: none ; /* Standard */
+    
+    /* Se necessario, aggiungi altre proprietà per migliorare la visibilità */
+    margin-right: 20px;
+}
