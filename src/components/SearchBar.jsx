@@ -39,7 +39,7 @@ export default function SearchBar() {
                 <option value="name">Nome (A-Z)</option>
             </select>
 
-            <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#000000" }} /></button>
+            <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#ffffff" }} /></button>
         </form>
     );
 }

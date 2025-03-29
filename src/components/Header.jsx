@@ -32,9 +32,9 @@ export default function Header() {
                     </Link>
 
 
-                    <FontAwesomeIcon icon={faHeart} style={{ color: "#000000", }} />
+                    <a href="#"><FontAwesomeIcon icon={faHeart} style={{ color: "#000000", }} /></a>
 
-                    <FontAwesomeIcon icon={faUser} style={{ color: "#000000", }} />
+                    
                 </section>
 
             </div>

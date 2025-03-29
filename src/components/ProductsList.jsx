@@ -73,89 +73,105 @@ export default function ProductsList({ category, searchQuery, query, sortBy }) {
     }, [minPrice, maxPrice, brand, name, sortProduct, products]); // eseguo l'aggiornamento quando cambiano i filtri
 
     return (
-        <div className='container-main-2'>
+        <>
             {/* Sezione Filtri */}
-            <div className="filters">
-                <input
-                    type="text"
-                    placeholder="Brand"
-                    value={brand}
-                    onChange={(e) => setBrand(e.target.value)}
-                />
-
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <div className="price-filter">
-                    <label>Price: {minPrice}€ - {maxPrice}€</label>
-
-                    {/* Slider per il prezzo minimo */}
-                    <input
-                        type="range"
-                        min="0"
-                        max="2500"
-                        step="50"
-                        value={minPrice}
-                        onChange={(e) => setMinPrice(Number(e.target.value))}
-                    />
-
-                    {/* Slider per il prezzo massimo */}
-                    <input
-                        type="range"
-                        min="0"
-                        max="2500"
-                        step="50"
-                        value={maxPrice}
-                        onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    />
-
-                    {/* Input numerici */}
-                    <div className="price-inputs">
+            <div className="container-filters">
+                <div className="filters">
+                    <div>
                         <input
-                            type="number"
+                            type="text"
+                            placeholder="Brand"
+                            value={brand}
+                            onChange={(e) => setBrand(e.target.value)}
+                            className="set-input-up"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="set-input-up"
+                        />
+
+                        <select value={sortProduct} onChange={(e) => setSortProduct(e.target.value)}>
+                            <option value="recent">Più Recenti</option>
+                            <option value="price_asc">Prezzo: dal più basso</option>
+                            <option value="price_desc">Prezzo: dal più alto</option>
+                            <option value="name">Nome (A-Z)</option>
+                        </select>
+                    </div>
+
+
+                    <div className="price-filter">
+                        <label>Price: {minPrice}€ - {maxPrice}€</label>
+
+                        {/* Slider per il prezzo minimo */}
+                        <input
+                            type="range"
                             min="0"
                             max="2500"
                             step="50"
                             value={minPrice}
                             onChange={(e) => setMinPrice(Number(e.target.value))}
                         />
+
+                        {/* Slider per il prezzo massimo */}
                         <input
-                            type="number"
+                            type="range"
                             min="0"
                             max="2500"
                             step="50"
                             value={maxPrice}
                             onChange={(e) => setMaxPrice(Number(e.target.value))}
                         />
+
+                        {/* Input numerici */}
+                        <div className="price-inputs">
+                           
+                            <input
+                                type="number"
+                                min="0"
+                                max="2500"
+                                step="50"
+                                value={minPrice}
+                                onChange={(e) => setMinPrice(Number(e.target.value = 0 ? " ": Number(e.target.value)))}
+                                onClick={() =>setMinPrice("")}
+                        
+                            />
+                            <input
+                                type="number"
+                                min="0"
+                                max="2500"
+                                step="50"
+                                value={maxPrice}
+                                onChange={(e) => setMaxPrice(Number(e.target.value = 0 ? "": Number(e.target.value)))}
+                                onClick={() =>setMaxPrice("")}
+                            />
+                        </div>
                     </div>
+                    {/* Ordinamento prodotti in pagina */}
+
+                </div>
+
+            </div>
+
+
+
+
+            <div className='container-main-2'>
+                {/* Lista dei prodotti */}
+                <div className='container-card-newproducts'>
+                    {filteredProducts.length > 0 ? (
+                        filteredProducts.map(product => (
+                            <div className='card-container-product' key={product.slug}>
+                                <ProductCard productProp={product} />
+                            </div>
+                        ))
+                    ) : (
+                        <p>No products found</p>
+                    )}
                 </div>
             </div>
-
-            {/* Ordinamento prodotti in pagina */}
-            <div>
-                <select value={sortProduct} onChange={(e) => setSortProduct(e.target.value)}>
-                    <option value="recent">Più Recenti</option>
-                    <option value="price_asc">Prezzo: dal più basso</option>
-                    <option value="price_desc">Prezzo: dal più alto</option>
-                    <option value="name">Nome (A-Z)</option>
-                </select>
-            </div>
-
-            {/* Lista dei prodotti */}
-            <div className='container-card-newproducts'>
-                {filteredProducts.length > 0 ? (
-                    filteredProducts.map(product => (
-                        <div className='card-container-product' key={product.slug}>
-                            <ProductCard productProp={product} />
-                        </div>
-                    ))
-                ) : (
-                    <p>No products found</p>
-                )}
-            </div>
-        </div>
+        </>
     );
 }
