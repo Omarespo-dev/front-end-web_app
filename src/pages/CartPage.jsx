@@ -92,81 +92,69 @@ const CartPage = () => {
                                 <div className='cart'>
                                     {/* Eventuale immagine */}
                                     <section className='image-card-cart'>
-                                        <img src={product.image_card} alt="" />
+                                        <img src={product.image_card} alt={product.name} />
                                     </section>
 
-                                    {/* Prezzo e prezzo scontato per singola unità */}
+                                    {/* Prezzo e dettagli */}
                                     <div className="price-details">
                                         <h3>{product.name}</h3>
                                         <p className='set-shop-icon'><img src="../../img/shop.png" alt="" />Stock {product.stock}</p>
 
-                                        {/* Usa il componente per visualizzare il colore  */}
+                                        {/* Usa il componente per visualizzare il colore */}
                                         <ColorComponent productColor={product.color} />
 
-
                                         {/* Se c'è uno sconto, mostra il prezzo scontato */}
-                                        {product.discount > 0 && (
+                                        {product.discount > 0 ? (
                                             <div className='div-discount'>
                                                 <p><s>€ {product.price} </s> € {(product.price - product.price * (product.discount / 100)).toFixed(2)}</p>
-
-                                                <div className="quantity-control">
-                                                    <button className='button-delete' onClick={() => removeFromCart(product.id)}> <img src="../../img/trash.png" alt="" />
-                                                    </button>
-
-                                                    <section>
-                                                        <button className='button-delete' onClick={() => decreaseQuantity(product.id)}>-</button>
-
-                                                        <span>{product.quantity}</span>
-
-                                                        <button className='button-delete' onClick={() => increaseQuantity(product.id)}>+</button>
-                                                    </section>
-
-
-                                                </div>
                                             </div>
-
+                                        ) : (
+                                            <div className='div-price'>
+                                                <p>€ {product.price}</p>
+                                            </div>
                                         )}
 
+                                        <div className="quantity-control">
+                                            {/* Gestione prezzo totale per prodotto */}
+                                            <div className="product-total">
+                                                <p><strong>Subtotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
+                                            </div>
 
 
+                                            <section>
+                                                <button className='button-delete' onClick={() => removeFromCart(product.id)}>
+                                                    <img src="../../img/trash.png" alt="" />
+                                                </button>
+                                                <button className='button-delete' onClick={() => decreaseQuantity(product.id)}>-</button>
+                                                <span>{product.quantity}</span>
+                                                <button className='button-delete' onClick={() => increaseQuantity(product.id)}>+</button>
+                                            </section>
+                                        </div>
 
-
-                                        {/* Gestione prezzo totale per prodotto tenendo conto di sconto e quantità */}
-                                        {/* <div className="product-total">
-                                            <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
-                                        </div> */}
 
                                     </div>
-
-
-                                    {/* Tasto per rimuovere dal carrello */}
-
                                 </div>
-
                             </div>
                         ))
                     ) : (
                         <main style={{ height: "100vh" }}>
                             <h2>Il carrello è vuoto</h2>
                         </main>
-
                     )}
-
                 </div>
+
+                {/* Se il carrello ha elementi, mostra il riepilogo */}
                 {cart.length > 0 && (
                     <div className="cart-summary">
                         <h3>Payment Details</h3>
-
                         <div className="cart-actions">
                             <p>Subtotal <span>€{calculateTotal()}</span></p>
                             <p>Discount <span>N/A</span></p>
-                            <p>Shipment <span> N/A</span></p>
+                            <p>Shipment <span>N/A</span></p>
 
-                            {/* PREZZO DA CAMBIARE PK SARA QUELLO CON AGGIUNTA DELLA SPEDIZIONE E RISPARMIO CON IL COUPON */}
                             <section>
-                                <h4>Grand Total:  <span> N/A</span></h4>
+                                <h4>Grand Total: <span>N/A</span></h4>
                             </section>
-
 
                             <Link to="/checkout">
                                 <button className="checkout-btn">Procedi al checkout</button>
@@ -174,9 +162,7 @@ const CartPage = () => {
                         </div>
                     </div>
                 )}
-
             </div>
-
         </div>
     );
 };

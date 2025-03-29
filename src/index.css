@@ -1220,6 +1220,7 @@ footer {
 .quantity-control {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .quantity-control section {
