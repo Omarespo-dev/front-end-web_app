@@ -519,12 +519,6 @@ h2 {
 
 
 
-/* SEARCHPAGE */
-.searchbar {
-    /* DEBUG */
-    margin-top: 200px;
-}
-
 
 /* CHECKOUTPAGE */
 .checkout-page {
@@ -1360,3 +1354,44 @@ footer {
     /* Se necessario, aggiungi altre proprietà per migliorare la visibilità */
     margin-right: 20px;
 }
+
+
+
+
+/* SEARCHPAGE */
+.searchbar-form {
+    /* DEBUG */
+    /* margin-top: 200px; */
+    display: flex;
+}
+
+.searchbar-form input{
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    background-color: #e9e9ed;
+    margin-right: 10px;
+}
+
+.searchbar-form select{
+    padding: 10px 20px;
+    color: gray;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    margin-right: 10px;
+}
+
+.searchbar-form button{
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    background-color: #0c69f4bb;
+}
+
