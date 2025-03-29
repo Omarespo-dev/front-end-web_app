@@ -156,7 +156,7 @@ h2 {
     justify-content: center;
     /* background-color: white; */
     margin-top: 85px;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 
 .container-card-newproducts {
@@ -1241,13 +1241,15 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-.cart-actions{
+
+.cart-actions {
     height: 200px;
     /* background-color: red; */
     padding: 10px;
     margin-top: 10px;
 }
-.cart-actions p{
+
+.cart-actions p {
     margin: 10px;
     display: flex;
     justify-content: space-between;
@@ -1255,18 +1257,18 @@ footer {
     color: gray;
 }
 
-.cart-actions section{
+.cart-actions section {
     border-top: 1px solid gray;
 }
 
-.cart-actions section h4{
-   margin-top: 10px;
-   display: flex;
+.cart-actions section h4 {
+    margin-top: 10px;
+    display: flex;
     justify-content: space-between;
 }
 
 /* button checkout */
-.checkout-btn{
+.checkout-btn {
     padding: 10px 20px;
     background-color: #0C68F4;
     color: white;
@@ -1276,11 +1278,68 @@ footer {
     margin-top: 20px;
     transition: 0.3s;
     width: 100%;
-    
-}   
 
-.checkout-btn:hover{
+}
+
+.checkout-btn:hover {
     background-color: white;
     color: #0C68F4;
     border: #0C68F4 1px solid;
+}
+
+
+/* SETTAGGIO FILTRI LAYOUT */
+.container-filters {
+    display: flex;
+    justify-content: center;
+    /* width: ; */
+    margin-top: 40px;
+    text-align: center;
+}
+
+.filters {
+    width: 50%;
+
+}
+
+.set-input-up {
+    padding: 10px 20px;
+    /* background-color: #0C68F4; */
+    color: gray;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    /* margin-top: 20px; */
+    transition: 0.3s;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    width: 180px;
+}
+
+.filters select {
+    padding: 10px 20px;
+    color: gray;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+/* FILTRAGGIO PER PREZZO */
+.price-filter {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.price-filter input{
+    cursor: pointer;
+}
+.price-filter label{
+    color: gray;
+}
+
+.price-inputs {
+    margin: 20px;
 }
