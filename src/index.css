@@ -45,7 +45,7 @@ header {
 .link-header {
     display: flex;
     justify-content: center;
-    width: 70%;
+    width: 55%;
     height: 100px;
     align-items: center;
     gap: 15%;
@@ -71,14 +71,16 @@ header {
 .icon-header {
     display: flex;
     justify-content: end;
-    width: 30%;
+    width: 45%;
     height: 100px;
     align-items: center;
-    gap: 5%;
 }
 
 
-
+.icon-header a{
+    margin-right: 10px;
+    margin-left: 10px;
+}
 /* HEADER FINISH */
 
 
