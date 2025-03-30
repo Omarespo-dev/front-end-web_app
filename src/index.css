@@ -77,10 +77,11 @@ header {
 }
 
 
-.icon-header a{
+.icon-header a {
     margin-right: 10px;
     margin-left: 10px;
 }
+
 /* HEADER FINISH */
 
 
@@ -361,15 +362,22 @@ h2 {
 .container-img {
     /* background-color: red; */
     height: 500px;
-    width: 50%;
+    /* width: 40%; */
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
+.container-img img {
+    height: 100%;
+}
 
 
 .container-img h2 {
     color: black;
     margin-top: 30px;
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -395,6 +403,13 @@ h2 {
     width: 80%;
 }
 
+
+.container-button-view a {
+    width: 100px;
+    margin-top: 60px;
+}
+
+
 .view-more {
     padding: 7px 16px;
     background-color: #0C68F4;
@@ -402,7 +417,7 @@ h2 {
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    margin-top: 70px;
+
 }
 
 /* ////////////////////////////// */
@@ -1004,12 +1019,13 @@ footer {
     border-radius: 8px;
 
 }
-.add-cart-details a{
+
+.add-cart-details a {
     display: flex;
     flex-direction: column;
     text-decoration: none;
 }
-    
+
 
 .add-cart-details span {
     margin-top: 10px;
@@ -1335,10 +1351,12 @@ footer {
     display: flex;
     flex-direction: column;
 }
-.price-filter input{
+
+.price-filter input {
     cursor: pointer;
 }
-.price-filter label{
+
+.price-filter label {
     color: gray;
 }
 
@@ -1346,19 +1364,23 @@ footer {
     margin: 20px;
 }
 
-.price-inputs  input[type="number"]{
+.price-inputs input[type="number"] {
     padding: 10px 20px;
     color: gray;
     cursor: pointer;
     border-radius: 10px;
     border: none;
     transition: 0.3s;
-    
+
     /* Rimuovere le freccette nei principali browser */
-    -webkit-appearance: none !important;; /* Per Chrome, Safari */
-    -moz-appearance: textfield !important;; 
-    appearance: none ; /* Standard */
-    
+    -webkit-appearance: none !important;
+    ;
+    /* Per Chrome, Safari */
+    -moz-appearance: textfield !important;
+    ;
+    appearance: none;
+    /* Standard */
+
     /* Se necessario, aggiungi altre proprietà per migliorare la visibilità */
     margin-right: 20px;
 }
@@ -1373,7 +1395,7 @@ footer {
     display: flex;
 }
 
-.searchbar-form input{
+.searchbar-form input {
     padding: 10px 20px;
     color: black;
     cursor: pointer;
@@ -1384,7 +1406,7 @@ footer {
     margin-right: 10px;
 }
 
-.searchbar-form select{
+.searchbar-form select {
     padding: 10px 20px;
     color: gray;
     cursor: pointer;
@@ -1394,7 +1416,7 @@ footer {
     margin-right: 10px;
 }
 
-.searchbar-form button{
+.searchbar-form button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 10px;
@@ -1402,4 +1424,3 @@ footer {
     transition: 0.3s;
     background-color: #0c69f4bb;
 }
-

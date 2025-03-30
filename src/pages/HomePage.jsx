@@ -59,13 +59,13 @@ export default function HomePage() {
 
           <section className='celeste-bg'>
             <section className='container-img'>
-              <h2>Iphone <span>16 Series</span></h2>
-              <img src="../../img/iphone 16-Photoroom 1.png" alt="" />
+              <h2>Iphone <span>14 Pro Series</span></h2>
+              <img src="../../img/71pOW6LpyfL.png" alt="" />
             </section>
 
             <section className='container-button-view'>
               <h3>It feels good to be the first</h3>
-              <p>Get ready for the next generation of smartphones. Discover innovation like never before. Stay tuned for the big iPhone 16 reveal!</p>
+              <p>Get ready for the next generation of smartphones. Discover innovation like never before. Stay tuned for the big iPhone 14 Pro reveal!</p>
               <Link to={"/product/iphone-14-pro"}>
                 <button className='view-more'>View More</button>
               </Link>
