@@ -83,25 +83,49 @@ const CheckoutPage = () => {
 
     return (
         <div className="checkout-page">
-            
+            <h2 style={{textAlign:"center"}}>Inserisci i dati di fatturazione</h2>
             <section className="checkout-form">
+                
                 <form onSubmit={handleSubmit}>
-                    <label>Nome: <input name="user_name" type="text" value={userData.user_name} onChange={handleChange} required /></label>
-                    <label>Cognome: <input name="user_surname" type="text" value={userData.user_surname} onChange={handleChange} required /></label>
-                    <label>Indirizzo: <input name="address" type="text" value={userData.address} onChange={handleChange} required /></label>
-                    <label>Città: <input name="city" type="text" value={userData.city} onChange={handleChange} required /></label>
-                    <label>CAP: <input name="postal_code" type="text" value={userData.postal_code} onChange={handleChange} required /></label>
-                    <label>Provincia: <input name="province" type="text" value={userData.province} onChange={handleChange} required /></label>
-                    <label>Email: <input name="user_email" type="email" value={userData.user_email} onChange={handleChange} required /></label>
+                    Nome:
+                    <label>
+                        <input name="user_name" type="text" value={userData.user_name} onChange={handleChange} required />
+                    </label>
 
-                    <label>Codice Sconto (opzionale): <input name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} /></label>
+                    Cognome:
+                    <label>
+                        <input name="user_surname" type="text" value={userData.user_surname} onChange={handleChange} required />
+                    </label>
 
-                    <button className="btn" type="submit">Conferma Ordine</button>
-                    <Link className="btn" to="/cart">Torna al Carrello</Link>
+                    Indirizzo:
+                    <label>
+                        <input name="address" type="text" value={userData.address} onChange={handleChange} required />
+                    </label>
+
+                    Città:
+                    <label>
+                        <input name="city" type="text" value={userData.city} onChange={handleChange} required />
+                    </label>
+
+                    CAP:
+                    <label>
+                        <input name="postal_code" type="text" value={userData.postal_code} onChange={handleChange} required />
+                    </label>
+
+                    Provincia:
+                    <label>
+                        <input name="province" type="text" value={userData.province} onChange={handleChange} required />
+                    </label>
+
+                    Email:
+                    <label>
+                        <input name="user_email" type="email" value={userData.user_email} onChange={handleChange} required />
+                    </label>
+
                 </form>
             </section>
 
-            {/* <h1>Checkout</h1> */}
+            <h2 style={{textAlign:"center",margin:"0",marginTop:"50px"}}>Riepilogo ordine</h2>
             <section className="set-cart-checkout">
                 <div className="cart-items">
                     {cart.length > 0 ? (
@@ -143,7 +167,7 @@ const CheckoutPage = () => {
 
                 {/* Dettagli di pagamento */}
                 {cart.length > 0 && (
-                    <div className="cart-summary">
+                    <div className="cart-summary-checkout">
                         <h3>Payment Details</h3>
                         <div className="cart-actions">
                             <p>Subotale: <span>€ {totalCartPrice.toFixed(2)} </span></p>
@@ -154,16 +178,22 @@ const CheckoutPage = () => {
                                 <h4>Grand Total: <span>€{totalPrice}</span></h4>
                             </section>
 
-                            <Link to="/checkout">
+                            
+                            Codice Sconto (opzionale): 
+                                <label >
+                                    <input className="checkout-btn"  style={{backgroundColor:"white"}} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
+                                </label>
+
                                 <button className="checkout-btn">Buy</button>
-                            </Link>
+                            
                         </div>
                     </div>
                 )}
+                <Link  to="/cart" className="checkout-btn-turn-cart">Torna al Carrello</Link>
             </section>
 
 
-            
+
         </div>
     );
 };
