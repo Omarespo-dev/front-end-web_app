@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className='set-text-jumbotron'>
             <h1>Tech Zone</h1>
             <h2>"Join the <span>digital revolution" </span></h2>
-            <button className='explore-more'>Explore More</button>
+            <Link to={"/products"}> <button className='explore-more'>Explore More</button> </Link>
           </div>
 
 
@@ -43,10 +43,10 @@ export default function HomePage() {
             <Link to={"/products"}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
           </div>
 
-          
+
           <NewProductsList />
 
-          
+
         </div>
       </div>
       {/* FINE CONTAINER NUOVI ARRIVI */}
@@ -66,7 +66,9 @@ export default function HomePage() {
             <section className='container-button-view'>
               <h3>It feels good to be the first</h3>
               <p>Get ready for the next generation of smartphones. Discover innovation like never before. Stay tuned for the big iPhone 16 reveal!</p>
-              <button className='view-more'>View More</button>
+              <Link to={"/product/iphone-14-pro"}>
+                <button className='view-more'>View More</button>
+              </Link>
             </section>
           </section>
 
