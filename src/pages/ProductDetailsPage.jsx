@@ -65,6 +65,37 @@ export default function ProductDetailsPage() {
         const totalVotes = product.reviews.reduce((acc, review) => acc + parseInt(review.vote, 10), 0);
         return parseFloat((totalVotes / product.reviews.length).toFixed(1));
     };
+    
+    // Funzione per aggiungere il prodotto al carrello
+    const addToCart = (event) => {
+        // event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
+
+        // Recupera il carrello dal localStorage (se esiste)
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Verifica se il prodotto è già nel carrello
+        const productIndex = cart.findIndex(item => item.slug === slug);
+
+        // Definizione newProduct
+        const newProduct = {
+            ...product, // Copia tutto l'oggetto prodotto
+            quantity: 1,  // Aggiungi la quantità
+        };
+
+        if (productIndex !== -1) {
+            // Se il prodotto è già nel carrello, aumenta la quantità
+            cart[productIndex].quantity += 1;
+        } else {
+            // Se il prodotto non è nel carrello, aggiungilo
+            cart.push(newProduct);
+        }
+
+        // Salva il carrello nel localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log("Prodotto aggiunto al carrello:", newProduct);
+        // Log del carrello aggiornato
+        console.log("Carrello aggiornato:", cart);
+    };
 
     return (
         <>
@@ -133,7 +164,7 @@ export default function ProductDetailsPage() {
                                     Buy now
                                 </button>
 
-                                <button className='button-detail-2'> Add to cart</button>
+                                <button className='button-detail-2' onClick={addToCart}> Add to cart</button>
                                 <button className='button-detail-2'> Aggiungi alla Wishlist</button>
 
                             </>
@@ -147,7 +178,7 @@ export default function ProductDetailsPage() {
                                     Buy now
                                 </button>
 
-                                <button className='button-detail-2'> Add to cart</button>
+                                <button className='button-detail-2' onClick={addToCart} > Add to cart</button>
                                 <button className='button-detail-2'> Aggiungi alla Wishlist</button>
                             </>
                         }
