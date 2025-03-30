@@ -55,7 +55,7 @@ const CheckoutPage = () => {
         // Calcola il prezzo scontato per ogni prodotto
         const updatedCart = cart.map((product) => {
             const discountedPrice = product.discount > 0
-                ? (product.price - (product.price * product.discount / 100))
+                ? (product.price - (product.price * product.discount / 100)).toFixed(2)
                 : product.price;
             return { ...product, price: discountedPrice }; // Aggiungi il prezzo scontato
         });
@@ -66,6 +66,8 @@ const CheckoutPage = () => {
             discountCode: discountCode.trim() !== "" ? discountCode : null,  // Evita stringhe vuote
             shippingCost
         };
+
+        console.log("Dati inviati: ", orderData);
 
         axios.post(endpointApi, orderData, { headers: { "Content-Type": "application/json" } })
             .then(() => {
@@ -83,10 +85,10 @@ const CheckoutPage = () => {
 
     return (
         <div className="checkout-page">
-            <h2 style={{textAlign:"center"}}>Inserisci i dati di fatturazione</h2>
+            <h2 style={{ textAlign: "center" }}>Inserisci i dati di fatturazione</h2>
             <section className="checkout-form">
-                
-                <form onSubmit={handleSubmit}>
+
+                <form>
                     Nome:
                     <label>
                         <input name="user_name" type="text" value={userData.user_name} onChange={handleChange} required />
@@ -125,7 +127,7 @@ const CheckoutPage = () => {
                 </form>
             </section>
 
-            <h2 style={{textAlign:"center",margin:"0",marginTop:"50px"}}>Riepilogo ordine</h2>
+            <h2 style={{ textAlign: "center", margin: "0", marginTop: "50px" }}>Riepilogo ordine</h2>
             <section className="set-cart-checkout">
                 <div className="cart-items">
                     {cart.length > 0 ? (
@@ -178,18 +180,18 @@ const CheckoutPage = () => {
                                 <h4>Grand Total: <span>€{totalPrice}</span></h4>
                             </section>
 
-                            
-                            Codice Sconto (opzionale): 
-                                <label >
-                                    <input className="checkout-btn"  style={{backgroundColor:"white"}} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
-                                </label>
 
-                                <button className="checkout-btn">Buy</button>
-                            
+                            Codice Sconto (opzionale):
+                            <label >
+                                <input className="checkout-btn" style={{ backgroundColor: "white" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
+                            </label>
+
+                            <button onClick={handleSubmit} className="checkout-btn">Buy</button>
+
                         </div>
                     </div>
                 )}
-                <Link  to="/cart" className="checkout-btn-turn-cart">Torna al Carrello</Link>
+                <Link to="/cart" className="checkout-btn-turn-cart">Torna al Carrello</Link>
             </section>
 
 
