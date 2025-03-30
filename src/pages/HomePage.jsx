@@ -16,7 +16,6 @@ import NewProductsList from '../components/NewProductsList';
 export default function HomePage() {
 
 
-
   return (
     <>
 
@@ -79,7 +78,11 @@ export default function HomePage() {
               <section className='set-mac-container'>
                 <h2>MacBook <span>Pro</span></h2>
                 <img src="../../img/mac.png" alt="" />
-                <button className='buy-now'>Buy now</button>
+                
+                <Link to={"/product/macbook-pro-14-m1-pro"}>
+                  <button className='buy-now'>View More</button>
+                </Link>
+
               </section>
 
             </section>
@@ -98,7 +101,7 @@ export default function HomePage() {
             <div className='first-set'>
               <h1>SMART WATCH</h1>
               <p>Various designs and brands</p>
-              <button className='view-more-2'>View More</button>
+              <Link to={"/products/smartwatch"}> <button className='view-more-2'>View More</button> </Link>
             </div>
           </div>
 

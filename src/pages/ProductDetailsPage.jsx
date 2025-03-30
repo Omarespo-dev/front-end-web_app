@@ -68,7 +68,7 @@ export default function ProductDetailsPage() {
 
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
-        // event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
+        event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
 
         // Recupera il carrello dal localStorage (se esiste)
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
