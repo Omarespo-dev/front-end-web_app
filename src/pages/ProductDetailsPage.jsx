@@ -109,6 +109,23 @@ export default function ProductDetailsPage() {
 
                         </div>
 
+
+                        {/* Galleria immagini */}
+                        {product.gallery && product.gallery.length > 0 && (
+
+                            <div style={{display:"flex",justifyContent:"center"}}>
+                                {product.gallery.map((imgUrl, index) => (
+                                    <img
+                                        key={index}
+                                        src={imgUrl}
+                                        alt={`Gallery ${index}`}
+                                        style={{ width: "150px", height: "100px", borderRadius: "8px",border:"1px solid gray",padding:"10px",marginRight:"10px"}}
+                                    />
+                                ))}
+                            </div>
+
+                        )}
+
                     </div>
 
                     <div className='product-details'>
@@ -192,22 +209,7 @@ export default function ProductDetailsPage() {
 
 
 
-            {/* Galleria immagini */}
-            {product.gallery && product.gallery.length > 0 && (
-                <section>
-                    <h3>Gallery</h3>
-                    <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                        {product.gallery.map((imgUrl, index) => (
-                            <img
-                                key={index}
-                                src={imgUrl}
-                                alt={`Gallery ${index}`}
-                                style={{ width: "150px", height: "150px", objectFit: "cover", borderRadius: "8px" }}
-                            />
-                        ))}
-                    </div>
-                </section>
-            )}
+
 
             <div className='container-technical-details'>
                 <div className='technical-details'>
@@ -245,16 +247,17 @@ export default function ProductDetailsPage() {
 
 
 
-                        <section>
+                        <section className='set-reviews'>
 
-                            <h4>Our community reviews</h4>
-                            <div>
-                                <h6>Average Rating: <RenderStars average={calculateAverageRating()} /></h6>
+                            <div style={{display: "flex",justifyContent: "space-between", alignItems: "center",}}>
+                                <h4>Our community reviews:</h4>
+                                <h4>Average Rating: <RenderStars average={calculateAverageRating()} /></h4>
                             </div>
+                            
 
-                            <div>
-                                {renderReviews()}
-                            </div>
+                            
+                            {renderReviews()}
+                            
                         </section>
 
 

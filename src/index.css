@@ -916,7 +916,7 @@ footer {
 .img-details {
     /* height: 300px; */
     /* background-color: #0C68F4; */
-    width: 400px;
+    width: 460px;
     /* display: flex;
     justify-content: center; */
     background: linear-gradient(to bottom, #ffffff, #f0f0f0);
@@ -1110,7 +1110,7 @@ footer {
 }
 
 .sub-container {
-    width: 60%;
+    width: 100%;
     /* background-color: rebeccapurple; */
 }
 
@@ -1146,7 +1146,35 @@ footer {
     margin-top: 10px;
 }
 
+/* review */
+.set-reviews {
+    margin-top: 150px;
+    height: 100vh;
+}
 
+.card-reviews {
+    margin-top: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.card-body address {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body span {
+    color: gray;
+    font-size: 12px;
+}
+
+.card-text{
+    margin-top: 10px;
+}
 /* //////////// */
 
 /* CARTPAGE */

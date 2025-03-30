@@ -19,7 +19,7 @@ export default function RenderStars({ average }) {
                 <FontAwesomeIcon
                     key={i}
                     icon={faStar}
-                    style={{ color: "#FFD43B" }}
+                    style={{ color: "#0C68F4" }}
                 />
             );
         } else if (i === fullStars && halfStar) {
@@ -28,7 +28,7 @@ export default function RenderStars({ average }) {
                 <FontAwesomeIcon
                     key={i}
                     icon={faStarHalfAlt}
-                    style={{ color: "#FFD43B" }}
+                    style={{ color: "#0C68F4" }}
                 />
             );
         } else {

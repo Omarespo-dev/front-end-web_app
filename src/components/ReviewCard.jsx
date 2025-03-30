@@ -5,19 +5,18 @@ import RenderStars from '../components/RenderStars';
 
 const ReviewCard = (props) => {
 
-    const { name, vote, text } = props.reviewProp;
+    const { name, vote, text,data } = props.reviewProp;
 
     return (
 
-        <div className="card mb-4" style={{ minWidth: '200px', maxWidth: '250px' }}>
+        <div className="card-reviews" >
 
             <div className="card-body">
-
+                <address><i>{name} </i><strong>Vote: <RenderStars average={vote} /> </strong></address>
+                <span>{data.slice(0,10)}</span>
                 <p className="card-text">{text || "Text not found"}</p>
 
-                <strong>Vote: <RenderStars average={vote} /> </strong>
 
-                <address><i>By {name} </i></address>
             </div>
 
         </div>
