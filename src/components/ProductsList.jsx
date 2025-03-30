@@ -3,14 +3,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 
-export default function ProductsList({ category, searchQuery, query, sortBy }) {
+export default function ProductsList({ category, searchQuery, query, sortBy, products: externalProducts }) {
+
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
 
     // uso "query" per la ricerca globale e "searchQuery" per filtrare i prodotti
     const finalSearchQuery = query || searchQuery || "";
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(externalProducts || []);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortProduct, setSortProduct] = useState("recent");
 
@@ -127,16 +128,16 @@ export default function ProductsList({ category, searchQuery, query, sortBy }) {
 
                         {/* Input numerici */}
                         <div className="price-inputs">
-                           
+
                             <input
                                 type="number"
                                 min="0"
                                 max="2500"
                                 step="50"
                                 value={minPrice}
-                                onChange={(e) => setMinPrice(Number(e.target.value = 0 ? " ": Number(e.target.value)))}
-                                onClick={() =>setMinPrice("")}
-                        
+                                onChange={(e) => setMinPrice(Number(e.target.value = 0 ? " " : Number(e.target.value)))}
+                                onClick={() => setMinPrice("")}
+
                             />
                             <input
                                 type="number"
@@ -144,8 +145,8 @@ export default function ProductsList({ category, searchQuery, query, sortBy }) {
                                 max="2500"
                                 step="50"
                                 value={maxPrice}
-                                onChange={(e) => setMaxPrice(Number(e.target.value = 0 ? "": Number(e.target.value)))}
-                                onClick={() =>setMaxPrice("")}
+                                onChange={(e) => setMaxPrice(Number(e.target.value = 0 ? "" : Number(e.target.value)))}
+                                onClick={() => setMaxPrice("")}
                             />
                         </div>
                     </div>

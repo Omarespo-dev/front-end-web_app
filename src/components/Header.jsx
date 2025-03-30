@@ -31,10 +31,10 @@ export default function Header() {
                         <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
                     </Link>
 
+                    <Link to={"/wishlist"}>
+                        <FontAwesomeIcon icon={faHeart} style={{ color: "#000000", }} />
+                    </Link>
 
-                    <a href="#"><FontAwesomeIcon icon={faHeart} style={{ color: "#000000", }} /></a>
-
-                    
                 </section>
 
             </div>

@@ -1,5 +1,6 @@
 // ProductCard.jsx
-
+import { useContext } from "react";
+import { WishlistContext } from "../context/WishlistContext";
 
 import { Link } from "react-router-dom"
 import Heart from "./Heart";
@@ -9,8 +10,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = (props) => {
+    const { wishlist, toggleWishlist } = useContext(WishlistContext); // Usa il context
 
-    const { slug, name, brand, image_card, price, vote, discount } = props.productProp;
+    const { slug, name, brand, image_card, price, vote, discount, id } = props.productProp;
+
+    // Controlla se il prodotto è nella wishlist
+    const isInWishlist = wishlist.some(item => item.id === id);
 
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
@@ -50,7 +55,7 @@ const ProductCard = (props) => {
             {discount > 0 ?
                 <>
                     <div className="sconto-percentuale">
-                        <Heart />
+                        <Heart productId={id} />
                         <span>-{discount}%</span>
                     </div>
                     <Link to={`/product/${slug}`} className="set-link-product">
