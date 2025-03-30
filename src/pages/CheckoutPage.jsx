@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ColorComponent from "../components/ColorComponent";
 
 const initialUserData = {
     user_name: "",
@@ -82,45 +83,8 @@ const CheckoutPage = () => {
 
     return (
         <div className="checkout-page">
-            <h1>Checkout</h1>
-            <section>
-                <h2>Riepilogo Ordine</h2>
-                {cart.length > 0 ? (
-                    cart.map((product) => (
-                        <div key={product.id} className="cart-item">
-                            <div>
-                                {/* Eventuale immagine */}
-
-                                {/* Prezzo e prezzo scontato per singola unità */}
-                                <div className="price-details">
-                                    <p><strong>{product.name}</strong></p>
-                                    <p>Prezzo: € {product.price}</p>
-                                    {/* Se c'è uno sconto, mostra il prezzo scontato */}
-                                    {product.discount > 0 && (
-                                        <p><strong>Prezzo scontato: € {(product.price - product.price * (product.discount / 100)).toFixed(2)}</strong></p>
-                                    )}
-                                    {/* Quantità */}
-                                    <p>Quantità: {product.quantity}</p>
-                                </div>
-                                {/* Gestione prezzo totale per prodotto tenendo conto di sconto e quantità */}
-                                <div className="product-total">
-                                    <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
-                                </div>
-                                {/* Tasto per rimuovere dal carrello */}
-                                <button onClick={() => removeFromCart(product.id)}>Rimuovi</button>
-                            </div>
-                            <hr />
-                        </div>
-                    ))
-                ) : (
-                    <p>Il carrello è vuoto</p>
-                )}
-                <p>Spedizione: €{shippingCost.toFixed(2)}</p>
-                <h3>Totale: €{totalPrice}</h3>
-            </section>
-
+            
             <section className="checkout-form">
-                <h2>Inserisci i tuoi dati</h2>
                 <form onSubmit={handleSubmit}>
                     <label>Nome: <input name="user_name" type="text" value={userData.user_name} onChange={handleChange} required /></label>
                     <label>Cognome: <input name="user_surname" type="text" value={userData.user_surname} onChange={handleChange} required /></label>
@@ -136,6 +100,70 @@ const CheckoutPage = () => {
                     <Link className="btn" to="/cart">Torna al Carrello</Link>
                 </form>
             </section>
+
+            {/* <h1>Checkout</h1> */}
+            <section className="set-cart-checkout">
+                <div className="cart-items">
+                    {cart.length > 0 ? (
+                        cart.map((product) => (
+                            <div key={product.id} className="cart-item">
+                                <div className="cart">
+                                    <section className="image-card-cart">
+                                        <img src={product.image_card} alt={product.name} />
+                                    </section>
+                                    <div className="price-details">
+                                        <h3>{product.name}</h3>
+                                        <ColorComponent productColor={product.color} />
+
+                                        {product.discount > 0 ? (
+                                            <div className="div-discount">
+                                                <p><s>€ {product.price} </s> € {(product.price - product.price * (product.discount / 100)).toFixed(2)}</p>
+                                            </div>
+                                        ) : (
+                                            <div className="div-price">
+                                                <p>€ {product.price}</p>
+                                            </div>
+                                        )}
+
+                                        <p>Quantità: {product.quantity}</p>
+
+                                        <div className="product-total">
+                                            <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Il carrello è vuoto</p>
+                    )}
+                    {/* <p>Spedizione: €{shippingCost.toFixed(2)}</p>
+                    <h3>Totale: €{totalPrice}</h3> */}
+                </div>
+
+                {/* Dettagli di pagamento */}
+                {cart.length > 0 && (
+                    <div className="cart-summary">
+                        <h3>Payment Details</h3>
+                        <div className="cart-actions">
+                            <p>Subotale: <span>€ {totalCartPrice.toFixed(2)} </span></p>
+                            <p>Discount <span>N/A</span></p>
+                            <p>Shipment <span>{shippingCost > 0 ? `€${shippingCost.toFixed(2)}` : "Gratis"}</span></p>
+
+                            <section>
+                                <h4>Grand Total: <span>€{totalPrice}</span></h4>
+                            </section>
+
+                            <Link to="/checkout">
+                                <button className="checkout-btn">Buy</button>
+                            </Link>
+                        </div>
+                    </div>
+                )}
+            </section>
+
+
+            
         </div>
     );
 };

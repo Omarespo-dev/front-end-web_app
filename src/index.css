@@ -543,13 +543,6 @@ h2 {
 
 
 
-/* CHECKOUTPAGE */
-.checkout-page {
-    /* DEBUG */
-    margin-top: 200px;
-}
-
-
 /* FOOTER START */
 footer {
     background-color: #021736;
@@ -1457,4 +1450,22 @@ footer {
     border: none;
     transition: 0.3s;
     background-color: #0c69f4bb;
+}
+
+/* CHECKOUTPAGE */
+.set-cart-checkout {
+    display: flex;
+    justify-content: center;
+    /* width: 90%; */
+    flex-wrap: wrap;
+    margin-top: 120px;
+    flex-direction: column;
+  align-items: center;
+}
+.checkout-page {
+    margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 200px;
+  flex-direction: column;
 }
