@@ -65,7 +65,7 @@ export default function ProductDetailsPage() {
         const totalVotes = product.reviews.reduce((acc, review) => acc + parseInt(review.vote, 10), 0);
         return parseFloat((totalVotes / product.reviews.length).toFixed(1));
     };
-    
+
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
         // event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
@@ -160,9 +160,11 @@ export default function ProductDetailsPage() {
                                     <s className="sconto">€ {product.price}</s>
                                 </span>
 
-                                <button className='button-detail'>
-                                    Buy now
-                                </button>
+                                <Link to={"/checkout"} onClick={addToCart}>
+                                    <button className='button-detail'>
+                                        Buy now
+                                    </button>
+                                </Link>
 
                                 <button className='button-detail-2' onClick={addToCart}> Add to cart</button>
                                 <button className='button-detail-2'> Aggiungi alla Wishlist</button>
