@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import ProductCard from "../components/ProductCard";
+import { WishlistContext } from "../context/WishlistContext";
 
 export default function Wishlist() {
-    const [wishlist, setWishlist] = useState([]);
-
-    useEffect(() => {
-        // Recupera la wishlist salvata in localStorage
-        const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-        setWishlist(storedWishlist);
-    }, []);
+    const { wishlist } = useContext(WishlistContext);
 
     return (
         <div className="wishlist-page">
