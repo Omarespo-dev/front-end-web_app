@@ -118,7 +118,7 @@ h2 {
     width: 100%;
     /* height: 300px; */
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* gap: 5%; */
     margin-top: 30px;
 }
@@ -170,6 +170,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     transition: 0s 0.3s;
+    margin-top: 25px;
 }
 
 .hover-elements {
@@ -180,7 +181,7 @@ h2 {
     display: flex;
     justify-content: center;
     opacity: 0;
-    transition: 0.3s;
+
 }
 
 /* Al hover sulla card */
@@ -304,7 +305,6 @@ h2 {
 .container-button-view {
     height: 500px;
     width: 50%;
-    padding: 30px;
     /* background-color: red; */
     display: flex;
     flex-direction: column;
@@ -380,7 +380,7 @@ h2 {
 .set-mac-container {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 250px;
 }
 
 .set-mac-container a {
@@ -403,7 +403,7 @@ h2 {
 .set-bg-main-4 {
     width: 90%;
     display: flex;
-    height: 500px;
+    /* height: 500px; */
     /* background-color: #0C68F4; */
     background-image: url("/img/blu-orange-banner.png");
     background-repeat: no-repeat;
@@ -453,5 +453,226 @@ h2 {
     align-items: center;
 }
 
+.second div img{
+    width: 100%;
+    height: 100%;
+}
 
 /* MAIN FINISH HOMEPAGE*/
+
+
+
+/* PARTE RESPONSIVE E MEDIA QUERY */
+
+/* JUMBOTRON first version  MAIN 1*/
+@media screen and (max-width:1150px) and (min-width:500px) {
+    .set-text-jumbotron {
+        width: unset;
+    }
+
+
+    .container-jumbotron {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .container-jumbotron img {
+        width: 100%;
+    }
+}
+
+/* JUMBOTRON second version */
+@media screen and (max-width:499px) and (min-width:0px) {
+    .set-text-jumbotron {
+        width: unset;
+    }
+
+    .set-text-jumbotron h1 {
+        font-size: 25px;
+    }
+
+    .set-text-jumbotron h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .container-jumbotron {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .container-jumbotron img {
+        width: 100%;
+    }
+
+    .explore-more {
+        padding: 10px 40px;
+    }
+}
+
+
+
+/* NEW products  and sales first version MAIN 2*/
+
+
+/* CARD SET FIRST */
+@media screen and (max-width:1440px) and (min-width:1100px) {
+    .card-set {
+        margin-bottom: 20px;
+        margin-right: 20px;
+
+    }
+
+    .card-container {
+        justify-content: center;
+
+    }
+
+}
+
+/* CARD VERSO TABLET */
+@media screen and (max-width:1099px) and (min-width:700px) {
+    .card-set {
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
+    .card-container {
+        flex-wrap: wrap;
+    }
+
+    .card-container {
+        justify-content: center;
+
+    }
+
+}
+
+/* CARD VERSO MOBILE */
+@media screen and (max-width:699px) and (min-width:0px) {
+    .card-set {
+        margin-bottom: 20px;
+
+    }
+
+    .card-container {
+        flex-wrap: wrap;
+    }
+
+    .card-container {
+        justify-content: center;
+
+    }
+
+}
+
+
+
+
+/* JUMBOTRON MAIN 3*/
+@media screen and (max-width:1440px) and (min-width:980px) {
+    .celeste-bg {
+        margin-right: 15px;
+    }
+
+    .container-img {
+        width: 65%;
+    }
+
+    .set-mac-container {
+        /* width: 200px; */
+    }
+}
+
+
+/* JUMBOTRON versione media */
+@media screen and (max-width:979px) and (min-width:581px) {
+    .celeste-bg {
+        margin-right: 0;
+    }
+
+    .container-img {
+        width: 65%;
+    }
+
+    .set-bg {
+        flex-wrap: wrap;
+        height: unset;
+    }
+
+    .orange-bg {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .set-mac-container {
+        /* width: 200px; */
+    }
+}
+
+/* JUMBOTRON versione small */
+@media screen and (max-width:580px) and (min-width:0px) {
+    .celeste-bg {
+        margin-right: 0;
+        flex-wrap: wrap;
+    }
+
+    .container-img {
+        width: 95%;
+        height: 380px;
+        padding: 0;
+    }
+
+    .set-bg {
+        flex-wrap: wrap;
+        height: unset;
+    }
+
+    .orange-bg {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .container-button-view {
+        height: unset;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .container-button-view h3{
+        margin-top: 0;
+    }
+
+    .container-button-view a{
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+}
+
+
+/* JUMBOTRON MAIN 4*/
+@media screen and (max-width:979px) and (min-width:0px) {
+    .set-bg-main-4{
+        display: unset;
+    }
+    .first{
+        width: unset;
+        margin-top: 20px;
+    }
+
+    .first-set h1{
+        font-size: 20px;
+    }
+
+    .first-set p{
+        font-size: 15px;
+    }
+    .second{
+        width: unset;
+        margin-top: 30px;
+    }
+}

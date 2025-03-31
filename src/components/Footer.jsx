@@ -63,7 +63,7 @@ export default function Footer() {
 
           </ul>
           
-          <ul>
+          <ul id='ul-setted'>
             <li><h3>Social</h3></li>
             <li>
               <FontAwesomeIcon className='set-icon-footer' icon={faSquareFacebook} size="2xl"
