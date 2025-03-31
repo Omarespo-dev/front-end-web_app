@@ -14,9 +14,6 @@ const ProductCard = (props) => {
 
     const { slug, name, brand, image_card, price, vote, discount, id } = props.productProp;
 
-    // Controlla se il prodotto è nella wishlist
-    const isInWishlist = wishlist.some(item => item.id === id);
-
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
         event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
@@ -55,7 +52,7 @@ const ProductCard = (props) => {
             {discount > 0 ?
                 <>
                     <div className="sconto-percentuale">
-                        <Heart productId={id} />
+                        <Heart product={props.productProp} />
                         <span>-{discount}%</span>
                     </div>
                     <Link to={`/product/${slug}`} className="set-link-product">
@@ -77,7 +74,7 @@ const ProductCard = (props) => {
                 </>
                 :
                 <>
-                    <Heart />
+                    <Heart product={props.productProp} />
                     <Link to={`/product/${slug}`} className="set-link-product">
                         <div className='img-set-card'>
                             <img src={image_card} alt={name} />
