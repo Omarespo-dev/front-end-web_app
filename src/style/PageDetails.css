@@ -1,0 +1,285 @@
+/* PAGE DETTAGLIO */
+.container-details {
+    margin-top: 130px;
+    /* height: 300px; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.img-container-details {
+    /* height: 300px; */
+    /* background-color: rebeccapurple; */
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*  */
+.img-details {
+    /* height: 300px; */
+    /* background-color: #0C68F4; */
+    width: 460px;
+    /* display: flex;
+    justify-content: center; */
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    border-radius: 10px;
+}
+
+.img-details-1 {
+    /* height: 200px; */
+    /* background-color: white; */
+    border-radius: 10px;
+    width: 100%;
+
+}
+
+.img-details-1 img {
+    height: 100%;
+    width: 100%;
+}
+
+/*  */
+.img-details-2 {
+    /* height: 120px; */
+    /* background-color: red; */
+    /* width: 70%; */
+    display: flex;
+}
+
+.img-details-2 section {
+    /* height: 120px; */
+    /* width: 80px; */
+    background-color: whitesmoke;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+}
+
+.img-details-2 section img {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+.product-details {
+    /* height: 300px; */
+    /* background-color: aliceblue; */
+    /* width: 30%; */
+    padding: 10px;
+}
+
+.product-details p {
+    margin-top: 15px;
+    display: flex;
+}
+
+.product-details p img {
+    margin-right: 10px;
+}
+
+.product-details section {
+    margin-top: 30px;
+    /* width: 50%; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.ul-set li {
+    margin-top: 10px;
+}
+
+.ul-set li a {
+    text-decoration: none;
+    color: #0C68F4
+}
+
+.ul-set-none {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+.ul-set-none li {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+/* //////////// */
+.add-cart-details {
+    height: 240px;
+    /* background-color: #B4B4B4; */
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+
+}
+
+.add-cart-details a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+
+.add-cart-details span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+.set-div-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.set-sconto-2 {
+    display: flex;
+    align-items: center;
+    color: #F45E0C;
+    font-size: 14px;
+}
+
+.button-detail {
+    padding: 10px 20px;
+    background-color: #0C68F4;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    /* margin-top: 20px; */
+    transition: 0.3s;
+}
+
+.button-detail:hover {
+    background-color: white;
+    color: #0C68F4;
+
+}
+
+.button-detail-2 {
+    padding: 10px 20px;
+    color: #0C68F4;
+    border: 2px solid#0C68F4;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 10px;
+
+
+}
+
+.button-detail-2:hover {
+    background-color: #0C68F4;
+    color: white;
+
+}
+
+
+/* //////////// */
+.container-technical-details {
+    /* height: 400px; */
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.technical-details {
+    width: 80%;
+    /* background-color: aqua; */
+}
+
+.sub-container {
+    width: 100%;
+    /* background-color: rebeccapurple; */
+}
+
+.sub-container h4 {
+    margin-top: 10px;
+}
+
+.linkaggio-technical {
+    border-bottom: solid 1px #B4B4B4;
+}
+
+.linkaggio-technical a {
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/*  */
+.set-p-detail {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.set-p-detail-2 {
+    background-color: whitesmoke;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+
+
+/* review */
+.set-reviews {
+    margin-top: 150px;
+    height: 100vh;
+}
+
+.card-reviews {
+    margin-top: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.card-body address {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body span {
+    color: gray;
+    font-size: 12px;
+}
+
+.card-text {
+    margin-top: 10px;
+}
+
+/* //////////// */

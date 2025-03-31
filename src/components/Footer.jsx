@@ -6,6 +6,7 @@ import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 
 import { Link } from 'react-router-dom'
 
+import "../style/Footer.css"
 export default function Footer() {
   return (
     <footer>

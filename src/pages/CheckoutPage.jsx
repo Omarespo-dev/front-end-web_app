@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ColorComponent from "../components/ColorComponent";
 
+import "../style/CheckoutPage.css"
+
+
 const initialUserData = {
     user_name: "",
     user_surname: "",

@@ -1,4 +1,5 @@
 
+import "../style/PageContactUs.css"
 
 export default function ContactUs() {
     return (

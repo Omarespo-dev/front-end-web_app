@@ -1,0 +1,40 @@
+
+/* PAGE ABOUT US */
+
+.container-about {
+    /* height: 600px; */
+    /* background-color: #0C68F4; */
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    background-color: whitesmoke;
+    flex-wrap: wrap;
+
+}
+
+.jumbotron-about {
+    width: 70%;
+
+    /* height: 350px; */
+    margin-top: 100px;
+}
+
+.jumbotron-about img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.jumbotron-text {
+    width: 70%;
+    /* height: 350px; */
+    margin-top: 100px;
+}
+
+.jumbotron-text h4 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+/* //////////////////////////////////// */

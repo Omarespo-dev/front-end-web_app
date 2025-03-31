@@ -8,6 +8,8 @@ import { Link, NavLink } from 'react-router-dom';
 
 import SearchBar from "../components/SearchBar";
 
+import "../style/Header.css"
+
 export default function Header() {
     return (
         <header>

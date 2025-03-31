@@ -19,6 +19,7 @@ import ColorComponent from '../components/ColorComponent';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
 
+import "../style/PageDetails.css"
 export default function ProductDetailsPage() {
 
     // recupero lo slug del prodotto

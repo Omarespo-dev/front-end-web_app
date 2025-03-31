@@ -12,6 +12,7 @@ import SalesHomepage from '../components/SalesHomepage';
 // importo lista nuovi prodotti
 import NewProductsList from '../components/NewProductsList';
 
+import "../style/MainHomepage.css"
 
 export default function HomePage() {
 

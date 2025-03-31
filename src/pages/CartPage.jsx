@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import ColorComponent from '../components/ColorComponent';
 
+import "../style/CartPage.css"
 const CartPage = () => {
     const [cart, setCart] = useState([]);
 

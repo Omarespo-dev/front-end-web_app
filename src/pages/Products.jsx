@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 // importo il componente listato del prodotto
 import ProductsList from '../components/ProductsList';
 
+import "../style/ProductsPage.css"
 export default function Products() {
 
   // per la ricerca tramite searchbar
