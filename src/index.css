@@ -28,3 +28,21 @@ body {
     /* DEBUG */
     margin-top: 150px;
 }
+
+/* container card */
+/* .card-container-product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin-top: 30px;
+    margin-left: 20px;
+} */
+
+/* media query */
+
+/* @media screen and (max-width:639px) and (min-width:200px){
+
+    .card-container-product {
+        margin-left: 0;
+    }
+} */

@@ -132,7 +132,7 @@ const CheckoutPage = () => {
 
             <h2 style={{ textAlign: "center", margin: "0", marginTop: "50px" }}>Riepilogo ordine</h2>
             <section className="set-cart-checkout">
-                <div className="cart-items">
+                <div className="cart-items-check">
                     {cart.length > 0 ? (
                         cart.map((product) => (
                             <div key={product.id} className="cart-item">
