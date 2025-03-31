@@ -1478,25 +1478,25 @@ footer {
     justify-content: center;
 }
 
-.checkout-form form{
+.checkout-form form {
     width: 70%;
 }
 
-.checkout-form form label{
+.checkout-form form label {
     display: flex;
     margin-bottom: 20px;
 }
 
-.checkout-form form label input{
+.checkout-form form label input {
     width: 100%;
     margin:
-    10px 0;
-      border-radius:
-    5px;
-      border:
-    1px solid #ccc;
-      padding:
-    12px;
+        10px 0;
+    border-radius:
+        5px;
+    border:
+        1px solid #ccc;
+    padding:
+        12px;
 }
 
 .cart-summary-checkout {
@@ -1508,7 +1508,8 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-.checkout-btn-turn-cart{
+
+.checkout-btn-turn-cart {
     padding: 10px 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     color: gray;
@@ -1518,4 +1519,10 @@ footer {
     margin-top: 20px;
     transition: 0.3s;
     text-decoration: none;
+}
+
+/* INIZIO WISHLIST */
+.wishlist-page {
+    /* DEBUG */
+    margin-top: 150px;
 }

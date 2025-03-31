@@ -20,7 +20,9 @@ export default function Wishlist() {
                     </div>
                 </div>
             ) : (
-                <p>La tua wishlist è vuota.</p>
+                <main style={{ height: "100vh" }}>
+                    <h2>La tua wishlist è vuota</h2>
+                </main>
             )}
         </div>
     );
