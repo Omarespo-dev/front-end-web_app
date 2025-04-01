@@ -10,9 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = (props) => {
+    
     const { wishlist, toggleWishlist } = useContext(WishlistContext); // Usa il context
 
-    const { slug, name, brand, image_card, price, vote, discount, id } = props.productProp;
+    const { slug, name, brand, image_card, price, discount, id } = props.productProp;
 
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
@@ -68,7 +69,7 @@ const ProductCard = (props) => {
                         <s className="sconto">€ {price}</s>
                         <div className="set-sconto">
                             <p>€ {(price - price * (discount / 100)).toFixed(2)}</p>
-                            <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p>
+                            {/* <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> </p> */}
                         </div>
                     </div>
                 </>
@@ -86,7 +87,7 @@ const ProductCard = (props) => {
 
                     <div className='add-cart'>
                         <p>€ {price}</p>
-                        <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {vote}</p>
+                        {/* <p><FontAwesomeIcon icon={faStar} style={{ color: "#004080", }} /> {vote}</p> */}
                     </div>
                 </>
             }
