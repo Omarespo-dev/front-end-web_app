@@ -25,7 +25,7 @@ export default function Footer() {
 
           <section>
             <img src="../../img/shipping.png" alt="" />
-            <span>Free Shipping over 1000$</span>
+            <span>Free Shipping over 1000€</span>
           </section>
 
           <section>
@@ -38,8 +38,8 @@ export default function Footer() {
         <div className='second-container'>
           <ul >
             <li><h3>Company</h3></li>
-            <Link to={"/aboutus"} style={{textDecoration:"none"}} onClick={() => window.scrollTo(0, 0)}><li>About Us</li></Link>
-            <Link to={"/contactus"} style={{textDecoration:"none"}} onClick={() => window.scrollTo(0, 0)}><li>Contact Us</li></Link>
+            <Link to={"/aboutus"} style={{ textDecoration: "none" }} onClick={() => window.scrollTo(0, 0)}><li>About Us</li></Link>
+            <Link to={"/contactus"} style={{ textDecoration: "none" }} onClick={() => window.scrollTo(0, 0)}><li>Contact Us</li></Link>
             <FontAwesomeIcon icon={faCcPaypal} size="xl" style={{ color: "#ffffff", marginTop: "90px" }} className='set-icon-footer' />
             <FontAwesomeIcon icon={faCcMastercard} size="xl" style={{ color: "#ffffff", }} className='set-icon-footer' />
             <FontAwesomeIcon icon={faCcVisa} size="xl" style={{ color: "#ffffff", }} />
@@ -62,7 +62,7 @@ export default function Footer() {
             </li>
 
           </ul>
-          
+
           <ul id='ul-setted'>
             <li><h3>Social</h3></li>
             <li>
@@ -81,7 +81,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          
+
         </div>
 
         <div className='third-container'>
@@ -90,7 +90,7 @@ export default function Footer() {
             style={{ color: "#ffffff" }}
           />
           <span>2025 Tech Zone.</span>
-          
+
           <div>
             <span>Cookie Settings</span>
             <span>Privacy Policy</span>

@@ -160,7 +160,7 @@ const CartPage = () => {
                                         <div className="quantity-control">
                                             {/* Gestione prezzo totale per prodotto */}
                                             <div className="product-total">
-                                                <p><strong>Subtotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
+                                                <p><strong>Subtotal: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
                                             </div>
 
 

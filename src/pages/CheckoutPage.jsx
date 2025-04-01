@@ -88,7 +88,7 @@ const CheckoutPage = () => {
 
     return (
         <div className="checkout-page">
-            <h2 style={{ textAlign: "center", marginRight:"40px" }}>Enter your billing information</h2>
+            <h2 style={{ textAlign: "center", marginRight: "40px" }}>Enter your billing information</h2>
             <section className="checkout-form">
 
                 <form>
@@ -106,7 +106,7 @@ const CheckoutPage = () => {
 
 
                     <label>
-                        Adress:
+                        Address:
                         <input name="address" type="text" value={userData.address} onChange={handleChange} required />
                     </label>
 
@@ -194,9 +194,9 @@ const CheckoutPage = () => {
                             Discount Code (optional):
                             <label >
                                 <input className="checkout-btn" style={{ backgroundColor: "white" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
-                                
+
                             </label>
-                            <button  className="checkout-btn">Apply</button>
+                            <button className="checkout-btn">Apply</button>
 
                             <button onClick={handleSubmit} className="checkout-btn">Buy</button>
 

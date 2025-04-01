@@ -7,7 +7,7 @@ export default function Wishlist() {
 
     return (
         <div className="wishlist-page">
-            <h2>La tua Wishlist</h2>
+            <h2>Your Wishlist</h2>
 
             {wishlist.length > 0 ? (
                 <div className="container-main-2">
@@ -21,7 +21,7 @@ export default function Wishlist() {
                 </div>
             ) : (
                 <main style={{ height: "100vh" }}>
-                    <h2>La tua wishlist è vuota</h2>
+                    <h2>Your wishlist is empty</h2>
                 </main>
             )}
         </div>
