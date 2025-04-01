@@ -3,16 +3,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 
-export default function ProductsList({ category, searchQuery, query, sortBy, products: externalProducts }) {
+export default function ProductsList({ category, searchQuery, query, products: externalProducts }) {
 
     const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
+
 
     // uso "query" per la ricerca globale e "searchQuery" per filtrare i prodotti
     const finalSearchQuery = query || searchQuery || "";
 
     const [products, setProducts] = useState(externalProducts || []);
-    const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortProduct, setSortProduct] = useState("recent");
 
     // stati per i filtri
@@ -21,57 +20,67 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
     const [brand, setBrand] = useState("");
     const [name, setName] = useState("");
 
+    // stato per gestire il timeout del debounce
+    const [debouncedFilters, setDebouncedFilters] = useState({
+        minPrice,
+        maxPrice,
+        brand,
+        name
+    });
+
+    // effetto per aggiornare i filtri dopo un ritardo (debounce)
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setDebouncedFilters({ minPrice, maxPrice, brand, name });
+        }, 500);
+
+        // pulisco il timeout se il valore cambia prima della scadenza
+        return () => clearTimeout(timeoutId);
+    }, [minPrice, maxPrice, brand, name]);
+
     useEffect(() => {
         const fetchProducts = async () => {
-            let url = "http://localhost:3000/api/ecommerce";
+            let url = "http://localhost:3000/api/ecommerce/products";
+            let queryParams = [];
 
-            if (finalSearchQuery) {
-                url += `/search?query=${finalSearchQuery}`;
-            } else if (category) {
-                url += `/${category}`;
+            // Aggiungi sempre la query di ricerca come filtro
+            if (finalSearchQuery) queryParams.push(`query=${finalSearchQuery}`);
+            if (category) queryParams.push(`category=${category}`);
+            if (brand) queryParams.push(`brand=${brand}`);
+            if (name) queryParams.push(`name=${name}`);
+            if (minPrice > 0) queryParams.push(`minPrice=${minPrice}`);
+            if (maxPrice < 2500) queryParams.push(`maxPrice=${maxPrice}`);
+            if (sortProduct !== "recent") queryParams.push(`sortBy=${sortProduct}`);
+
+            // Aggiungi i parametri all'URL
+            if (queryParams.length > 0) {
+                url += "?" + queryParams.join("&");
             }
-
-            url += url.includes("?") ? `&sortBy=${sortBy}` : `?sortBy=${sortBy}`;
 
             console.log("Fetching URL:", url);
             try {
                 const res = await axios.get(url);
                 console.log("Prodotti ricevuti:", res.data);
                 setProducts(res.data);
-                setFilteredProducts(res.data); // Inizializzo i prodotti filtrati
             } catch (err) {
                 console.error("Errore nel fetch:", err);
             }
         };
 
         fetchProducts();
-    }, [category, finalSearchQuery, sortBy]);
+    }, [category, finalSearchQuery, debouncedFilters, sortProduct]);
 
-    // funzione per filtrare e ordinare i prodotti localmente
-    useEffect(() => {
-        let filtered = [...products];
 
-        // filtraggio dei prodotti in base ai filtri
-        filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
+    // ordinamento in base a sortBy
+    const sortedProducts = [...products];
 
-        if (brand) {
-            filtered = filtered.filter(p => p.brand.toLowerCase().includes(brand.toLowerCase()));
-        }
-        if (name) {
-            filtered = filtered.filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
-        }
-
-        // ordinamento in base a sortBy
-        if (sortProduct === "price_asc") {
-            filtered.sort((a, b) => a.price - b.price);
-        } else if (sortProduct === "price_desc") {
-            filtered.sort((a, b) => b.price - a.price);
-        } else if (sortProduct === "name") {
-            filtered.sort((a, b) => a.name.localeCompare(b.name));
-        }
-
-        setFilteredProducts(filtered);
-    }, [minPrice, maxPrice, brand, name, sortProduct, products]); // eseguo l'aggiornamento quando cambiano i filtri
+    if (sortProduct === "price_asc") {
+        sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortProduct === "price_desc") {
+        sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortProduct === "name") {
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+    }
 
     return (
         <>
@@ -162,8 +171,8 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
             <div className='container-main-2'>
                 {/* Lista dei prodotti */}
                 <div className='container-card-newproducts'>
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map(product => (
+                    {sortedProducts.length > 0 ? (
+                        sortedProducts.map(product => (
                             <div className='card-container-product' key={product.slug}>
                                 <ProductCard productProp={product} />
                             </div>

@@ -27,17 +27,10 @@ export default function SearchBar() {
         <form onSubmit={handleSearch} className="searchbar-form">
             <input
                 type="text"
-                placeholder="Cerca..."
+                placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                <option value="recent">Più Recenti</option>
-                <option value="price_asc">Prezzo: dal più basso</option>
-                <option value="price_desc">Prezzo: dal più alto</option>
-                <option value="name">Nome (A-Z)</option>
-            </select>
 
             <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#ffffff" }} /></button>
         </form>
