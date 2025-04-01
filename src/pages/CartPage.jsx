@@ -7,6 +7,8 @@ import "../style/CartPage.css"
 const CartPage = () => {
     const [cart, setCart] = useState([]);
 
+    
+
     // Funzione per caricare i dati dal localStorage
     useEffect(() => {
         // Recupera il carrello dal localStorage
@@ -149,16 +151,14 @@ const CartPage = () => {
                     <div className="cart-summary">
                         <h3>Payment Details</h3>
                         <div className="cart-actions">
-                            <p>Subtotal <span>€{calculateTotal()}</span></p>
-                            <p>Discount <span>N/A</span></p>
-                            <p>Shipment <span>N/A</span></p>
+                            
 
                             <section>
-                                <h4>Grand Total: <span>N/A</span></h4>
+                                <h4>Grand Total: <span>€{calculateTotal()}</span></h4>
                             </section>
 
                             <Link to="/checkout">
-                                <button className="checkout-btn">Procedi al checkout</button>
+                                <button className="checkout-btn">Checkout</button>
                             </Link>
                         </div>
                     </div>
