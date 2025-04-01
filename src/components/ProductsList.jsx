@@ -111,9 +111,9 @@ export default function ProductsList({ category, searchQuery, query, products: e
                         </select>
                     </div>
 
-
+                    <label>Price: {minPrice}€ - {maxPrice}€</label>
                     <div className="price-filter">
-                        <label>Price: {minPrice}€ - {maxPrice}€</label>
+                        
 
                         {/* Slider per il prezzo minimo */}
                         <input

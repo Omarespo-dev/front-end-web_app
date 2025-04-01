@@ -149,12 +149,10 @@ const CartPage = () => {
                     <div className="cart-summary">
                         <h3>Payment Details</h3>
                         <div className="cart-actions">
-                            <p>Subtotal <span>€{calculateTotal()}</span></p>
-                            <p>Discount <span>N/A</span></p>
-                            <p>Shipment <span>N/A</span></p>
+                            
 
                             <section>
-                                <h4>Grand Total: <span>N/A</span></h4>
+                                <h4>Grand Total: <span>€{calculateTotal()}</span></h4>
                             </section>
 
                             <Link to="/checkout">
