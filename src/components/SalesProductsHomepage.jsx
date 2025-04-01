@@ -14,7 +14,7 @@ export default function SalesProducts() {
 
     // facciamo una function per fare la richiesta API di tipo get(index)
     function fetchSalesProducts() {
-        const endPoint = "http://localhost:3000/api/ecommerce/sales";
+        const endPoint = "http://localhost:3000/api/ecommerce/products/sales";
 
         axios.get(endPoint)
             .then(res => {
