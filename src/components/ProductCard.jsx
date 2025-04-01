@@ -10,14 +10,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = (props) => {
-    
+
     const { wishlist, toggleWishlist } = useContext(WishlistContext); // Usa il context
 
-    const { slug, name, brand, image_card, price, discount, id } = props.productProp;
+    const { slug, name, brand, image_card, price, discount, id, stock } = props.productProp;
 
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
         event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
+
+        if (stock === 0) {
+            console.log("Questo prodotto è esaurito e non può essere aggiunto al carrello.");
+            return;
+        }
 
         // Recupera il carrello dal localStorage (se esiste)
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -95,8 +100,12 @@ const ProductCard = (props) => {
 
             {/* Aggiungi al carrello - questo non fa navigare alla pagina di dettaglio */}
             <div className='hover-elements'>
-                <button className='add-to-cart-btn' onClick={addToCart}>
-                    <img src="../../img/shopping-cart.png" alt="" />Add to Cart
+                <button
+                    className={`add-to-cart-btn ${stock === 0 ? 'disabled' : ''}`}
+                    onClick={addToCart}
+                    disabled={stock === 0}
+                >
+                    <img src="../../img/shopping-cart.png" alt="" />{stock === 0 ? "Out of Stock" : "Add to Cart"}
                 </button>
             </div>
         </section>
