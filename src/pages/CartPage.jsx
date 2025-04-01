@@ -157,7 +157,7 @@ const CartPage = () => {
                                 <h4>Grand Total: <span>€{calculateTotal()}</span></h4>
                             </section>
 
-                            <Link to="/checkout">
+                            <Link to="/checkout" onClick={() => window.scrollTo(0, 0)}>
                                 <button className="checkout-btn">Checkout</button>
                             </Link>
                         </div>

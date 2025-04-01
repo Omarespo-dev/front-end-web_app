@@ -1,7 +1,46 @@
 
 import "../style/PageContactUs.css"
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactUs() {
+
+    const form = useRef();
+
+    emailjs.init("W5xfXyHQ6VJoj-d_4");
+
+    const sendEmail = (e) => {
+        e.preventDefault(); // Evita il refresh della pagina
+
+        // Prima inviamo l'email a te (admin)
+        emailjs.sendForm(
+            "service_x7ucbia",     // <-- Inserisci il tuo Service ID
+            "template_30jspeg",    // <-- Inserisci il tuo Template ID
+            form.current,
+            "W5xfXyHQ6VJoj-d_4"      // <-- Inserisci la tua Public Key
+        )
+            .then(
+                (result) => {
+                    console.log("Email inviata con successo:", result.text);
+                    alert("Email inviata!");
+                    
+                    // Resetta il modulo
+                    form.current.reset();
+
+                    // Ora inviamo l'email di conferma all'utente
+                    emailjs.sendForm(
+                        "service_x7ucbia",     // Inserisci lo stesso Service ID
+                        "template_kpt7rbk",    // Template ID per l'utente
+                        form.current,
+                        "W5xfXyHQ6VJoj-d_4"      // Inserisci la tua Public Key
+                    )
+                },
+                (error) => {
+                    console.error("Errore nell'invio dell'email:", error.text);
+                }
+            );
+    };
+
     return (
         <>
             <div className='contactus-container'>
@@ -34,11 +73,12 @@ export default function ContactUs() {
                     </div>
 
                     <div className='form-email'>
-                        <form>
-                            <input type="text" placeholder='*Your Name' />
-                            <input type="email" id="email" pattern=".+@example\.com" size="30" required placeholder='*Email' />
+                        <form onSubmit={sendEmail} ref={form}>
+                            <input type="text" placeholder='*Your Name' name="user_name" />
 
-                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <input type="email" id="email" name="user_email" size="30" required placeholder='*Email' />
+
+                            <textarea style={{ fontFamily: "Inter" }} id="message" name="message" rows="4" required></textarea>
 
                             <button type="submit">Submit</button>
                         </form>

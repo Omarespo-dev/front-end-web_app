@@ -178,7 +178,7 @@ export default function ProductDetailsPage() {
                                     <s className="sconto">€ {product.price}</s>
                                 </span>
 
-                                <Link to={"/checkout"} onClick={addToCart}>
+                                <Link to={"/checkout"} onClick={() => { window.scrollTo(0, 0); addToCart(); }} >
                                     <button className='button-detail'>
                                         Buy now
                                     </button>
@@ -194,7 +194,7 @@ export default function ProductDetailsPage() {
                                     <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</h3>
 
                                 </div>
-                                <Link to={"/checkout"} onClick={addToCart}>
+                                <Link to={"/checkout"} onClick={() => { window.scrollTo(0, 0); addToCart(); }}>
                                     <button className='button-detail'>
                                         Buy now
                                     </button>

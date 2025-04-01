@@ -56,7 +56,7 @@ const ProductCard = (props) => {
                         <Heart product={props.productProp} />
                         <span>-{discount}%</span>
                     </div>
-                    <Link to={`/product/${slug}`} className="set-link-product">
+                    <Link to={`/product/${slug}`} className="set-link-product" onClick={() => window.scrollTo(0, 0)}>
                         <div className='img-set-card'>
                             <img src={image_card} alt="" />
                         </div>
@@ -76,7 +76,7 @@ const ProductCard = (props) => {
                 :
                 <>
                     <Heart product={props.productProp} />
-                    <Link to={`/product/${slug}`} className="set-link-product">
+                    <Link to={`/product/${slug}`} className="set-link-product" onClick={() => window.scrollTo(0, 0)}>
                         <div className='img-set-card'>
                             <img src={image_card} alt={name} />
                         </div>

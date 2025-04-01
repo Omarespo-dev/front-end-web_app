@@ -14,7 +14,7 @@ export default function SalesHomepage() {
                 <div className='container-card-newproducts'>
                     <div className='new-product'>
                         <h2>Sales</h2>
-                        <Link to={"/products/sales"}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
+                        <Link to={"/products/sales"} onClick={() => window.scrollTo(0, 0)}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
                     </div>
 
                     <SalesProducts />

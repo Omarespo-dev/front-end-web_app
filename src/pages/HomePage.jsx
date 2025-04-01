@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className='set-text-jumbotron'>
             <h1>Tech Zone</h1>
             <h2>"Join the <span>digital revolution" </span></h2>
-            <Link to={"/products"}> <button className='explore-more'>Explore More</button> </Link>
+            <Link to={"/products"} onClick={() => window.scrollTo(0, 0)}> <button className='explore-more'>Explore More</button> </Link>
           </div>
 
 
@@ -40,7 +40,7 @@ export default function HomePage() {
         <div className='container-card-newproducts'>
           <div className='new-product'>
             <h2>New products</h2>
-            <Link to={"/products"}>View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
+            <Link to={"/products" } onClick={() => window.scrollTo(0, 0)} >View all <FontAwesomeIcon icon={faGreaterThan} /></Link>
           </div>
 
 
@@ -66,7 +66,7 @@ export default function HomePage() {
             <section className='container-button-view'>
               <h3>It feels good to be the first</h3>
               <p>Get ready for the next generation of smartphones. Discover innovation like never before. Stay tuned for the big iPhone 14 Pro reveal!</p>
-              <Link to={"/product/iphone-14-pro"}>
+              <Link to={"/product/iphone-14-pro"} onClick={() => window.scrollTo(0, 0)}>
                 <button className='view-more'>View More</button>
               </Link>
             </section>
@@ -80,7 +80,7 @@ export default function HomePage() {
                 <h2>MacBook <span>Pro</span></h2>
                 <img src="../../img/mac.png" alt="" />
                 
-                <Link to={"/product/macbook-pro-14-m1-pro"}>
+                <Link to={"/product/macbook-pro-14-m1-pro"} onClick={() => window.scrollTo(0, 0)}>
                   <button className='buy-now'>View More</button>
                 </Link>
 
@@ -102,7 +102,7 @@ export default function HomePage() {
             <div className='first-set'>
               <h1>SMART WATCH</h1>
               <p>Various designs and brands</p>
-              <Link to={"/products/smartwatch"}> <button className='view-more-2'>View More</button> </Link>
+              <Link to={"/products/smartwatch"} onClick={() => window.scrollTo(0, 0)}> <button className='view-more-2'>View More</button> </Link>
             </div>
           </div>
 

@@ -14,14 +14,14 @@ export default function Header() {
     return (
         <header>
             <div className='container_header'>
-                <Link to={"/"} className="img-link-set"><img src="../../img/logo_orange.png" alt="" /></Link>
+                <Link to={"/"} onClick={() => window.scrollTo(0, 0)} className="img-link-set"><img src="../../img/logo_orange.png" alt="" /></Link>
 
                 <div className='link-header'>
 
-                    <NavLink to={"/"} className="nav-link">Home</NavLink>
-                    <NavLink to={"/products"} className="nav-link">Products</NavLink>
-                    <NavLink to={"/aboutus"} className="nav-link">About Us</NavLink>
-                    <NavLink to={"/contactus"} className="nav-link">Contact Us</NavLink>
+                    <NavLink to={"/"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>Home</NavLink>
+                    <NavLink to={"/products"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>Products</NavLink>
+                    <NavLink to={"/aboutus"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>About Us</NavLink>
+                    <NavLink to={"/contactus"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>Contact Us</NavLink>
 
                 </div>
 
@@ -29,11 +29,11 @@ export default function Header() {
 
                     <SearchBar />
 
-                    <Link to={"/cart"}>
+                    <Link to={"/cart"} onClick={() => window.scrollTo(0, 0)}>
                         <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
                     </Link>
 
-                    <Link to={"/wishlist"}>
+                    <Link to={"/wishlist"} onClick={() => window.scrollTo(0, 0)}>
                         <FontAwesomeIcon icon={faHeart} style={{ color: "#000000", }} />
                     </Link>
 

@@ -30,14 +30,14 @@ export default function Products() {
 
       <div className='contain'>
 
-        <NavLink to={"/products"} className="nav-link" end>
+        <NavLink to={"/products"}  onClick={() => window.scrollTo(0, 0)} className="nav-link" end>
           <section>
             <img src="../../img/driver.png" alt="" />
             <p>All</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/sales"} className="nav-link">
+        <NavLink to={"/products/sales"}  onClick={() => window.scrollTo(0, 0)} className="nav-link">
           <section>
             <img src="../../img/ticket-discount.png" alt="" />
             <p>Sales</p>
@@ -45,28 +45,28 @@ export default function Products() {
         </NavLink>
 
 
-        <NavLink to={"/products/smartphone"} className="nav-link">
+        <NavLink to={"/products/smartphone"} onClick={() => window.scrollTo(0, 0)} className="nav-link">
           <section>
             <img src="../../img/mobile.png" alt="" />
             <p>Smartphone</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/pc"} className="nav-link">
+        <NavLink to={"/products/pc"}  onClick={() => window.scrollTo(0, 0)} className="nav-link">
           <section>
             <img src="../../img/monitor.png" alt="" />
             <p>Pc</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/smartwatch"} className="nav-link">
+        <NavLink to={"/products/smartwatch"} onClick={() => window.scrollTo(0, 0)} className="nav-link">
           <section>
             <img src="../../img/watch-status.png" alt="" />
             <p>Smartwatch</p>
           </section>
         </NavLink>
 
-        <NavLink to={"/products/tablet"} className="nav-link">
+        <NavLink to={"/products/tablet"}  onClick={() => window.scrollTo(0, 0)} className="nav-link">
           <section>
             <img src="../../img/tablet.png" alt="" />
             <p>Tablet</p>

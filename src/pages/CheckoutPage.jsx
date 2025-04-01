@@ -203,7 +203,7 @@ const CheckoutPage = () => {
                         </div>
                     </div>
                 )}
-                <Link to="/cart" className="checkout-btn-turn-cart">Return to Cart</Link>
+                <Link to="/cart" className="checkout-btn-turn-cart" onClick={() => window.scrollTo(0, 0)}>Return to Cart</Link>
             </section>
 
 

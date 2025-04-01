@@ -38,8 +38,8 @@ export default function Footer() {
         <div className='second-container'>
           <ul >
             <li><h3>Company</h3></li>
-            <Link to={"/aboutus"} style={{textDecoration:"none"}}><li>About Us</li></Link>
-            <Link to={"/contactus"} style={{textDecoration:"none"}}><li>Contact Us</li></Link>
+            <Link to={"/aboutus"} style={{textDecoration:"none"}} onClick={() => window.scrollTo(0, 0)}><li>About Us</li></Link>
+            <Link to={"/contactus"} style={{textDecoration:"none"}} onClick={() => window.scrollTo(0, 0)}><li>Contact Us</li></Link>
             <FontAwesomeIcon icon={faCcPaypal} size="xl" style={{ color: "#ffffff", marginTop: "90px" }} className='set-icon-footer' />
             <FontAwesomeIcon icon={faCcMastercard} size="xl" style={{ color: "#ffffff", }} className='set-icon-footer' />
             <FontAwesomeIcon icon={faCcVisa} size="xl" style={{ color: "#ffffff", }} />
