@@ -184,7 +184,14 @@ export default function ProductDetailsPage() {
                                     </button>
                                 </Link>
 
-                                <button className='button-detail-2' onClick={addToCart}> Add to cart</button>
+                                <button
+                                    className='button-detail-2'
+                                    onClick={addToCart}
+                                    disabled={product.stock === 0}
+                                >
+                                    {product.stock === 0 ? "Out of Stock" : "Add to cart"}
+                                </button>
+
                                 <button className='button-detail-2'> Aggiungi alla Wishlist</button>
 
                             </>
