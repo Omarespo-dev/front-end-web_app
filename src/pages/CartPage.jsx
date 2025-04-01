@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 
 import ColorComponent from '../components/ColorComponent';
 
@@ -9,6 +10,8 @@ const CartPage = () => {
     const [cart, setCart] = useState([]);
     const [stockOutItems, setStockOutItems] = useState([]);  // stato per tracciare gli articoli esauriti
     const [alertShown, setAlertShown] = useState(false);  // stato per tenere traccia se l'alert è stato mostrato
+
+    const navigate = useNavigate();
 
     // Funzione per caricare i dati dal localStorage e aggiornare lo stock
     useEffect(() => {
@@ -120,8 +123,10 @@ const CartPage = () => {
 
     // Funzione per spostare i dati del carrello alla pagina di checkout
     const handleCheckout = () => {
+        console.log("Navigating to checkout...");
         navigate('/checkout', { state: { cart } });
     };
+
 
 
 
