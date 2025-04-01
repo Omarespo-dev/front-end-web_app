@@ -25,19 +25,16 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
             let url = "http://localhost:3000/api/ecommerce/products";
             let queryParams = [];
 
-            // se c'è la ricerca tramite search bar
-            if (finalSearchQuery) {
-                url = `http://localhost:3000/api/ecommerce/search?query=${finalSearchQuery}`;
-                // altrimenti 
-            } else {
-                if (category) queryParams.push(`category=${category}`);
-                if (brand) queryParams.push(`brand=${brand}`);
-                if (name) queryParams.push(`name=${name}`);
-                if (minPrice) queryParams.push(`minPrice=${minPrice}`);
-                if (maxPrice) queryParams.push(`maxPrice=${maxPrice}`);
-                if (sortProduct !== "recent") queryParams.push(`sortBy=${sortProduct}`);
-            }
+            // Aggiungi sempre la query di ricerca come filtro
+            if (finalSearchQuery) queryParams.push(`query=${finalSearchQuery}`);
+            if (category) queryParams.push(`category=${category}`);
+            if (brand) queryParams.push(`brand=${brand}`);
+            if (name) queryParams.push(`name=${name}`);
+            if (minPrice > 0) queryParams.push(`minPrice=${minPrice}`);
+            if (maxPrice < 2500) queryParams.push(`maxPrice=${maxPrice}`);
+            if (sortProduct !== "recent") queryParams.push(`sortBy=${sortProduct}`);
 
+            // Aggiungi i parametri all'URL
             if (queryParams.length > 0) {
                 url += "?" + queryParams.join("&");
             }
@@ -54,6 +51,7 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
 
         fetchProducts();
     }, [category, finalSearchQuery, brand, name, minPrice, maxPrice, sortProduct]);
+
 
     // ordinamento in base a sortBy
     const sortedProducts = [...products];
