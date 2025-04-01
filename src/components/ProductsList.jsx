@@ -12,7 +12,6 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
     const finalSearchQuery = query || searchQuery || "";
 
     const [products, setProducts] = useState(externalProducts || []);
-    const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortProduct, setSortProduct] = useState("recent");
 
     // stati per i filtri
@@ -23,55 +22,49 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
 
     useEffect(() => {
         const fetchProducts = async () => {
-            let url = "http://localhost:3000/api/ecommerce";
+            let url = "http://localhost:3000/api/ecommerce/products";
+            let queryParams = [];
 
+            // se c'è la ricerca tramite search bar
             if (finalSearchQuery) {
-                url += `/search?query=${finalSearchQuery}`;
-            } else if (category) {
-                url += `/${category}`;
+                url = `http://localhost:3000/api/ecommerce/search?query=${finalSearchQuery}`;
+                // altrimenti 
+            } else {
+                if (category) queryParams.push(`category=${category}`);
+                if (brand) queryParams.push(`brand=${brand}`);
+                if (name) queryParams.push(`name=${name}`);
+                if (minPrice) queryParams.push(`minPrice=${minPrice}`);
+                if (maxPrice) queryParams.push(`maxPrice=${maxPrice}`);
+                if (sortProduct !== "recent") queryParams.push(`sortBy=${sortProduct}`);
             }
 
-            url += url.includes("?") ? `&sortBy=${sortBy}` : `?sortBy=${sortBy}`;
+            if (queryParams.length > 0) {
+                url += "?" + queryParams.join("&");
+            }
 
             console.log("Fetching URL:", url);
             try {
                 const res = await axios.get(url);
                 console.log("Prodotti ricevuti:", res.data);
                 setProducts(res.data);
-                setFilteredProducts(res.data); // Inizializzo i prodotti filtrati
             } catch (err) {
                 console.error("Errore nel fetch:", err);
             }
         };
 
         fetchProducts();
-    }, [category, finalSearchQuery, sortBy]);
+    }, [category, finalSearchQuery, brand, name, minPrice, maxPrice, sortProduct]);
 
-    // funzione per filtrare e ordinare i prodotti localmente
-    useEffect(() => {
-        let filtered = [...products];
+    // ordinamento in base a sortBy
+    const sortedProducts = [...products];
 
-        // filtraggio dei prodotti in base ai filtri
-        filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
-
-        if (brand) {
-            filtered = filtered.filter(p => p.brand.toLowerCase().includes(brand.toLowerCase()));
-        }
-        if (name) {
-            filtered = filtered.filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
-        }
-
-        // ordinamento in base a sortBy
-        if (sortProduct === "price_asc") {
-            filtered.sort((a, b) => a.price - b.price);
-        } else if (sortProduct === "price_desc") {
-            filtered.sort((a, b) => b.price - a.price);
-        } else if (sortProduct === "name") {
-            filtered.sort((a, b) => a.name.localeCompare(b.name));
-        }
-
-        setFilteredProducts(filtered);
-    }, [minPrice, maxPrice, brand, name, sortProduct, products]); // eseguo l'aggiornamento quando cambiano i filtri
+    if (sortProduct === "price_asc") {
+        sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortProduct === "price_desc") {
+        sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortProduct === "name") {
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+    }
 
     return (
         <>
@@ -162,8 +155,8 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
             <div className='container-main-2'>
                 {/* Lista dei prodotti */}
                 <div className='container-card-newproducts'>
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map(product => (
+                    {sortedProducts.length > 0 ? (
+                        sortedProducts.map(product => (
                             <div className='card-container-product' key={product.slug}>
                                 <ProductCard productProp={product} />
                             </div>
