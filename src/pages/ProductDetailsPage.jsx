@@ -6,6 +6,10 @@ import axios from 'axios'
 // uso di state e effect
 import { useState, useEffect } from "react"
 
+// importo context per la wishlist
+import { useContext } from "react";
+import { WishlistContext } from "../context/WishlistContext";
+
 // importo il componente Card delle reviews
 import ReviewCard from '../components/ReviewCard';
 
@@ -27,6 +31,9 @@ export default function ProductDetailsPage() {
 
     // setto lo stato del componente
     const [product, setProduct] = useState({});
+
+    // Setto la wishlist dal context
+    const { wishlist, toggleWishlist } = useContext(WishlistContext);
 
     // funzione di chiamata all'API per il prodotto richiesto
     const fetchProduct = () => {
@@ -184,8 +191,20 @@ export default function ProductDetailsPage() {
                                     </button>
                                 </Link>
 
-                                <button className='button-detail-2' onClick={addToCart}> Add to cart</button>
-                                <button className='button-detail-2'> Aggiungi alla Wishlist</button>
+                                <button
+                                    className='button-detail-2'
+                                    onClick={addToCart}
+                                    disabled={product.stock === 0}
+                                >
+                                    {product.stock === 0 ? "Out of Stock" : "Add to cart"}
+                                </button>
+
+                                <button
+                                    className='button-detail-2'
+                                    onClick={() => toggleWishlist(product)}
+                                >
+                                    {wishlist.some(item => item.id === product.id) ? "Remove from Wishlist" : "Add to Wishlist"}
+                                </button>
 
                             </>
                             :
@@ -199,8 +218,20 @@ export default function ProductDetailsPage() {
                                         Buy now
                                     </button>
                                 </Link>
-                                <button className='button-detail-2' onClick={addToCart} > Add to cart</button>
-                                <button className='button-detail-2'> Aggiungi alla Wishlist</button>
+                                <button
+                                    className='button-detail-2'
+                                    onClick={addToCart}
+                                    disabled={product.stock === 0}
+                                >
+                                    {product.stock === 0 ? "Out of Stock" : "Add to cart"}
+                                </button>
+
+                                <button
+                                    className='button-detail-2'
+                                    onClick={() => toggleWishlist(product)}
+                                >
+                                    {wishlist.some(item => item.id === product.id) ? "Remove from Wishlist" : "Add to Wishlist"}
+                                </button>
                             </>
                         }
 

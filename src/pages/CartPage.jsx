@@ -1,27 +1,59 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import ColorComponent from '../components/ColorComponent';
 
 import "../style/CartPage.css"
 const CartPage = () => {
     const [cart, setCart] = useState([]);
+    const [stockOutItems, setStockOutItems] = useState([]);  // stato per tracciare gli articoli esauriti
+    const [alertShown, setAlertShown] = useState(false);  // stato per tenere traccia se l'alert è stato mostrato
 
-    
-
-    // Funzione per caricare i dati dal localStorage
+    // Funzione per caricare i dati dal localStorage e aggiornare lo stock
     useEffect(() => {
-        // Recupera il carrello dal localStorage
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCart(savedCart);
+        const fetchUpdatedStock = async () => {
+            let savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // richiesta per aggiornare lo stock di ogni prodotto
+            const updatedCart = await Promise.all(savedCart.map(async (product) => {
+                try {
+                    // richiesta per ottenere il prodotto aggiornato dal server
+                    const response = await axios.get(`http://localhost:3000/api/ecommerce/${product.slug}`);
+                    const updatedProduct = response.data;
+
+                    // Controlla se lo stock è 0 e aggiorna lo stato
+                    if (updatedProduct.stock === 0) {
+                        setStockOutItems((prev) => [...prev, product.id]);  // Aggiungi l'articolo esaurito
+                    }
+
+                    return {
+                        ...product,
+                        stock: updatedProduct.stock,  // Aggiorna lo stock
+                        quantity: Math.min(product.quantity, updatedProduct.stock),  // Limita la quantità se lo stock è minore
+                    };
+                } catch (error) {
+                    console.error("Errore durante il recupero dei dati:", error);
+                    return product;  // Se errore, mantieni i dati locali
+                }
+            }));
+
+            setCart(updatedCart);  // Salva il carrello aggiornato
+            localStorage.setItem('cart', JSON.stringify(updatedCart));  // Salva nel localStorage
+        };
+
+        fetchUpdatedStock();
     }, []);
 
     // Funzione per aumentare la quantità
     const increaseQuantity = (id) => {
         const updatedCart = cart.map((product) => {
             if (product.id === id) {
-                // Incrementa la quantità
-                product.quantity += 1;
+                // Controlla se la quantità richiesta è maggiore dello stock
+                if (product.quantity < product.stock) {
+                    // Aumenta la quantità solo se lo stock lo consente
+                    product.quantity += 1;
+                } else { }
             }
             return product;
         });
@@ -77,6 +109,14 @@ const CartPage = () => {
 
         return total.toFixed(2); // Restituisci il totale formattato con 2 decimali
     };
+
+    // Mostra l'alert una sola volta se ci sono articoli esauriti
+    useEffect(() => {
+        if (stockOutItems.length > 0 && !alertShown) {
+            alert("Alcuni prodotti nel tuo carrello sono esauriti. Rimuovili per procedere.");
+            setAlertShown(true);  // Imposta lo stato per evitare che l'alert venga visualizzato nuovamente
+        }
+    }, [stockOutItems, alertShown]);
 
     // Funzione per spostare i dati del carrello alla pagina di checkout
     const handleCheckout = () => {
@@ -151,15 +191,15 @@ const CartPage = () => {
                     <div className="cart-summary">
                         <h3>Payment Details</h3>
                         <div className="cart-actions">
-                            
+
 
                             <section>
                                 <h4>Grand Total: <span>€{calculateTotal()}</span></h4>
                             </section>
 
-                            <Link to="/checkout" onClick={() => window.scrollTo(0, 0)}>
-                                <button className="checkout-btn">Checkout</button>
-                            </Link>
+                            <button className="checkout-btn" onClick={handleCheckout} disabled={stockOutItems.length > 0}>
+                                Checkout
+                            </button>
                         </div>
                     </div>
                 )}
