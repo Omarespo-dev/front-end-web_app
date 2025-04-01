@@ -41,11 +41,16 @@ export default function ProductsList({ category, searchQuery, query, products: e
     // effetto per recuperare i prodotti dal backend
     useEffect(() => {
         const fetchProducts = async () => {
-            let url = "http://localhost:3000/api/ecommerce/products";
+            let url = category === "sales"
+                ? "http://localhost:3000/api/ecommerce/products/sales"
+                : "http://localhost:3000/api/ecommerce/products";
+
             let queryParams = [];
 
             if (query) queryParams.push(`query=${query}`);
-            if (category) queryParams.push(`category=${category}`);
+            if (category && category !== "sales" && !location.pathname.includes("/products/sales")) {
+                queryParams.push(`category=${category}`);
+            }
             if (brand) queryParams.push(`brand=${brand}`);
             if (name) queryParams.push(`name=${name}`);
             if (minPrice > 0) queryParams.push(`minPrice=${minPrice}`);
@@ -65,6 +70,7 @@ export default function ProductsList({ category, searchQuery, query, products: e
                 console.error("Errore nel fetch:", err);
             }
         };
+
 
         fetchProducts();
     }, [category, query, brand, name, minPrice, maxPrice, sortProduct]);
