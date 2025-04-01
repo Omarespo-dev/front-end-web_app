@@ -194,10 +194,11 @@ export default function ProductDetailsPage() {
                                     <h3>€ {(product.price - product.price * (product.discount / 100)).toFixed(2)}</h3>
 
                                 </div>
-                                <button className='button-detail'>
-                                    Buy now
-                                </button>
-
+                                <Link to={"/checkout"} onClick={addToCart}>
+                                    <button className='button-detail'>
+                                        Buy now
+                                    </button>
+                                </Link>
                                 <button className='button-detail-2' onClick={addToCart} > Add to cart</button>
                                 <button className='button-detail-2'> Aggiungi alla Wishlist</button>
                             </>
