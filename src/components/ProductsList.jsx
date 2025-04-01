@@ -79,12 +79,14 @@ export default function ProductsList({ category, searchQuery, query, products: e
                         placeholder="Brand"
                         value={brand}
                         onChange={(e) => setBrand(e.target.value)}
+                        className="set-input-up"
                     />
                     <input
                         type="text"
                         placeholder="Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        className="set-input-up"
                     />
 
                     <select value={sortProduct} onChange={(e) => setSortProduct(e.target.value)}>
@@ -93,35 +95,35 @@ export default function ProductsList({ category, searchQuery, query, products: e
                         <option value="price_desc">Prezzo: dal più alto</option>
                         <option value="name">Nome (A-Z)</option>
                     </select>
+                    <div className="price-filter">
+                        <label>Price: {minPrice}€ - {maxPrice}€</label>
+
+                        {/* Slider per il prezzo minimo */}
+                        <input
+                            type="range"
+                            min="0"
+                            max="2500"
+                            step="50"
+                            value={minPrice}
+                            onChange={(e) => setMinPrice(Number(e.target.value))}
+                        />
+                        <input
+                            type="range"
+                            min="0"
+                            max="2500"
+                            step="50"
+                            value={maxPrice}
+                            onChange={(e) => setMaxPrice(Number(e.target.value))}
+                        />
+                    </div>
                 </div>
 
 
-                <div className="price-filter">
-                    <label>Price: {minPrice}€ - {maxPrice}€</label>
 
-                    {/* Slider per il prezzo minimo */}
-                    <input
-                        type="range"
-                        min="0"
-                        max="2500"
-                        step="50"
-                        value={minPrice}
-                        onChange={(e) => setMinPrice(Number(e.target.value))}
-                    />
-                    <input
-                        type="range"
-                        min="0"
-                        max="2500"
-                        step="50"
-                        value={maxPrice}
-                        onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    />
-                </div>
             </div>
-        </div >
 
-            {/* Lista dei prodotti */ }
-            < div className = 'container-main-2' >
+            {/* Lista dei prodotti */}
+            < div className='container-main-2' >
                 <div className='container-card-newproducts'>
                     {products.length > 0 ? (
                         products.map(product => (
@@ -134,6 +136,7 @@ export default function ProductsList({ category, searchQuery, query, products: e
                     )}
                 </div>
             </div >
+
         </>
     );
 }
