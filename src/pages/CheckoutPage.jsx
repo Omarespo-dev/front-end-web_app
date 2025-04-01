@@ -88,49 +88,56 @@ const CheckoutPage = () => {
 
     return (
         <div className="checkout-page">
-            <h2 style={{ textAlign: "center" }}>Inserisci i dati di fatturazione</h2>
+            <h2 style={{ textAlign: "center", marginRight:"40px" }}>Enter your billing information</h2>
             <section className="checkout-form">
 
                 <form>
-                    Nome:
+
                     <label>
+                        Name:
                         <input name="user_name" type="text" value={userData.user_name} onChange={handleChange} required />
                     </label>
 
-                    Cognome:
+
                     <label>
+                        Surname:
                         <input name="user_surname" type="text" value={userData.user_surname} onChange={handleChange} required />
                     </label>
 
-                    Indirizzo:
+
                     <label>
+                        Adress:
                         <input name="address" type="text" value={userData.address} onChange={handleChange} required />
                     </label>
 
-                    Città:
+
                     <label>
+                        City:
                         <input name="city" type="text" value={userData.city} onChange={handleChange} required />
                     </label>
 
-                    CAP:
+
                     <label>
+                        City Code:
                         <input name="postal_code" type="text" value={userData.postal_code} onChange={handleChange} required />
                     </label>
 
-                    Provincia:
+
                     <label>
+                        Province:
                         <input name="province" type="text" value={userData.province} onChange={handleChange} required />
                     </label>
 
-                    Email:
+
                     <label>
+                        Email:
                         <input name="user_email" type="email" value={userData.user_email} onChange={handleChange} required />
                     </label>
 
                 </form>
             </section>
 
-            <h2 style={{ textAlign: "center", margin: "0", marginTop: "50px" }}>Riepilogo ordine</h2>
+            <h2 style={{ textAlign: "center", margin: "0", marginTop: "50px" }}>Order summary</h2>
             <section className="set-cart-checkout">
                 <div className="cart-items-check">
                     {cart.length > 0 ? (
@@ -154,17 +161,17 @@ const CheckoutPage = () => {
                                             </div>
                                         )}
 
-                                        <p>Quantità: {product.quantity}</p>
+                                        <p>Quantity: {product.quantity}</p>
 
                                         <div className="product-total">
-                                            <p><strong>Subotale: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
+                                            <p><strong>Subtotal: € {((product.discount > 0 ? (product.price - product.price * (product.discount / 100)) : product.price) * product.quantity).toFixed(2)}</strong></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         ))
                     ) : (
-                        <p>Il carrello è vuoto</p>
+                        <p>Your cart is empty</p>
                     )}
                     {/* <p>Spedizione: €{shippingCost.toFixed(2)}</p>
                     <h3>Totale: €{totalPrice}</h3> */}
@@ -175,18 +182,19 @@ const CheckoutPage = () => {
                     <div className="cart-summary-checkout">
                         <h3>Payment Details</h3>
                         <div className="cart-actions">
-                            <p>Subotale: <span>€ {totalCartPrice.toFixed(2)} </span></p>
+                            <p>Subtotal: <span>€ {totalCartPrice.toFixed(2)} </span></p>
                             <p>Discount <span>N/A</span></p>
-                            <p>Shipment <span>{shippingCost > 0 ? `€${shippingCost.toFixed(2)}` : "Gratis"}</span></p>
+                            <p>Shipment <span>{shippingCost > 0 ? `€${shippingCost.toFixed(2)}` : "Free"}</span></p>
 
                             <section>
                                 <h4>Grand Total: <span>€{totalPrice}</span></h4>
                             </section>
 
 
-                            Codice Sconto (opzionale):
+                            Discount Code (optional):
                             <label >
                                 <input className="checkout-btn" style={{ backgroundColor: "white" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
+                                <button  className="checkout-btn">Buy</button>
                             </label>
 
                             <button onClick={handleSubmit} className="checkout-btn">Buy</button>
@@ -194,7 +202,7 @@ const CheckoutPage = () => {
                         </div>
                     </div>
                 )}
-                <Link to="/cart" className="checkout-btn-turn-cart">Torna al Carrello</Link>
+                <Link to="/cart" className="checkout-btn-turn-cart">Return to Cart</Link>
             </section>
 
 

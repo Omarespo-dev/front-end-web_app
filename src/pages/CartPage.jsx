@@ -7,6 +7,8 @@ import "../style/CartPage.css"
 const CartPage = () => {
     const [cart, setCart] = useState([]);
 
+    
+
     // Funzione per caricare i dati dal localStorage
     useEffect(() => {
         // Recupera il carrello dal localStorage
@@ -156,7 +158,7 @@ const CartPage = () => {
                             </section>
 
                             <Link to="/checkout">
-                                <button className="checkout-btn">Procedi al checkout</button>
+                                <button className="checkout-btn">Checkout</button>
                             </Link>
                         </div>
                     </div>
