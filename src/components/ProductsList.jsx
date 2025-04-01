@@ -3,10 +3,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 
-export default function ProductsList({ category, searchQuery, query, sortBy, products: externalProducts }) {
+export default function ProductsList({ category, searchQuery, query, products: externalProducts }) {
 
     const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
+
 
     // uso "query" per la ricerca globale e "searchQuery" per filtrare i prodotti
     const finalSearchQuery = query || searchQuery || "";
@@ -19,6 +19,24 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
     const [maxPrice, setMaxPrice] = useState(2500);
     const [brand, setBrand] = useState("");
     const [name, setName] = useState("");
+
+    // stato per gestire il timeout del debounce
+    const [debouncedFilters, setDebouncedFilters] = useState({
+        minPrice,
+        maxPrice,
+        brand,
+        name
+    });
+
+    // effetto per aggiornare i filtri dopo un ritardo (debounce)
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setDebouncedFilters({ minPrice, maxPrice, brand, name });
+        }, 500);
+
+        // pulisco il timeout se il valore cambia prima della scadenza
+        return () => clearTimeout(timeoutId);
+    }, [minPrice, maxPrice, brand, name]);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -50,7 +68,7 @@ export default function ProductsList({ category, searchQuery, query, sortBy, pro
         };
 
         fetchProducts();
-    }, [category, finalSearchQuery, brand, name, minPrice, maxPrice, sortProduct]);
+    }, [category, finalSearchQuery, debouncedFilters, sortProduct]);
 
 
     // ordinamento in base a sortBy
