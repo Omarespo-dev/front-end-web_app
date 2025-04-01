@@ -7,6 +7,15 @@ import { useNavigate } from "react-router-dom";
 export default function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("");
     const [sortBy, setSortBy] = useState("recent");  // Stato per il criterio di ordinamento
+
+    // Imposto stato per il burger menu
+    const [isOpen, setIsOpen] = useState(false)
+
+
+    function toggleMenu() {
+        setIsOpen(!isOpen)
+    }
+
     const navigate = useNavigate();
 
     // quando l'utente invia la ricerca
@@ -25,14 +34,17 @@ export default function SearchBar() {
 
     return (
         <form onSubmit={handleSearch} className="searchbar-form">
-            <input
+            {isOpen && (
+                <input
                 type="text"
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
+            )}
+            
 
-            <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#ffffff" }} /></button>
+            <button onClick={toggleMenu}><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#ffffff" }} /></button>
         </form>
     );
 }
