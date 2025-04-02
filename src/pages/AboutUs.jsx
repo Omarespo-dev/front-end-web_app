@@ -19,34 +19,34 @@ export default function AboutUs() {
                     <p>A blog with reviews and articles about the latest technology and gadgets</p>
 
                     <p>User comments and Q&A section for community interaction</p>
-                    
+
                     <p>Represents a tech-savvy "home" with all necessary technology</p>
-                    
+
                     <p>Easy-to-use interface for a great user experience</p>
                     <p>Consistent and visually appealing design</p>
-                    
+
                     <p>A hub for tech enthusiasts to connect and share insights</p>
 
                     <p>Helps users make informed purchase decisions</p>
                 </div>
             </div>
-            
+
             <div className='contactus-container'>
                 <div className='container-up'>
                     <section>
-                        <img src="../../img/location-add.png" alt="" />
+                        <a href="https://maps.app.goo.gl/oPonZwuhzbqmKoUy9" target="_blank" > <img src="../../img/location-add.png" alt="" /> </a>
                         <h3>Office</h3>
                         <p>Via dei Finti Acquisti, 123, 00100 Roma (RM), Italia</p>
                     </section>
 
                     <section>
-                        <img src="../../img/sms.png" alt="" />
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=TechZoneSupport2025@gmail.com" target="_blank" > <img src="../../img/sms.png" alt="" /> </a>
                         <h3>Email</h3>
                         <p>TechZoneSupport@gmail.com</p>
                     </section>
 
                     <section>
-                        <img src="../../img/call-incoming.png" alt="" />
+                    <a href="https://wa.me/+390123456789" target="_blank" > <img src="../../img/call-incoming.png" alt="" /></a>
                         <h3>Phone</h3>
                         <p>+39 0123 456 789</p>
                     </section>

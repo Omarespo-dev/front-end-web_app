@@ -47,18 +47,21 @@ export default function Footer() {
 
           <ul>
             <li><h3>Contact us</h3></li>
+            
             <li>
-              <img src="../../img/location.png" alt="" />
+              <a href="https://maps.app.goo.gl/oPonZwuhzbqmKoUy9" target="_blank" > <img src="../../img/location.png" alt="" /></a>
               Via dei Finti Acquisti, 123, 00100 Roma (RM), Italia
             </li>
+
+
             <li>
-              <img src="../../img/call-calling.png" alt="" />
+              <a href="https://wa.me/+390123456789" target="_blank" ><img src="../../img/call-calling.png" alt="" /></a>
               +39 0123 456 789
             </li>
 
             <li>
-              <img src="../../img/sms-edit.png" alt="" />
-              TechZoneSupport@gmail.com
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=TechZoneSupport2025@gmail.com" target="_blank" ><img src="../../img/sms-edit.png" alt="" /></a>
+              TechZoneSupport2025@gmail.com
             </li>
 
           </ul>
@@ -66,18 +69,18 @@ export default function Footer() {
           <ul id='ul-setted'>
             <li><h3>Social</h3></li>
             <li>
-              <FontAwesomeIcon className='set-icon-footer' icon={faSquareFacebook} size="2xl"
-                style={{ color: "#ffffff", }} />
+              <a href="https://www.facebook.com/?locale=it_IT"> <FontAwesomeIcon className='set-icon-footer' icon={faSquareFacebook} size="2xl"
+                style={{ color: "#ffffff", }} /></a>
               Facebook
             </li>
             <li>
-              <FontAwesomeIcon icon={faTwitter} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' />Twitter
+              <a href="https://x.com/"> <FontAwesomeIcon icon={faTwitter} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Twitter
             </li>
             <li>
-              <FontAwesomeIcon icon={faInstagram} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' />Instagram
+              <a href="https://www.instagram.com/"> <FontAwesomeIcon icon={faInstagram} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Instagram
             </li>
             <li>
-              <FontAwesomeIcon icon={faYoutube} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' />Youtube
+              <a href="https://www.youtube.com/"> <FontAwesomeIcon icon={faYoutube} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Youtube
             </li>
           </ul>
 
