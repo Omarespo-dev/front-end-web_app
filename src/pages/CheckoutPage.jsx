@@ -55,10 +55,19 @@ const CheckoutPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Controlla che tutti i campi siano compilati
+        let errorMessage = "";
+
+        // Validazione dei campi
         if (Object.values(userData).some(field => field.trim() === "")) {
-            setError("All fields are required");
-            showNotification("All fields are required", "error");
+            errorMessage = "All fields are required.";
+        } else if (!/^\d{5}$/.test(userData.postal_code)) {
+            errorMessage = "Postal code must be 5 digits.";
+        } else if (!/\S+@\S+\.\S+/.test(userData.user_email)) {
+            errorMessage = "Please enter a valid email.";
+        }
+
+        if (errorMessage) {
+            showNotification(errorMessage, "error"); // Mostra l'errore
             return;
         }
 
@@ -99,7 +108,7 @@ const CheckoutPage = () => {
             <h2 style={{ textAlign: "center", marginRight: "40px" }}>Enter your billing information</h2>
             <section className="checkout-form">
 
-                <form>
+                <form onSubmit={handleSubmit}>
 
                     <label>
                         Name:
@@ -201,7 +210,7 @@ const CheckoutPage = () => {
 
                             Discount Code (optional):
                             <label >
-                                <input className="checkout-btn" style={{ backgroundColor: "white",color:"black" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
+                                <input className="checkout-btn" style={{ backgroundColor: "white", color: "black" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
 
                             </label>
                             <button className="checkout-btn">Apply</button>
