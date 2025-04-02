@@ -7,21 +7,23 @@ export default function Wishlist() {
 
     return (
         <div className="wishlist-page">
-            <h2>Your Wishlist</h2>
 
             {wishlist.length > 0 ? (
-                <div className="container-main-2">
-                    <div className="container-card-newproducts">
-                        {wishlist.map(product => (
-                            <div className="card-container-product" key={product.id}>
-                                <ProductCard productProp={product} />
-                            </div>
-                        ))}
+                <>
+                    <h2 style={{textAlign:"center"}}>Your Wishlist</h2>
+                    <div className="container-main-2">
+                        <div className="container-card-newproducts">
+                            {wishlist.map(product => (
+                                <div className="card-container-product" key={product.id}>
+                                    <ProductCard productProp={product} />
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </>
             ) : (
                 <main style={{ height: "100vh" }}>
-                    <h2>Your wishlist is empty</h2>
+                    <h2 style={{textAlign:"center"}}>Your wishlist is empty</h2>
                 </main>
             )}
         </div>
