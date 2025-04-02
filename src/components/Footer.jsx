@@ -69,7 +69,7 @@ export default function Footer() {
           <ul id='ul-setted'>
             <li><h3>Social</h3></li>
             <li>
-              <a href="https://www.facebook.com/?locale=it_IT"> <FontAwesomeIcon className='set-icon-footer' icon={faSquareFacebook} size="2xl"
+              <a href="https://www.facebook.com/?locale=it_IT" target="_blank"> <FontAwesomeIcon className='set-icon-footer' icon={faSquareFacebook} size="2xl"
                 style={{ color: "#ffffff", }} /></a>
               Facebook
             </li>
@@ -77,10 +77,10 @@ export default function Footer() {
               <a href="https://x.com/"> <FontAwesomeIcon icon={faTwitter} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Twitter
             </li>
             <li>
-              <a href="https://www.instagram.com/"> <FontAwesomeIcon icon={faInstagram} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Instagram
+              <a href="https://www.instagram.com/" target="_blank"> <FontAwesomeIcon icon={faInstagram} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Instagram
             </li>
             <li>
-              <a href="https://www.youtube.com/"> <FontAwesomeIcon icon={faYoutube} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Youtube
+              <a href="https://www.youtube.com/" target="_blank"> <FontAwesomeIcon icon={faYoutube} size="2xl" style={{ color: "#ffffff", }} className='set-icon-footer' /></a>Youtube
             </li>
           </ul>
 
