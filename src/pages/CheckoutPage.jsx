@@ -213,7 +213,7 @@ const CheckoutPage = () => {
                                 <input className="checkout-btn" style={{ backgroundColor: "white", color: "black" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
 
                             </label>
-                            <button className="checkout-btn">Apply</button>
+                            {/* <button className="checkout-btn">Apply</button> */}
 
                             <button onClick={handleSubmit} className="checkout-btn">Buy</button>
 
