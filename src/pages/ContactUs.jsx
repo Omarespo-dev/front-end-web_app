@@ -17,35 +17,60 @@ export default function ContactUs() {
 
     const sendEmail = (e) => {
         e.preventDefault(); // Evita il refresh della pagina
-
+    
+        // Controlla se il modulo esiste
+        if (!form.current) {
+            console.error("Il modulo non è stato trovato.");
+            return;
+        }
+    
+        // Ottieni i dati del modulo
+        const templateParams = {
+            user_name: form.current.user_name.value,
+            user_email: form.current.user_email.value,
+            message: form.current.message.value,
+        };
+    
+        // Debug: mostra i dati del modulo
+        console.log("Dati del modulo:", templateParams);
+    
         // Prima inviamo l'email a te (admin)
-        emailjs.sendForm(
-            "service_x7ucbia",     // <-- Inserisci il tuo Service ID
-            "template_30jspeg",    // <-- Inserisci il tuo Template ID
-            form.current,
-            "W5xfXyHQ6VJoj-d_4"      // <-- Inserisci la tua Public Key
+        emailjs.send(
+            "service_x7ucbia",  // Service ID
+            "template_30jspeg",  // Template ID per l'admin
+            templateParams,     // Dati del modulo
+            "W5xfXyHQ6VJoj-d_4" // Public Key
         )
-            .then(
-                (result) => {
-                    console.log("Email inviata con successo:", result.text);
-                    showNotification("Email sent successfully");
-
-                    // Resetta il modulo
-                    form.current.reset();
-
-                    // Ora inviamo l'email di conferma all'utente
-                    emailjs.sendForm(
-                        "service_x7ucbia",     // Inserisci lo stesso Service ID
-                        "template_kpt7rbk",    // Template ID per l'utente
-                        form.current,
-                        "W5xfXyHQ6VJoj-d_4"      // Inserisci la tua Public Key
-                    )
-                },
-                (error) => {
-                    console.error("Errore nell'invio dell'email:", error.text);
-                }
-            );
+        .then(
+            (result) => {
+                console.log("Email inviata con successo:", result.text);
+                showNotification("Email sent successfully");
+    
+                // Resetta il modulo
+                form.current.reset();
+    
+                // Ora inviamo l'email di conferma all'utente
+                emailjs.send(
+                    "service_x7ucbia",  // Inserisci lo stesso Service ID
+                    "template_kpt7rbk",  // Template ID per l'utente
+                    templateParams,     // Dati del modulo
+                    "W5xfXyHQ6VJoj-d_4" // Public Key
+                )
+                .then(
+                    (result) => {
+                        console.log("Email di conferma inviata con successo:", result.text);
+                    },
+                    (error) => {
+                        console.error("Errore nell'invio dell'email di conferma:", error.text);
+                    }
+                );
+            },
+            (error) => {
+                console.error("Errore nell'invio dell'email:", error.text);
+            }
+        );
     };
+    
 
     return (
         <>
