@@ -73,6 +73,9 @@
     text-decoration: none;
 }
 
+#label-email{
+    width: 400px;
+}
 
 
 /* MEDIA QUERY */
@@ -82,5 +85,9 @@
     }
     .cart-summary-checkout{
         width: 260px;
+    }
+
+    #label-email{
+        width: 165px;
     }
 }

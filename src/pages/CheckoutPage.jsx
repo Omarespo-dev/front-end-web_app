@@ -137,7 +137,7 @@ const CheckoutPage = () => {
                     </label>
 
 
-                    <label>
+                    <label id="label-email">
                         Email:
                         <input name="user_email" type="email" value={userData.user_email} onChange={handleChange} required />
                     </label>
