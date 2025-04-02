@@ -110,6 +110,8 @@
 
 .price-filter label {
     color: gray;
+    display: flex;
+  justify-content: center;
 }
 
 .price-inputs {
