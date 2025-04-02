@@ -193,7 +193,7 @@ const CheckoutPage = () => {
 
                             Discount Code (optional):
                             <label >
-                                <input className="checkout-btn" style={{ backgroundColor: "white" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
+                                <input className="checkout-btn" style={{ backgroundColor: "white",color:"black" }} name="discountCode" type="text" value={discountCode} onChange={(e) => setDiscountCode(e.target.value)} />
 
                             </label>
                             <button className="checkout-btn">Apply</button>

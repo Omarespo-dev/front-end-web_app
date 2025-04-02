@@ -186,7 +186,7 @@ const CartPage = () => {
                         ))
                     ) : (
                         <main style={{ height: "100vh" }}>
-                            <h2>Il carrello è vuoto</h2>
+                            <h2>Your Cart is Empty</h2>
                         </main>
                     )}
                 </div>
