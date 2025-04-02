@@ -17,7 +17,7 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import ColorComponent from '../components/ColorComponent';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGreaterThan, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faGreaterThan, faStar, faHeart, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import "../style/PageDetails.css"
 export default function ProductDetailsPage() {
@@ -98,6 +98,44 @@ export default function ProductDetailsPage() {
         console.log("Carrello aggiornato:", cart);
     };
 
+    // stato per l'immagine principale
+    const [mainImage, setMainImage] = useState(product.image_card);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // combino l'immagine principale con la gallery
+    const allImages = product.image_card ? [product.image_card, ...(product.gallery || [])] : product.gallery || [];
+
+    // effetto per aggiornare l'immagine principale quando il prodotto viene caricato
+    useEffect(() => {
+        if (allImages.length > 0) {
+            setMainImage(allImages[0]); // Imposta la prima immagine della lista come mainImage
+            setCurrentIndex(0);
+        }
+    }, [product]);
+
+    // cambio immagine principale quando si clicca su una miniatura
+    const handleImageClick = (imgUrl, index) => {
+        setMainImage(imgUrl);
+        setCurrentIndex(index);
+    };
+
+    // funzione per navigare tra le immagini con le frecce
+    const handlePrevImage = () => {
+        if (allImages.length > 0) {
+            const newIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+            setMainImage(allImages[newIndex]);
+            setCurrentIndex(newIndex);
+        }
+    };
+
+    const handleNextImage = () => {
+        if (allImages.length > 0) {
+            const newIndex = (currentIndex + 1) % allImages.length;
+            setMainImage(allImages[newIndex]);
+            setCurrentIndex(newIndex);
+        }
+    };
+
     return (
         <>
 
@@ -106,27 +144,42 @@ export default function ProductDetailsPage() {
                 <div className='img-container-details'>
                     <div className='img-details'>
                         <div className='img-details-1'>
-                            <img src={product.image_card} alt={product.name} />
+                            {/* Immagine principale con frecce */}
+                            <button className="arrow left" onClick={handlePrevImage}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+
+                            <img src={mainImage} alt={product.name} className="main-image" />
+
+                            <button className="arrow right" onClick={handleNextImage}>
+                                <FontAwesomeIcon icon={faChevronRight} />
+                            </button>
 
                         </div>
 
-
-                        {/* Galleria immagini */}
-                        {product.gallery && product.gallery.length > 0 && (
-
+                        {/* Galleria immagini con image_card inclusa */}
+                        {allImages.length > 0 && (
                             <div style={{ display: "flex", justifyContent: "center" }}>
-                                {product.gallery.map((imgUrl, index) => (
+                                {allImages.map((imgUrl, index) => (
                                     <img
                                         key={index}
                                         src={imgUrl}
                                         alt={`Gallery ${index}`}
-                                        style={{ width: "150px", height: "100px", borderRadius: "8px", border: "1px solid gray", padding: "10px", marginRight: "10px" }}
+                                        className="gallery-thumbnail"
+                                        onClick={() => handleImageClick(imgUrl, index)}
+                                        style={{
+                                            width: "100px",
+                                            height: "80px",
+                                            cursor: "pointer",
+                                            border: currentIndex === index ? "2px solid blue" : "1px solid gray",
+                                            padding: "5px",
+                                            marginRight: "10px",
+                                            borderRadius: "8px",
+                                        }}
                                     />
                                 ))}
                             </div>
-
                         )}
-
                     </div>
 
                     <div className='product-details'>
