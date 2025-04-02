@@ -29,6 +29,10 @@
     width: 50px;
 }
 
+#section-technical {
+    scroll-margin-top: 120px;
+}
+
 /* container card */
 .card-container-product {
     display: flex;
@@ -63,10 +67,6 @@
     text-align: center;
 }
 
-.filters {
-
-}
-
 .set-input-up {
     padding: 10px 20px;
     /* background-color: #0C68F4; */
@@ -92,14 +92,14 @@
     margin-bottom: 20px;
 }
 
-.filters label{
+.filters label {
     margin-right: 35px;
 }
 
 /* FILTRAGGIO PER PREZZO */
 .price-filter {
     margin: 20px;
-    
+
 }
 
 .price-filter input {
@@ -111,7 +111,7 @@
 .price-filter label {
     color: gray;
     display: flex;
-  justify-content: center;
+    justify-content: center;
 }
 
 .price-inputs {
@@ -183,7 +183,8 @@
         align-items: center;
         margin-top: 30px;
     }
-    .container-filters{
+
+    .container-filters {
         margin-left: 40px;
         margin-top: 100px;
     }
