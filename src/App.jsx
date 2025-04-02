@@ -15,6 +15,7 @@ import ContactUs from "./pages/ContactUs"
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import Wishlist from "./pages/Wishlist";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
