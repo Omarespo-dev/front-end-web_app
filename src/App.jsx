@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout";
 
 import { WishlistProvider } from "./context/WishlistContext";
+import { NotificationProvider } from "./context/NotificationContext";
 
 // Importiamo Page
 import HomePage from "./pages/HomePage";
@@ -20,22 +21,24 @@ function App() {
 
   return (
     <>
-      <WishlistProvider>
-        <BrowserRouter >
-          <Routes>
-            <Route element={<DefaultLayout />}>
-              <Route index element={<HomePage />} />
-              <Route path="/products/:category?" element={<Products />} />
-              <Route path="/product/:slug" element={<ProductDetailsPage />} />
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/wishlist" element={<Wishlist />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </WishlistProvider>
+      <NotificationProvider>
+        <WishlistProvider>
+          <BrowserRouter >
+            <Routes>
+              <Route element={<DefaultLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="/products/:category?" element={<Products />} />
+                <Route path="/product/:slug" element={<ProductDetailsPage />} />
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/wishlist" element={<Wishlist />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </WishlistProvider>
+      </NotificationProvider>
     </>
   )
 }
