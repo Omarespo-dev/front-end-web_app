@@ -46,3 +46,27 @@ body {
         margin-left: 0;
     }
 } */
+
+
+.button {
+    padding: 10px 20px;
+    background-color: #0C68F4;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    margin-top: 50px;
+    margin-top: 40px;
+}
+
+.div-notFound{
+    margin-top: 120px;
+    text-align: center;
+    height: 30vh;
+}
+
+.div-notFound a{
+    text-decoration: none;
+    margin-top: 20px;
+}
