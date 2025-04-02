@@ -1,6 +1,7 @@
 // ProductCard.jsx
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { WishlistContext } from "../context/WishlistContext";
+import { NotificationContext } from "../context/NotificationContext";
 
 import { Link } from "react-router-dom"
 import Heart from "./Heart";
@@ -15,12 +16,15 @@ const ProductCard = (props) => {
 
     const { slug, name, brand, image_card, price, discount, id, stock } = props.productProp;
 
+    // context gestione notifiche carrello
+    const { showNotification } = useContext(NotificationContext);
+
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
         event.stopPropagation();  // Impedisce la propagazione dell'evento di clic, quindi evita di andare alla pagina di dettaglio
 
         if (stock === 0) {
-            console.log("Questo prodotto è esaurito e non può essere aggiunto al carrello.");
+            showNotification("This product is out of stock and cannot be added to your cart", "error");
             return;
         }
 
@@ -39,16 +43,17 @@ const ProductCard = (props) => {
         if (productIndex !== -1) {
             // Se il prodotto è già nel carrello, aumenta la quantità
             cart[productIndex].quantity += 1;
+            showNotification(`Quantity updated! Now you have ${cart[productIndex].quantity} in the cart.`);
         } else {
             // Se il prodotto non è nel carrello, aggiungilo
             cart.push(newProduct);
+            showNotification("Product added to cart!");
         }
 
         // Salva il carrello nel localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
-        console.log("Prodotto aggiunto al carrello:", newProduct);
         // Log del carrello aggiornato
-        console.log("Carrello aggiornato:", cart);
+        console.log("Carrello aggiornato:");
     };
 
     return (

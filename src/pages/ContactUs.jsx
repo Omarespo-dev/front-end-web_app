@@ -3,11 +3,17 @@ import "../style/PageContactUs.css"
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
+import { useContext } from "react";
+import { NotificationContext } from "../context/NotificationContext";
+
 export default function ContactUs() {
 
     const form = useRef();
 
     emailjs.init("W5xfXyHQ6VJoj-d_4");
+
+    // context gestione notifiche
+    const { showNotification } = useContext(NotificationContext);
 
     const sendEmail = (e) => {
         e.preventDefault(); // Evita il refresh della pagina
@@ -22,8 +28,8 @@ export default function ContactUs() {
             .then(
                 (result) => {
                     console.log("Email inviata con successo:", result.text);
-                    alert("Email inviata!");
-                    
+                    showNotification("Email sent successfully");
+
                     // Resetta il modulo
                     form.current.reset();
 

@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ColorComponent from "../components/ColorComponent";
 
+import { useContext } from "react";
+import { NotificationContext } from "../context/NotificationContext";
+
 import "../style/CheckoutPage.css"
 
 
@@ -25,6 +28,9 @@ const CheckoutPage = () => {
     const [discountCode, setDiscountCode] = useState("");
 
     const [cart, setCart] = useState([]);
+
+    // context gestione notifiche carrello
+    const { showNotification } = useContext(NotificationContext);
 
     // Funzione per caricare i dati dal localStorage
     useEffect(() => {
@@ -51,7 +57,8 @@ const CheckoutPage = () => {
 
         // Controlla che tutti i campi siano compilati
         if (Object.values(userData).some(field => field.trim() === "")) {
-            setError("Tutti i campi sono obbligatori.");
+            setError("All fields are required");
+            showNotification("All fields are required", "error");
             return;
         }
 
@@ -71,6 +78,7 @@ const CheckoutPage = () => {
         };
 
         console.log("Dati inviati: ", orderData);
+        showNotification("Your order has been confirmed");
 
         axios.post(endpointApi, orderData, { headers: { "Content-Type": "application/json" } })
             .then(() => {
