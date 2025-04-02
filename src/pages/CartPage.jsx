@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import { useContext } from "react";
+import { NotificationContext } from "../context/NotificationContext";
 
 import ColorComponent from '../components/ColorComponent';
 
@@ -10,6 +12,9 @@ const CartPage = () => {
     const [cart, setCart] = useState([]);
     const [stockOutItems, setStockOutItems] = useState([]);  // stato per tracciare gli articoli esauriti
     const [alertShown, setAlertShown] = useState(false);  // stato per tenere traccia se l'alert è stato mostrato
+
+    // context gestione notifiche carrello
+    const { showNotification } = useContext(NotificationContext);
 
     const navigate = useNavigate();
 
@@ -116,7 +121,7 @@ const CartPage = () => {
     // Mostra l'alert una sola volta se ci sono articoli esauriti
     useEffect(() => {
         if (stockOutItems.length > 0 && !alertShown) {
-            alert("Alcuni prodotti nel tuo carrello sono esauriti. Rimuovili per procedere.");
+            showNotification("Some products in your cart are out of stock. Remove them to proceed", "error");
             setAlertShown(true);  // Imposta lo stato per evitare che l'alert venga visualizzato nuovamente
         }
     }, [stockOutItems, alertShown]);

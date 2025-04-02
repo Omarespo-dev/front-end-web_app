@@ -249,11 +249,11 @@ export default function ProductDetailsPage() {
                                     <s className="sconto">€ {product.price}</s>
                                 </span>
 
-                                <Link to={"/checkout"} onClick={() => { window.scrollTo(0, 0); addToCart(); }} >
+                                {/* <Link to={"/checkout"} onClick={() => { window.scrollTo(0, 0); addToCart(); }} >
                                     <button className='button-detail'>
                                         Buy now
                                     </button>
-                                </Link>
+                                </Link> */}
 
                                 <button
                                     className='button-detail-2'
