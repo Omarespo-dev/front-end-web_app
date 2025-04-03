@@ -37,7 +37,7 @@ export default function ProductDetailsPage() {
     const { wishlist, toggleWishlist } = useContext(WishlistContext);
 
     // context gestione notifiche carrello
-    const { showNotification } = useContext(NotificationContext);
+    const { showNotification, updateCartStatus } = useContext(NotificationContext);
 
     // funzione di chiamata all'API per il prodotto richiesto
     const fetchProduct = () => {
@@ -112,6 +112,7 @@ export default function ProductDetailsPage() {
 
         // Salva il carrello nel localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartStatus();
         // Log del carrello aggiornato
         console.log("Carrello aggiornato:", cart);
     };

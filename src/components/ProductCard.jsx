@@ -17,7 +17,7 @@ const ProductCard = (props) => {
     const { slug, name, brand, image_card, price, discount, id, stock } = props.productProp;
 
     // context gestione notifiche carrello
-    const { showNotification } = useContext(NotificationContext);
+    const { showNotification, updateCartStatus } = useContext(NotificationContext);
 
     // Funzione per aggiungere il prodotto al carrello
     const addToCart = (event) => {
@@ -52,6 +52,7 @@ const ProductCard = (props) => {
 
         // Salva il carrello nel localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartStatus();
         // Log del carrello aggiornato
         console.log("Carrello aggiornato:");
     };

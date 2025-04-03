@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { useContext } from "react";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faBasketShopping, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -8,18 +10,23 @@ import { Link, NavLink } from 'react-router-dom';
 
 import SearchBar from "../components/SearchBar";
 
+import { NotificationContext } from '../context/NotificationContext';
+
 import "../style/Header.css"
 
 export default function Header() {
 
+    // notifica carrello
+    const { cartNotEmpty } = useContext(NotificationContext);
+
     // Imposto stato per il burger menu
     const [isOpen, setIsOpen] = useState(false)
 
-    function toggleMenu(){
+    function toggleMenu() {
         setIsOpen(!isOpen)
     }
 
-    
+
 
     return (<>
         <header>
@@ -40,7 +47,10 @@ export default function Header() {
                     <SearchBar />
 
                     <Link to={"/cart"} onClick={() => window.scrollTo(0, 0)}>
-                        <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
+                        <div className="cart-icon">
+                            <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000" }} />
+                            {cartNotEmpty && <span className="cart-dot"></span>}
+                        </div>
                     </Link>
 
                     <Link to={"/wishlist"} onClick={() => window.scrollTo(0, 0)}>
@@ -54,15 +64,15 @@ export default function Header() {
 
 
             <div className='container-nav'>
-                
-                <img src="../../img/burger-menu-svgrepo-com.svg" alt=""  onClick={toggleMenu} className='burgerr'/>
-                
+
+                <img src="../../img/burger-menu-svgrepo-com.svg" alt="" onClick={toggleMenu} className='burgerr' />
+
                 <div className={isOpen ? "nav-set" : "aperto-burger"}>
-                    
-                    <img src="../../img/x-symbol-svgrepo-com.svg" alt=""  style={{width:"50px",cursor:"pointer"}}  onClick={toggleMenu}/>
+
+                    <img src="../../img/x-symbol-svgrepo-com.svg" alt="" style={{ width: "50px", cursor: "pointer" }} onClick={toggleMenu} />
 
                     <div className='link-header-responsive'>
-                        
+
                         <NavLink to={"/"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>Home</NavLink>
                         <NavLink to={"/products"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>Products</NavLink>
                         <NavLink to={"/aboutus"} className="nav-link" onClick={() => window.scrollTo(0, 0)}>About Us</NavLink>
@@ -82,7 +92,10 @@ export default function Header() {
                     <SearchBar />
 
                     <Link to={"/cart"} onClick={() => window.scrollTo(0, 0)}>
-                        <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000", }} />
+                        <div className="cart-icon">
+                            <FontAwesomeIcon icon={faBasketShopping} style={{ color: "#000000" }} />
+                            {cartNotEmpty && <span className="cart-dot"></span>}
+                        </div>
                     </Link>
 
                     <Link to={"/wishlist"} onClick={() => window.scrollTo(0, 0)}>

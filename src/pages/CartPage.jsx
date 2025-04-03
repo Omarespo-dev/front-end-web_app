@@ -14,7 +14,7 @@ const CartPage = () => {
     const [alertShown, setAlertShown] = useState(false);  // stato per tenere traccia se l'alert è stato mostrato
 
     // context gestione notifiche carrello
-    const { showNotification } = useContext(NotificationContext);
+    const { showNotification, updateCartStatus } = useContext(NotificationContext);
 
     const navigate = useNavigate();
 
@@ -48,6 +48,7 @@ const CartPage = () => {
 
             setCart(updatedCart);  // Salva il carrello aggiornato
             localStorage.setItem('cart', JSON.stringify(updatedCart));  // Salva nel localStorage
+            updateCartStatus();
         };
 
         fetchUpdatedStock();
@@ -69,6 +70,7 @@ const CartPage = () => {
         // Aggiorna il carrello nel localStorage e nello stato
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
+        updateCartStatus();
     };
 
     // Funzione per diminuire la quantità
@@ -84,6 +86,7 @@ const CartPage = () => {
         // Aggiorna il carrello nel localStorage e nello stato
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
+        updateCartStatus();
     };
 
     // Funzione per rimuovere un prodotto dal carrello
@@ -91,6 +94,7 @@ const CartPage = () => {
         const updatedCart = cart.filter(product => product.id !== id);
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart)); // Salva il nuovo carrello
+        updateCartStatus();
     };
 
     // Funzione per calcolare il totale
