@@ -163,14 +163,14 @@
     border: #0C68F4 1px solid;
 }
 
-/* cart notification */
+/* cart and wishlist notification */
 
-.cart-icon {
+.header-icon {
     position: relative;
     display: inline-block;
 }
 
-.cart-dot {
+.header-dot {
     position: absolute;
     bottom: 0;
     right: 0;

@@ -6,6 +6,7 @@ export const NotificationProvider = ({ children }) => {
     const [notification, setNotification] = useState("");
     const [notificationType, setNotificationType] = useState("");
     const [cartNotEmpty, setCartNotEmpty] = useState(false);
+    const [wishlistNotEmpty, setWishlistNotEmpty] = useState(false); // Nuovo stato per la wishlist
 
     const showNotification = (message, type = "success") => {
         console.log("Notification:", message);
@@ -14,18 +15,28 @@ export const NotificationProvider = ({ children }) => {
         setTimeout(() => setNotification(""), 3000);
     };
 
+    // Funzione per aggiornare lo stato del carrello
     const updateCartStatus = () => {
         const cartData = localStorage.getItem('cart');
         const cart = cartData ? JSON.parse(cartData) : [];
         setCartNotEmpty(cart.length > 0);
     };
 
+    // Funzione per aggiornare lo stato della wishlist
+    const updateWishlistStatus = () => {
+        const wishlistData = localStorage.getItem('wishlist');
+        const wishlist = wishlistData ? JSON.parse(wishlistData) : [];
+        setWishlistNotEmpty(wishlist.length > 0); // Verifica se la wishlist contiene articoli
+    };
+
+    // Effetto che si attiva al caricamento per aggiornare lo stato del carrello e della wishlist
     useEffect(() => {
         updateCartStatus();
+        updateWishlistStatus();
     }, []);
 
     return (
-        <NotificationContext.Provider value={{ showNotification, cartNotEmpty, updateCartStatus }}>
+        <NotificationContext.Provider value={{ showNotification, cartNotEmpty, wishlistNotEmpty, updateCartStatus, updateWishlistStatus }}>
             {children}
             {notification && (
                 <div style={{
