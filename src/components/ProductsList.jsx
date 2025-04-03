@@ -99,7 +99,7 @@ export default function ProductsList({ category, searchQuery, query, products: e
                         <option value="recent">More recents</option>
                         <option value="price_asc">Price: from lower</option>
                         <option value="price_desc">Price: from higher</option>
-                        <option value="name">Name (A-Z)</option>
+                        <option value="brand">Brand (A-Z)</option>
                     </select>
                     <div className="price-filter">
                         <label>Price: {minPrice}€ - {maxPrice}€</label>
@@ -111,7 +111,14 @@ export default function ProductsList({ category, searchQuery, query, products: e
                             max="2500"
                             step="50"
                             value={minPrice}
-                            onChange={(e) => setMinPrice(Number(e.target.value))}
+                            onChange={(e) => {
+                                const newMin = Number(e.target.value);
+                                if (newMin <= maxPrice) {
+                                    setMinPrice(newMin);
+                                } else {
+                                    setMinPrice(maxPrice);
+                                }
+                            }}
                         />
                         <input
                             type="range"
@@ -119,7 +126,14 @@ export default function ProductsList({ category, searchQuery, query, products: e
                             max="2500"
                             step="50"
                             value={maxPrice}
-                            onChange={(e) => setMaxPrice(Number(e.target.value))}
+                            onChange={(e) => {
+                                const newMax = Number(e.target.value);
+                                if (newMax >= minPrice) {
+                                    setMaxPrice(newMax);
+                                } else {
+                                    setMaxPrice(minPrice);
+                                }
+                            }}
                         />
                     </div>
                 </div>
