@@ -78,10 +78,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    /* background: rgba(0, 0, 0, 0.5); */
+    background-color: whitesmoke;
+    color: black;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
     font-size: 18px;
     border-radius: 50%;
@@ -96,7 +97,8 @@
 }
 
 .arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background-color: gainsboro;
+
 }
 
 .product-details {
