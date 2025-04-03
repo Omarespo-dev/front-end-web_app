@@ -9,7 +9,7 @@ export default function Wishlist() {
 
     return (
         <div className="wishlist-page">
-            {wishlistNotEmpty ? (  // Usa wishlistNotEmpty per determinare cosa mostrare
+            {wishlist.length > 0 ? (  // Usa wishlistNotEmpty per determinare cosa mostrare
                 <>
                     <h2 style={{ textAlign: "center" }}>Your Wishlist</h2>
                     <div className="container-main-2">

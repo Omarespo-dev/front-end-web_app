@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { WishlistProvider } from "./WishlistContext";
 
 export const NotificationContext = createContext();
 
@@ -37,24 +38,26 @@ export const NotificationProvider = ({ children }) => {
 
     return (
         <NotificationContext.Provider value={{ showNotification, cartNotEmpty, wishlistNotEmpty, updateCartStatus, updateWishlistStatus }}>
-            {children}
-            {notification && (
-                <div style={{
-                    position: "fixed",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    background: notificationType === "error" ? "#FF0000" : "#0C68F4",
-                    color: "white",
-                    padding: "10px 15px",
-                    borderRadius: "5px",
-                    boxShadow: "0px 6px 9px rgba(0, 0, 0, 0.1)",
-                    zIndex: 9999,
-                    transition: 'opacity 0.3s ease-in-out',
-                }}>
-                    {notification}
-                </div>
-            )}
+            <WishlistProvider updateWishlistStatus={updateWishlistStatus}>
+                {children}
+                {notification && (
+                    <div style={{
+                        position: "fixed",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        background: notificationType === "error" ? "#FF0000" : "#0C68F4",
+                        color: "white",
+                        padding: "10px 15px",
+                        borderRadius: "5px",
+                        boxShadow: "0px 6px 9px rgba(0, 0, 0, 0.1)",
+                        zIndex: 9999,
+                        transition: 'opacity 0.3s ease-in-out',
+                    }}>
+                        {notification}
+                    </div>
+                )}
+            </WishlistProvider>
         </NotificationContext.Provider>
     );
 };

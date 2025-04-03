@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const WishlistContext = createContext();
 
-export const WishlistProvider = ({ children }) => {
+export const WishlistProvider = ({ children, updateWishlistStatus }) => {
     const [wishlist, setWishlist] = useState([]);
 
     // Carica la wishlist dal localStorage all'inizio
@@ -13,16 +13,21 @@ export const WishlistProvider = ({ children }) => {
 
     // Funzione per aggiungere/rimuovere il prodotto
     const toggleWishlist = (product) => {
-        let updatedWishlist = [...wishlist];
+        setWishlist(prevWishlist => {
+            let updatedWishlist;
 
-        if (wishlist.some(item => item.id === product.id)) {
-            updatedWishlist = wishlist.filter(item => item.id !== product.id);
-        } else {
-            updatedWishlist.push(product);
-        }
+            if (prevWishlist.some(item => item.id === product.id)) {
+                updatedWishlist = prevWishlist.filter(item => item.id !== product.id);
+            } else {
+                updatedWishlist = [...prevWishlist, product];
+            }
 
-        setWishlist(updatedWishlist);
-        localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+            localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+            if (updateWishlistStatus) {
+                updateWishlistStatus();
+            }
+            return updatedWishlist;
+        });
     };
 
     return (
