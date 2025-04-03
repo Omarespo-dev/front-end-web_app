@@ -99,7 +99,7 @@ export default function ProductsList({ category, searchQuery, query, products: e
                         <option value="recent">More recents</option>
                         <option value="price_asc">Price: from lower</option>
                         <option value="price_desc">Price: from higher</option>
-                        <option value="name">Name (A-Z)</option>
+                        <option value="brand">Brand (A-Z)</option>
                     </select>
                     <div className="price-filter">
                         <label>Price: {minPrice}€ - {maxPrice}€</label>
