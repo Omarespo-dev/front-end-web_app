@@ -111,7 +111,14 @@ export default function ProductsList({ category, searchQuery, query, products: e
                             max="2500"
                             step="50"
                             value={minPrice}
-                            onChange={(e) => setMinPrice(Number(e.target.value))}
+                            onChange={(e) => {
+                                const newMin = Number(e.target.value);
+                                if (newMin <= maxPrice) {
+                                    setMinPrice(newMin);
+                                } else {
+                                    setMinPrice(maxPrice);
+                                }
+                            }}
                         />
                         <input
                             type="range"
@@ -119,7 +126,14 @@ export default function ProductsList({ category, searchQuery, query, products: e
                             max="2500"
                             step="50"
                             value={maxPrice}
-                            onChange={(e) => setMaxPrice(Number(e.target.value))}
+                            onChange={(e) => {
+                                const newMax = Number(e.target.value);
+                                if (newMax >= minPrice) {
+                                    setMaxPrice(newMax);
+                                } else {
+                                    setMaxPrice(minPrice);
+                                }
+                            }}
                         />
                     </div>
                 </div>
